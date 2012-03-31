@@ -1,0 +1,1 @@
+# This is where we will store GUI mockups made with Balsamiq
