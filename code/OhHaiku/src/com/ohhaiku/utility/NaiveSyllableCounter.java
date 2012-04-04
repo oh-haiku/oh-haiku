@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 public class NaiveSyllableCounter implements ISyllableCounter {
 
   public NaiveSyllableCounter() {}
-  	/*
-  	 * A regular expression that matches any number of consecutive vowels
-  	 */
-	private static Pattern vowels = Pattern.compile("([aouåeiyäö]+)*", Pattern.CASE_INSENSITIVE);
+  /*
+   * A regular expression that matches any number of consecutive vowels
+   */
+	private static Pattern vowels = Pattern.compile("([aou√•eiy√§√∂]+)*", Pattern.CASE_INSENSITIVE);
 	
 	/**
 	 * @return the number of syllables in the word
