@@ -2,17 +2,31 @@
 
 #1 Introduction
 
-## 1.1 Purpose of application
-
-Twitter-användare har efterfrågat en applikation som avgör om en text är skriven enligt diktformen Haiku. Handledaren för projektet har utvecklat en applikation innehållande en enkel algoritm för att kontrollera detta, vilken har laddats ner tillräckligt många gånger för att påvisa att ett behov finns.
-
-## 1.2 General characteristics of application
+The germ of this application is a tweet. The Swedish comedian Jesper Rönndahl (@jesperronndahl)
+tweeted that he often thinks in chunks of three unrelated thoughts. He indicated that he would 
+like to have an app that could tell him whether these three sentences constitute a haiku poem.
 
 # 2 Proposed application
-### 2.1 Overview
-### 2.2 Functional requirements
-Övergripande funktionella krav
-#### 2.2.1 Algoritm som räknar stavelser
+## 2.1 Overview
+The app shall be able to tell if a piece of text is a haiku. 
+The app will help the user to write a haiku by indicating where more syllables are needed
+or where they need to be removed.
+The app shall give the user some kind of score, based upon how close the text is to a haiku.
+The user shall be able to tweet his or her haikus.
+The app shall let the user save his or her tweets.
+## 2.2 Functional requirements
+
+### F1 Basic requirements
+#### F1.1 Enter a text
+- Scenario: Enter a text to be checked
+- Trigger: The user starts the app
+- Precondition: None
+- Basic path:
+The user starts the app. When the app launches, the user sees a text area and a keyboard.
+- Exceptional path: None
+
+
+### 2.2.1 Algoritm som räknar stavelser
 1.	Kunna identifiera och räkna stavelser i en text
 #### 2.2.2 Haiku-algoritm
 1.	Kunna avgöra om texten uppfyller kraven för en haiku
