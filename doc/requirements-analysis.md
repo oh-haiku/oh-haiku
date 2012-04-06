@@ -25,6 +25,62 @@ The app shall let the user save his or her tweets.
 The user starts the app. When the app launches, the user sees a text area and a keyboard.
 - Exceptional path: None
 
+####F1.2 Haiku-algoritm
+-Scenario: 
+Haiku-algoritm
+-Trigger: 
+Användaren klickar ‘Verify Haiku’-knappen.
+-Precondition:
+Ingen.
+-Basic path:
+Användaren startar applikationen och matar eventuellt in en textsträng. Sedan klickar användaren på ‘Verify Haiku’-knappen.
+-Exceptional path: 
+Icke latinska alfabetet-tecken har fyllts i i textfältet. Användaren meddelas om felet och ingen Haiku-verifiering sker.
+Inget har fyllts i i textfältet av användaren. Användaren meddelas om felet och ingen Haiku-verifiering sker.
+-Post condition:
+Ett meddelande om den inmatade textsträngens Haiku-värde och möjlighet att dela till twitter ges till användaren. Om den uppfyller kraven för en Haiku meddelas användaren. Användaren har fortfarande möjlighet att mata in ny textsträng och få den verifierad.
+
+####F1.3 Rättning av Haiku
+-Scenario: 
+Rättning av Haiku.
+-Trigger: 
+Användaren har matat in en textsträng som ej uppfyller Haiku-kraven.
+-Precondition:
+Användaren har matat in textsträng och klickat ‘Verify Haiku’-knappen. 
+-Basic path:
+Användaren matar in textsträng i textfältet och klickar ‘Verify Haiku’-knappen. Haiku-verifiering sker i applikationen.
+-Exceptional path: 
+Ingen.
+-Post condition:
+Användaren meddelas på något sätt (grafiskt, text) om vad den behöver göra för att få en giltig Haiku. Den nyss inmatade textsträngen finns kvar så användaren inte behöver skriva in den igen.
+
+####F1.4 Sparning av en inmatad Haiku
+-Scenario: 
+Sparning av en inmatad Haiku.
+-Trigger: 
+Applikationen har verifierat att en inmatad text är en Haiku.
+-Precondition:
+Användaren har matat in textsträng och klickat ‘Verify Haiku’-knappen. 
+-Basic path:
+Användaren matar in textsträng i textfältet och klickar ‘Verify Haiku’-knappen. Applikationen verifierar texten som Haiku.
+-Exceptional path: 
+För lite minnesutrymme finns för att spara Haikun. Användaren meddelas om detta och Haikun sparas inte.
+-Post condition:
+Användaren meddelas om att Haikun sparats och hur man läser den. Den inmatade Haikun finns nu sparad i telefonen och kan läsas vid senare tillfälle.
+ 
+####F1.4 Tweeta en verifierad Haiku
+-Scenario: 
+Tweeta en verifierad Haiku.
+-Trigger: 
+Användaren väljer att dela den veriferiade Haikun till twitter.
+-Precondition:
+Applikationen har verifierat en Haiku.
+-Basic path:
+Användaren matar in textsträng i textfältet och klickar ‘Verify Haiku’-knappen. Applikationen verifierar texten som Haiku. Användaren väljer att dela Haikun till Twitter. 
+-Exceptional path: 
+Användaren har inget Twitter-konto eller avbryter tweetandet. Haikun delas inte. Användaren kan nu välja att skriva en ny Haiku, spara den nuvarande, eller dela den nuvarande till twitter.
+-Post condition:
+Användaren meddelas om att Haikun delats till Twitter. Användaren kan mata in ny text att Haiku-verifiera (“startsidan”).
 
 ### 2.2.1 Algoritm som räknar stavelser
 1.	Kunna identifiera och räkna stavelser i en text
