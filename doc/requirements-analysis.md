@@ -86,25 +86,65 @@ För lite minnesutrymme finns för att spara Haikun. Användaren meddelas om det
 -Post condition:
 Användaren meddelas om att Haikun sparats och hur man läser den. Den inmatade Haikun finns nu sparad i telefonen och kan läsas vid senare tillfälle.
  
-####F1.4 Tweeta en verifierad Haiku
+###F2 Twitter requirements
+####F2.1 Tweet the text
 
 -Scenario: 
-Tweeta en verifierad Haiku.
+The user tweets the text.
 
--Trigger: 
-Användaren väljer att dela den veriferiade Haikun till twitter.
+-Trigger:
+The user clicks "Tweet Haiku"
 
--Precondition:
-Applikationen har verifierat en Haiku.
+-Precondition: 
+The user has written a text-string and has successfully writing a Verified Haiku. The user is logged in with Twitter. 
 
--Basic path:
-Användaren matar in textsträng i textfältet och klickar ‘Verify Haiku’-knappen. Applikationen verifierar texten som Haiku. Användaren väljer att dela Haikun till Twitter. 
+-Basic Path:
+The text-string is submitted on Twitter when the user has written a verified Haiku and clicks "Tweet Haiku" . The tweet follows with a "Certified Haiku"-tag. 
 
--Exceptional path: 
-Användaren har inget Twitter-konto eller avbryter tweetandet. Haikun delas inte. Användaren kan nu välja att skriva en ny Haiku, spara den nuvarande, eller dela den nuvarande till twitter.
+Exceptional path:
+None.
 
 -Post condition:
-Användaren meddelas om att Haikun delats till Twitter. Användaren kan mata in ny text att Haiku-verifiera (“startsidan”).
+The user gets some sort of response if the text-string is successfully submitted (graphical, sound)
+
+####F2.2 
+-Scenario: 
+Logging in with Twitter and store user-credentials
+
+-Trigger:
+The user clicks "Log in with Twitter". The user has an option to save the user-credentials by clicking "Remember me"/"Save user-credentials". 
+
+-Precondition: 
+The user has launched the application and has clicked on "Settings". 
+
+-Basic Path:
+The user launches the application, clicks on Settings and then choose "Log in with Twitter". This is optional which implies that the application can be used without a Twitter-account. The user is also able to click "Remember me"/"Save user-credentials".  
+
+Exceptional path:
+The typed Twitter-credentials is wrong in some way. Either the username doesn't exist or the password is wrong. The user is informed by some sort of error-message (graphical, sound).  
+
+-Post condition:
+The user is informed graphically if the application is connected to Twitter. 
+
+####F2.3 Analysis of other users on Twitter
+
+-Scenario: 
+Analyse other users on Twitter
+
+-Trigger:
+The user clicks "Analyse friends"
+
+-Precondition: 
+The user has logged in with Twitter. 
+
+-Basic Path:
+The user has logged in with Twitter, clicked on "Analyse friends" and typed a text-string with the friend's username on Twitter 
+
+Exceptional path:
+The friend's username doesn't exist. The user is reported by some error-message. 
+
+-Post condition:
+Information about the Haiku-tweets-proportion of the friend appears.  
 
 ### 2.2.1 Algoritm som räknar stavelser
 1.	Kunna identifiera och räkna stavelser i en text
