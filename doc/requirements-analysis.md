@@ -46,7 +46,7 @@ Inget har fyllts i i textfältet av användaren. Användaren meddelas om felet o
 -Post condition:
 Ett meddelande om den inmatade textsträngens Haiku-värde och möjlighet att dela till twitter ges till användaren. Om den uppfyller kraven för en Haiku meddelas användaren. Användaren har fortfarande möjlighet att mata in ny textsträng och få den verifierad.
 
-####F1.3 Rättning av Haiku
+#### F1.3 Rättning av Haiku
 
 -Scenario: 
 Rättning av Haiku.
@@ -66,7 +66,7 @@ Ingen.
 -Post condition:
 Användaren meddelas på något sätt (grafiskt, text) om vad den behöver göra för att få en giltig Haiku. Den nyss inmatade textsträngen finns kvar så användaren inte behöver skriva in den igen.
 
-####F1.4 Sparning av en inmatad Haiku
+#### F1.4 Sparning av en inmatad Haiku
 
 -Scenario: 
 Sparning av en inmatad Haiku.
@@ -86,7 +86,7 @@ För lite minnesutrymme finns för att spara Haikun. Användaren meddelas om det
 -Post condition:
 Användaren meddelas om att Haikun sparats och hur man läser den. Den inmatade Haikun finns nu sparad i telefonen och kan läsas vid senare tillfälle.
  
-####F1.4 Tweeta en verifierad Haiku
+#### F1.4 Tweeta en verifierad Haiku
 
 -Scenario: 
 Tweeta en verifierad Haiku.
@@ -108,6 +108,7 @@ Användaren meddelas om att Haikun delats till Twitter. Användaren kan mata in 
 
 ### 2.2.1 Algoritm som räknar stavelser
 1.	Kunna identifiera och räkna stavelser i en text
+
 #### 2.2.2 Haiku-algoritm
 1.	Kunna avgöra om texten uppfyller kraven för en haiku
 2.	Kunna beräkna någon form av poäng för hur haikun, kanske på basis av hur nära den är en “korrekt” haiku
@@ -115,7 +116,7 @@ Användaren meddelas om att Haikun delats till Twitter. Användaren kan mata in 
 4.	Kunna räkna stavelser i realtid
 5.	Kunna fungera för språken engelska och svenska 
 
-####2.2.3 Twitter
+#### 2.2.3 Twitter <--- Jesper G
 	
 7.	Kunna tweeta texten med haikupoängen
 8.	Kunna skriva ut Certified Haiku på Twitter i fallet att texten är en fullständig Haiku
@@ -123,7 +124,41 @@ Användaren meddelas om att Haikun delats till Twitter. Användaren kan mata in 
 10.	Kunna komma ihåg Twitter-användaruppgifter
 11.	Kunna analysera användare på Twitter. Hur många procent av tweetsen är Haikus? Hur Haiku är en användare?
 
-####2.2.4 Övrigt
+### F3 Saving and retrieving haikus
+
+#### F3.1 Save a haiku
+
+
+### F4 SMS-related requirements
+
+#### F4.1 Browse the user's SMSes
+- Scenario: Browse the user's SMSes
+- Trigger: The user clicks the SMSes-button in the main menu
+- Precondition: The user has authorized the app to read his or her SMSes
+- Basic path: The user starts the app, goes to the main menu and clicks the SMS-button
+- Exceptional path: N/A
+- Post condition: The user sees a list of his or her SMSes
+
+#### F4.2 Analyze an SMS
+- Scenario: Analyze an SMS
+- Trigger: The user selects an SMS in the Browse SMSes view
+- Precondition: F4.1
+- Basic path: F4.1, then selects an SMS and pushes the analyze-button
+- Exceptional path: N/A
+- Post condition: The user sees the selected SMS, indication whether the SMS is a haiku and the number of syllables on each row.
+
+#### F4.3 Prepare to share a haiku via SMS
+- Scenario: Send a haiku as an SMS
+- Trigger: The user clicks the share button and then the Via SMS button in the text input view or when viewing a saved haiku
+- Precondition: The users has authorized the app to send SMSes. The user has a saved haiku or has entered text in the text input view
+- Basic Path: The user views a saved haiku or is in the text input view. The user then pushes the share button and the Via SMS button.
+- Exceptional path: N/A
+- Post condition: The user is presented with a preview of the SMS that is to be sent
+
+#### F4.4 Share a haiku via SMS
+- TODO
+
+#### 2.2.4 Övrigt <-- Fixa
 
 12.	Kunna använda applikationen utan Twitter-konto
 13.	Kunna kontrollera om en användares sms är en Haiku
@@ -131,7 +166,7 @@ Användaren meddelas om att Haikun delats till Twitter. Användaren kan mata in 
 15.	Kunna spara en Haiku
 16.	Kunna ta bort en sparad Haiku
 	
-###2.3 Non-functional requirements
+### 2.3 Non-functional requirements
 Rubriken avser applikationens kvalitativa mått
 
 ####2.3.1 Usability
@@ -183,7 +218,7 @@ Rubriken avser applikationens kvalitativa mått
 - Skall använda en lämplig licens. MIT-licensen används om inga konflikter uppstår till exempel på grund av externa bibliotek. Projektet kan komma att läggas under en GPL-licens om så krävs.
 
 ###2.4 Application models 
-####2.4.1 Scenarios 
+####2.4.1 Scenarios  
 ####2.4.2 Use case model Use cases priority 
 ####2.4.3 Static model 
 ####2.4.4 Dynamic model
