@@ -101,7 +101,7 @@ The user has written a text-string and has successfully writing a Verified Haiku
 - Basic Path:
 The text-string is submitted on Twitter when the user has written a verified Haiku and clicks "Tweet Haiku" . The tweet follows with a "Certified Haiku"-tag. 
 
-Exceptional path:
+- Exceptional path:
 None.
 
 - Post condition:
@@ -120,7 +120,7 @@ The user has launched the application and has clicked on "Settings".
 - Basic Path:
 The user launches the application, clicks on Settings and then choose "Log in with Twitter". This is optional which implies that the application can be used without a Twitter-account. The user is also able to click "Remember me"/"Save user-credentials".  
 
-Exceptional path:
+- Exceptional path:
 The typed Twitter-credentials is wrong in some way. Either the username doesn't exist or the password is wrong. The user is informed by some sort of error-message (graphical, sound).  
 
 - Post condition:
@@ -140,7 +140,7 @@ The user has logged in with Twitter.
 - Basic Path:
 The user has logged in with Twitter, clicked on "Analyse friends" and typed a text-string with the friend's username on Twitter 
 
-Exceptional path:
+- Exceptional path:
 The friend's username doesn't exist. The user is reported by some error-message. 
 
 - Post condition:
