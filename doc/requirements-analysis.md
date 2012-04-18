@@ -167,7 +167,30 @@ Information about the Haiku-tweets-proportion of the friend appears.
 ### F3 Saving and retrieving haikus
 
 #### F3.1 Save a haiku
+- Scenario: Save a haiku
+- Trigger: The user clicks the save button in the text input view
+- Precondition: The user has entered text into any of the text input fields
+- Basic path: The user starts the app, enters some text and pushes the save button
+- Exceptional path: N/A
+- Post condition: The haiku has been saved to the haiku storage. The GUI informs the user of this.
 
+#### F3.2 Browse saved haikus
+- Scenario: Browse saved haikus
+- Trigger: The user clicks the My saved haikus button in the main menu
+- Precondition: N/A
+- Basic path: The user starts the app, goes to the menu, selects My saved haikus
+- Exceptional path: N/A
+- Post condition: The user sees all his or her saved haikus as a list. Each haiku is represented by its first row. Haikus are sorted by date (updated). Symbols next to the haikus reflect if they have been shared in any way. There are separate symbols for twitter, sms and email. The background color of each haiku reflects whether it is a valid haiku.
+
+#### F3.3 Retreive a saved haiku
+- Scenario: Retrieve a saved haiku
+- Trigger: The user selects a haiku in the My saved haikus view
+- Precondition: F3.2
+- Basic path: F3.2, then the user selects a haiku
+- Post condition: The user is taken to the text input view. The selected haiku has been entered into the text input fields.
+
+#### F3.4 Update a haiku
+As F3.1, except the Save button is labelled Update and clicking it updates the existing haiku
 
 ### F4 SMS-related requirements
 
@@ -188,7 +211,7 @@ Information about the Haiku-tweets-proportion of the friend appears.
 - Post condition: The user sees the selected SMS, indication whether the SMS is a haiku and the number of syllables on each row.
 
 #### F4.3 Prepare to share a haiku via SMS
-- Scenario: Send a haiku as an SMS
+- Scenario: Prepare to send a haiku as an SMS
 - Trigger: The user clicks the share button and then the Via SMS button in the text input view or when viewing a saved haiku
 - Precondition: The users has authorized the app to send SMSes. The user has a saved haiku or has entered text in the text input view
 - Basic Path: The user views a saved haiku or is in the text input view. The user then pushes the share button and the Via SMS button.
@@ -196,7 +219,21 @@ Information about the Haiku-tweets-proportion of the friend appears.
 - Post condition: The user is presented with a preview of the SMS that is to be sent
 
 #### F4.4 Share a haiku via SMS
-- TODO
+- Scenario: Send a haiku as an SMS
+- Trigger: F4.3
+- Precondition: F4.3
+- Basic path: The user has reviewed the SMS to be sent, then pushes the Send button
+- Exceptional Path: The user chooses to reject the SMS by pushin the cancel button
+- Post condition: The user is returned to the parent view. If the user pushed the send button, an SMS is sent. Otherwise, nothing happens.
+
+### F5 Email related requirements
+#### F5.1 Share a haiku via email
+- Scenario: Prepare to send a haiku as an email
+- Trigger: The user clicks the share button and then the Mail button in the text input view or when viewing a saved haiku
+- Precondition: The user has a saved haiku or has entered text in the text input view
+- Basic Path: The user views a saved haiku or is in the text input view. The user then pushes the share button and the Mail button.
+- Exceptional path: N/A
+- Post condition: The user is sent to the mail application of the phone, with the haiku inserted in the message body
 
 #### 2.2.4 Övrigt <-- Fixa
 
