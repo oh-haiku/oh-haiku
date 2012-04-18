@@ -248,27 +248,31 @@ Rubriken avser applikationens kvalitativa mått
 
 ####2.3.1 Usability
 
-- Ett smidigt och trevligt GUI
-- Ta asiatiska influenser i beaktning vid utformning av grafiskt gränssnitt
-- Ge trevlig ljud-feedback
-- Snygg ikon
+- A smooth and nice GUI
+- Take Asian influences in consideration when developing the GUI
+- Give appropiate sound feedback
+- Nice icon
 - Låsa GUI:t så lite som möjligt 
-- Asynkrona requests där det är lämpligt
-- Enkel att använda för personer som inte är helt insatta i Haiku
+- Asynchronous requests when suitable 
+- Easy to use for everyone, even people who aren't familiar with Haiku
+- There shall always be a cancel button available in all dialogue windows (all scenarios)
+- The application shall notify the user at start up if a more recent version of the application exists
+- A text that fails Haiku verification should not be tweetable using the application. (Twitter scenario 2.1)
 
 ####2.3.2 Reliability
 
 - Enkel funktion, skall därav aldrig behöva faila
 - Sparade Haikus ska inte kunna gå att ta bort av misstag 
-- Haikun ska inte försvinna om åtkomst till Twitter eller Internet saknas 
+- The Haiku should not disappear if access to Twitter or Internet is missing
 
 ####2.3.3 Performance
 
-- Snabb respons
+- Response time should not be noticeable (all scenarios)
+- Verifying if a text is a Haiku should not take more than 10(?) ms (Verify Haiku scenario 1.2)
+- Saving a Haiku should not take more than 10 ms (Save a Haiku scenario 3.1)
+- Deleting a saved Haiku should not take more than 10 ms (Deleting a Haiku ?)
 - Robust
 - Resurssnål, i enlighet med Androids krav
-- Skall kunna kontrollera om texten är en Haiku utan tillgång Internet
-- Skall kunna spara en Haiku utan tillgång till Internet
 
 ####2.3.4 Scalability, Extensibility
 
@@ -282,14 +286,14 @@ Rubriken avser applikationens kvalitativa mått
 - Skall ha en säljande beskrivning på google-play
 
 ####2.3.6 Accessibility
-
-- Enkel att använda för personer som inte är helt insatta i Haiku
+- Verifying if a text is a Haiku should not require Internet access (Verify Haiku scenario 1.2)
+- Saving a Haiku/text should not require Internet access (Save Haiku scenario 3.1)
+- Updating to more recent versions of the application should not be required to use the application. (all scenarios)
+- Using the application shall not require a twitter account (all scenarios)
 
 ####2.3.7 Maintainability
-
-- En tydlig kanal för att ta emot feedback vid eventuella buggar
-- Vid stor efterfrågan uppgraderas applikationen kontinuerligt
-- En trigger med meddelande om att applikationen inte är den senaste versionen skall presenteras vid start
+- A clear channel to receive feedback and bug reports
+- The application will be updated regularly if demanded
 
 ####2.3.8 Legal
 - Skall använda en lämplig licens. MIT-licensen används om inga konflikter uppstår till exempel på grund av externa bibliotek. Projektet kan komma att läggas under en GPL-licens om så krävs.
