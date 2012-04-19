@@ -96,10 +96,10 @@ The user tweets the text.
 The user clicks "Tweet Haiku"
 
 - Precondition: 
-F1.1, F1.2, F1.3, F2.2. The user has written a text-string and has successfully writing a Verified Haiku. The user is logged in with Twitter. 
+F1.1, F1.2, F1.3, F2.2. The user has written a text-string or loaded a saved Haiku and has successfully writing a Verified Haiku. The user is logged in with Twitter. 
 
 - Basic Path:
-The text-string is submitted on Twitter when the user has written a verified Haiku and clicks "Tweet Haiku" . The tweet follows with a "Certified Haiku"-tag. 
+The text-string is submitted on Twitter when the user has written or has loaded a verified Haiku and clicks "Tweet Haiku" . The tweet follows with a "Certified Haiku"-tag. 
 
 - Exceptional path:
 None.
