@@ -96,7 +96,7 @@ The user tweets the text.
 The user clicks "Tweet Haiku"
 
 - Precondition: 
-The user has written a text-string and has successfully writing a Verified Haiku. The user is logged in with Twitter. 
+F1.1, F1.2, F1.3, F2.2. The user has written a text-string and has successfully writing a Verified Haiku. The user is logged in with Twitter. 
 
 - Basic Path:
 The text-string is submitted on Twitter when the user has written a verified Haiku and clicks "Tweet Haiku" . The tweet follows with a "Certified Haiku"-tag. 
@@ -144,7 +144,7 @@ The user has logged in with Twitter, clicked on "Analyse friends" and typed a te
 The friend's username doesn't exist. The user is reported by some error-message. 
 
 - Post condition:
-Information about the Haiku-tweets-proportion of the friend appears.  
+F2.2, Information about the Haiku-tweets-proportion of the friend appears.  
 
 ### 2.2.1 Algoritm som räknar stavelser
 1.	Kunna identifiera och räkna stavelser i en text
