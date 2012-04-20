@@ -56,6 +56,14 @@ Next to each tweet a message will be shown notifing the user of the haiku state.
 
 - Related requirement
 
+### 3 System information
+
+#### 3.1 System version
+
+### 4 Known bugs and limitations
+
+### 5 Test specifcation
+
 ### 6 Automatic test
 
 #### 6.1 Code coverage
