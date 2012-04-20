@@ -2,9 +2,15 @@
 
 ## Testcases
 
+### 1 Introduction
 
-### T2 Twitter testcases
-#### T2.1 Tweet the text
+#### 1.1 Purpose of application
+
+#### 1.2 General characteristics of application
+
+### 2 Test enviroment
+#### T2 Twitter testcases
+##### T2.1 Tweet the text
 
 - Description: 
 When the user presses "Tweet" the text is submitted to Twitter
@@ -22,7 +28,7 @@ The text is submitted and the user is informed
 F2.1
 
 
-#### T2.2 Logging in with Twitter and store user-credentials
+##### T2.2 Logging in with Twitter and store user-credentials
 
 - Description: 
 The user inserts Twitter-credentials and presses "Log in with Twitter" and has an option to store the credentials. 
@@ -39,7 +45,7 @@ The user is logged in with Twitter
 - Related requirement
 F2.2
 
-#### T2.3 Analysis of other users on Twitter, optional
+##### T2.3 Analysis of other users on Twitter, optional
 
 - Description: 
 The user clicks on "Check Twitter for #haiku".
