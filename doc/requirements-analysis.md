@@ -244,7 +244,6 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 16.	Kunna ta bort en sparad Haiku
 	
 ### 2.3 Non-functional requirements
-Rubriken avser applikationens kvalitativa mått
 
 ####2.3.1 Usability
 
@@ -252,7 +251,7 @@ Rubriken avser applikationens kvalitativa mått
 - Take Asian influences in consideration when developing the GUI
 - Give appropiate sound feedback
 - Nice icon
-- Låsa GUI:t så lite som möjligt 
+- Lock the GUI as little as possible
 - Asynchronous requests when suitable 
 - Easy to use for everyone, even people who aren't familiar with Haiku
 - There shall always be a cancel button available in all dialogue windows (all scenarios)
@@ -261,8 +260,8 @@ Rubriken avser applikationens kvalitativa mått
 
 ####2.3.2 Reliability
 
-- Enkel funktion, skall därav aldrig behöva faila
-- Sparade Haikus ska inte kunna gå att ta bort av misstag 
+- The Verify Haiku function should never fail! (Verify Haiku scenario 1.2)
+- Saved Haikus should not be deletable by mistake 
 - The Haiku should not disappear if access to Twitter or Internet is missing
 
 ####2.3.3 Performance
@@ -272,18 +271,17 @@ Rubriken avser applikationens kvalitativa mått
 - Saving a Haiku should not take more than 10 ms (Save a Haiku scenario 3.1)
 - Deleting a saved Haiku should not take more than 10 ms (Deleting a Haiku ?)
 - Robust
-- Resurssnål, i enlighet med Androids krav
+- Resource light, according to Android's demands
 
 ####2.3.4 Scalability, Extensibility
 
-- Logik som beräknar stavelser ska separeras från Haikulogiken
-- Ett interface ska utarbetas som gör det möjligt att koppla på andra sätt att poängsätta strängar på basis av stavelseuppsättningen i dem. På detta sätt skulle man kunna lägga till andra regelbestämda diktformer senare.
-- Design skall enkelt kunna ändras för att regelalgoritmen skall kunna användas i andra applikationer
+- Logic calculating syllables shall be separated from the Haiku logic
+- The interface should be designed in a way making it possible to implement other rule based poetry later
+- The design should easily be changable so that the rule algorithm can be used in other applications
 
 ####2.3.5 Packaging and Installation
-
-- Skall paketeras som en android-applikation och släppas på google-play
-- Skall ha en säljande beskrivning på google-play
+- Shall be packaged as a Android application and be released on Google Play
+- Shall have a selling description on Google Play
 
 ####2.3.6 Accessibility
 - Verifying if a text is a Haiku should not require Internet access (Verify Haiku scenario 1.2)
@@ -296,7 +294,7 @@ Rubriken avser applikationens kvalitativa mått
 - The application will be updated regularly if demanded
 
 ####2.3.8 Legal
-- Skall använda en lämplig licens. MIT-licensen används om inga konflikter uppstår till exempel på grund av externa bibliotek. Projektet kan komma att läggas under en GPL-licens om så krävs.
+- Shall use en suitable license. The MIT license will be used if no conflicts occur, for example from using external libraries. The project may become licensed under a GPL license if necessary
 
 ###2.4 Application models 
 ####2.4.1 Scenarios  
