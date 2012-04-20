@@ -56,14 +56,30 @@ Next to each tweet a message will be shown notifing the user of the haiku state.
 
 - Related requirement
 
-### 6.2 Nightly builds
+### 6 Automatic test
+
+#### 6.1 Code coverage
+
+We've been talking about using something like [EclEmma](http://www.eclemma.org/) to calculate the code coverage.
+
+The plan is to have 100% coverage on everyting that isn't related to the GUI, in particular unit tests.
+The future will tell if this is realistic or not.
+
+#### 6.2 Nightly builds
 
 A service named [Travis CI](http://travis-ci.org/) will be used.
 Each time something is pushed to Github a [service hook](https://github.com/blog/964-all-of-the-hooks) 
 will push the code from GH to Travis CI. TCI will run all test for us, but in a neutral enviroment.
 
-### 6.3 Unit test
+#### 6.3 Unit test
 
 A test framework called (or named) [testng](http://testng.org/doc/index.html) together with JUnit has been chosen for this project.
 
 We can't test the GUI using *testng*, instead something like [robotium](http://code.google.com/p/robotium/) might be used.
+
+### 7
+
+We'll be using two branches for oh-haiku, one unstable called *master* and one stable(ish) called *stable*.
+Both of these will be testet each time something is pushed to Github, but we aren't ecspecting everyting in *master* to pass.
+
+The *stable* branch should reflect the deployed version (maybe on Google Play). Each release is tagged using *git tags*. Each tag is in it self named using the something like the [semver](http://semver.org/) version conversion.
