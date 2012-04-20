@@ -1,6 +1,6 @@
-#Testplan
+# Test plan
 
-##Testcases
+## Testcases
 
 
 ### T2 Twitter testcases
@@ -42,15 +42,22 @@ F2.2
 #### T2.3 Analysis of other users on Twitter, optional
 
 - Description: 
- 
+The user clicks on "Check Twitter for #haiku".
 
 - Precondition: 
-
+The user has an internet connection. No twitter account is required.
 
 - Test steps:
-
+If no internet connection is established an error message will be shown.
 
 - Result state:
-
+A list of tweets will be shown in descending order with respect to the creation date.
+Next to each tweet a message will be shown notifing the user of the haiku state.
 
 - Related requirement
+
+### 6.2 Nightly builds
+
+A service named [Travis CI](http://travis-ci.org/) will be used.
+Each time something is pushed to Github a [service hook](https://github.com/blog/964-all-of-the-hooks) 
+will push the code from GH to Travis CI. TCI will run all test for us, but in a neutral enviroment.
