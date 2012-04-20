@@ -91,9 +91,9 @@ A test framework called (or named) [testng](http://testng.org/doc/index.html) to
 
 We can't test the GUI using *testng*, instead something like [robotium](http://code.google.com/p/robotium/) might be used.
 
-### 7
+### 7 Test report
 
 We'll be using two branches for oh-haiku, one unstable called *master* and one stable(ish) called *stable*.
-Both of these will be testet each time something is pushed to Github, but we aren't ecspecting everyting in *master* to pass.
+Both of these will be testet each time something is pushed to Github, but we aren't expecting everyting in *master* to pass.
 
-The *stable* branch should reflect the deployed version (maybe on Google Play). Each release is tagged using *git tags*. Each tag is in it self named using the something like the [semver](http://semver.org/) version conversion.
+The *stable* branch should reflect the deployed version (maybe on Google Play). Each release is tagged using *git tags*. Each tag is in it self named according to the [semver](http://semver.org/) version conversion.
