@@ -61,3 +61,9 @@ Next to each tweet a message will be shown notifing the user of the haiku state.
 A service named [Travis CI](http://travis-ci.org/) will be used.
 Each time something is pushed to Github a [service hook](https://github.com/blog/964-all-of-the-hooks) 
 will push the code from GH to Travis CI. TCI will run all test for us, but in a neutral enviroment.
+
+### 6.3 Unit test
+
+A test framework called (or named) [testng](http://testng.org/doc/index.html) together with JUnit has been chosen for this project.
+
+We can't test the GUI using *testng*, instead something like [robotium](http://code.google.com/p/robotium/) might be used.
