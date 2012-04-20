@@ -192,6 +192,8 @@ Information about the Haiku-tweets-proportion of the friend appears.
 #### F3.4 Update a haiku
 As F3.1, except the Save button is labelled Update and clicking it updates the existing haiku
 
+#### F3.5 Remove a saved haiku
+
 ### F4 SMS-related requirements
 
 #### F4.1 Browse the user's SMSes
@@ -223,7 +225,7 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Trigger: F4.3
 - Precondition: F4.3
 - Basic path: The user has reviewed the SMS to be sent, then pushes the Send button
-- Exceptional Path: The user chooses to reject the SMS by pushin the cancel button
+- Exceptional Path: The user chooses to reject the SMS by pushing the cancel button
 - Post condition: The user is returned to the parent view. If the user pushed the send button, an SMS is sent. Otherwise, nothing happens.
 
 ### F5 Email related requirements
