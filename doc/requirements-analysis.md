@@ -193,6 +193,11 @@ F2.2, Information about the Haiku-tweets-proportion of the friend appears.
 As F3.1, except the Save button is labelled Update and clicking it updates the existing haiku
 
 #### F3.5 Remove a saved haiku
+- Scenario: Remove a saved haiku
+- Trigger: The user clicks the remove button for a haiku
+- Precondition: The number of saved haikus >= 1
+- Basic path: F3.2, then the user clicks the remove button
+- Post condition: The haiku is removed from the haiku storage.
 
 ### F4 SMS-related requirements
 
