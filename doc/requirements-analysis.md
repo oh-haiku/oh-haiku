@@ -146,18 +146,25 @@ The friend's username doesn't exist. The user is reported by some error-message.
 - Post condition:
 F2.2, Information about the Haiku-tweets-proportion of the friend appears.  
 
-### 2.2.1 Algoritm som räknar stavelser
-1.	Kunna identifiera och räkna stavelser i en text
+### 2.2.1 Algorithm that counts syllables
 
-#### 2.2.2 Haiku-algoritm
-1.	Kunna avgöra om texten uppfyller kraven för en haiku
-2.	Kunna beräkna någon form av poäng för hur haikun, kanske på basis av hur nära den är en “korrekt” haiku
-3.	Kunna berätta vilken rad som innehåller för många eller för få stavelser
-4.	Kunna räkna stavelser i realtid
-5.	Kunna fungera för språken engelska och svenska 
+1. It should be possible to identify and count syllables in a given text
+
+#### 2.2.2 Haiku algorithm
+
+- Scenario: Analyse input from user
+- Trigger: The user enters text in an input field
+- Precondition: User should only enter english or swedish characters (a-ö0-9)
+- Basic Path: The user clicks on an input field and starts typing
+- Exceptional path: The user leaves the input field without entering any text
+- Postcondition: Information about the given text appears as follows:
+  - Is the given text a valid haiku?
+  - How much of a haiku text where entered?
+  - Any errors are shown next to the corresponding text
+  - Syllables are counted in realtime and shown next to the input field
 
 #### 2.2.3 Twitter <--- Jesper G
-	
+
 7.	Kunna tweeta texten med haikupoängen
 8.	Kunna skriva ut Certified Haiku på Twitter i fallet att texten är en fullständig Haiku
 9.	Kunna logga in med sina Twitter-credentials
