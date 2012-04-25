@@ -29,4 +29,4 @@ The application is divided into a series of subsystems.
 The MVC model is used throughout the system, as per Android standard.
 
 ### Data persistency
-A SQLite 3 database will be used to store Twitter tokens, saved Haiku poems
+A SQLite database will be used to store Twitter tokens, saved Haiku poems
