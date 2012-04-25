@@ -28,5 +28,27 @@ The application is divided into a series of subsystems.
 ### Layering
 The MVC model is used throughout the system, as per Android standard.
 
+### Class overview
+
+#### Business logic
+To allow for the application to support multiple languages, interfaces and abstract superclasses will be defined that will allow classes that are language dependent to be swapped at need.
+
+Abstract classes;
+- SyllableCounter
+  - Encapsulates a string and applies syllable counting operation upon it
+  - Extending classes implement the operations for a particular language
+
+Interfaces:
+- SyllableCounterFactory
+  - Implementing classes provide instances of SyllableCounter for a particular language
+
+Classes:
+- HaikuChecker
+  - Checks whether a poem is a haiku
+  - Uses a SyllableCounterFactory to generate new instances of SyllableCounter for a particular language
+- Poem
+  - Encapsulates three rows of text
+  - Serializable for database storage
+
 ### Data persistency
 A SQLite database will be used to store Twitter tokens, saved Haiku poems
