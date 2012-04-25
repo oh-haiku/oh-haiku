@@ -187,14 +187,6 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Basic Path: The user views a saved haiku or is in the text input view. The user then pushes the share button and the Mail button.
 - Exceptional path: N/A
 - Post condition: The user is sent to the mail application of the phone, with the haiku inserted in the message body
-
-#### 2.2.4 Övrigt <-- Fixa
-
-12.	Kunna använda applikationen utan Twitter-konto
-13.	Kunna kontrollera om en användares sms är en Haiku
-14.	Kunna dela via sms och mail
-15.	Kunna spara en Haiku
-16.	Kunna ta bort en sparad Haiku
 	
 ### 2.3 Non-functional requirements
 
