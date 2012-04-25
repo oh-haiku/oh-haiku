@@ -14,16 +14,40 @@ or where they need to be removed.
 The app shall give the user some kind of score, based upon how close the text is to a haiku.
 The user shall be able to tweet his or her haikus.
 The app shall let the user save his or her tweets.
+
 ## 2.2 Functional requirements
 
 ### F1 Basic requirements
-#### F1.1 Enter a text
-- Scenario: Enter a text to be checked
-- Trigger: The user starts the app
-- Precondition: None
-- Basic path:
-The user starts the app. When the app launches, the user sees a text area and a keyboard.
-- Exceptional path: None
+
+#### F1.1 Text input
+
+- Scenario: Input text
+- Trigger: The user starts the application or navigates to the haiku composition view
+- Precondition: The application has started
+- Basic Path: The user clicks on an input field and starts typing
+- Postcondition: Information about the given text appears as follows:
+  - Is the given text a valid haiku?
+  - How much of a haiku text where entered?
+  - Any errors are shown next to the corresponding text
+  - Syllables are counted in realtime and shown next to the input field
+
+#### F1.2 Syllable counting
+- Scenario: A text is analysed to give a syllable count
+- Trigger: The user leaves a text field or pushes the count-button
+- Precondition: F1.1
+- Basic Path: F1.1, then the user leaves the text field or pushes the count button. The text contains only valid English or Swedish characters. 
+- Exceptional path: F1.1., then the user leaves the text field or pushes the count button. The text contains invalid characters.
+- Postcondition:
+  - If Basic path: The user is given the syllable count for the given line of text.
+  - If Exc. path: The user is given the syllable count, invalid characters are ignored
+
+### F1.3 Haiku analysis
+- Scenario: All three lines of text are analysed for Haiku verification
+- Trigger: The user leaves a text field or pushes the Verify Haiku
+- Precondition: F1.2
+- Basic Path: F1.2
+- Postcondition:
+  - The haiku is verified. The user sees the result.
 
 ####F1.2 Haiku-algoritm
 
@@ -66,25 +90,6 @@ Ingen.
 - Post condition:
 Användaren meddelas på något sätt (grafiskt, text) om vad den behöver göra för att få en giltig Haiku. Den nyss inmatade textsträngen finns kvar så användaren inte behöver skriva in den igen.
 
-#### F1.4 Sparning av en inmatad Haiku
-
-- Scenario: 
-Sparning av en inmatad Haiku.
-
-- Trigger: 
-Applikationen har verifierat att en inmatad text är en Haiku.
-
-- Precondition:
-Användaren har matat in textsträng och klickat ‘Verify Haiku’-knappen. 
-
-- Basic path:
-Användaren matar in textsträng i textfältet och klickar ‘Verify Haiku’-knappen. Applikationen verifierar texten som Haiku.
-
-- Exceptional path: 
-För lite minnesutrymme finns för att spara Haikun. Användaren meddelas om detta och Haikun sparas inte.
-
-- Post condition:
-Användaren meddelas om att Haikun sparats och hur man läser den. Den inmatade Haikun finns nu sparad i telefonen och kan läsas vid senare tillfälle.
  
 ### F2 Twitter requirements
 #### F2.1 Tweet the text
@@ -150,27 +155,6 @@ F2.2, Information about the Haiku-tweets-proportion of the friend appears.
 
 1. It should be possible to identify and count syllables in a given text
 
-#### 2.2.2 Haiku algorithm
-
-- Scenario: Analyse input from user
-- Trigger: The user enters text in an input field
-- Precondition: User should only enter english or swedish characters (a-ö0-9)
-- Basic Path: The user clicks on an input field and starts typing
-- Exceptional path: The user leaves the input field without entering any text
-- Postcondition: Information about the given text appears as follows:
-  - Is the given text a valid haiku?
-  - How much of a haiku text where entered?
-  - Any errors are shown next to the corresponding text
-  - Syllables are counted in realtime and shown next to the input field
-
-#### 2.2.3 Twitter <--- Jesper G
-
-7.	Kunna tweeta texten med haikupoängen
-8.	Kunna skriva ut Certified Haiku på Twitter i fallet att texten är en fullständig Haiku
-9.	Kunna logga in med sina Twitter-credentials
-10.	Kunna komma ihåg Twitter-användaruppgifter
-11.	Kunna analysera användare på Twitter. Hur många procent av tweetsen är Haikus? Hur Haiku är en användare?
-
 ### F3 Saving and retrieving haikus
 
 #### F3.1 Save a haiku
@@ -178,8 +162,8 @@ F2.2, Information about the Haiku-tweets-proportion of the friend appears.
 - Trigger: The user clicks the save button in the text input view
 - Precondition: The user has entered text into any of the text input fields
 - Basic path: The user starts the app, enters some text and pushes the save button
-- Exceptional path: N/A
-- Post condition: The haiku has been saved to the haiku storage. The GUI informs the user of this.
+- Exceptional path: There is insufficient space to save the haiku. The user is notified. The haiku is not saved.
+- Post condition: The haiku has been saved to the haiku storage and can be accessed later. The GUI informs the user of this.
 
 #### F3.2 Browse saved haikus
 - Scenario: Browse saved haikus
