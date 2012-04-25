@@ -52,3 +52,13 @@ Classes:
 
 ### Data persistency
 A SQLite database will be used to store Twitter tokens, saved Haiku poems
+
+### Testing
+TestNG will be used for unit testing.
+
+### Dependencies
+The aim has been to solve dependencies using a package manager, for example Maven. This idea is shelved for now, as configuring Maven for Android turned out to be quite tricky.
+Instead, 3PP packages will be added as JAR-files.
+
+- TestNG
+- ORMLite
