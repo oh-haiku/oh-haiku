@@ -16,7 +16,9 @@ The application is divided into a series of subsystems.
    1. Haiku Composition
    2. Main menu
    3. Browse saved Haikus
-   4. + TODO: Add further activities
+   4. FAQ/Help
+   5. Tweet a Haiku
+   5. + TODO: Add further activities
 2. Models
    1. Persistency module for saving data such as Haikus and Twitter tokens.
    2. Syllable counting
