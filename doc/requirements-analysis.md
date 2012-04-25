@@ -25,15 +25,11 @@ The app shall let the user save his or her tweets.
 - Trigger: The user starts the application or navigates to the haiku composition view
 - Precondition: The application has started
 - Basic Path: The user clicks on an input field and starts typing
-- Postcondition: Information about the given text appears as follows:
-  - Is the given text a valid haiku?
-  - How much of a haiku text where entered?
-  - Any errors are shown next to the corresponding text
-  - Syllables are counted in realtime and shown next to the input field
+- Postcondition: F1.2
 
 #### F1.2 Syllable counting
 - Scenario: A text is analysed to give a syllable count
-- Trigger: The user leaves a text field or pushes the count-button
+- Trigger: The user leaves a text field and live analysis is enabled, or the user pushes the count-button
 - Precondition: F1.1
 - Basic Path: F1.1, then the user leaves the text field or pushes the count button. The text contains only valid English or Swedish characters. 
 - Exceptional path: F1.1., then the user leaves the text field or pushes the count button. The text contains invalid characters.
@@ -43,52 +39,11 @@ The app shall let the user save his or her tweets.
 
 ### F1.3 Haiku analysis
 - Scenario: All three lines of text are analysed for Haiku verification
-- Trigger: The user leaves a text field or pushes the Verify Haiku
-- Precondition: F1.2
-- Basic Path: F1.2
+- Trigger: The user leaves a text field if live analysis is enabled, or the user pushes the Verify Haiku button
+- Precondition: Text is present in any of the input fields
+- Basic Path: The user enters text into any or all text input fields. If live analysis is enabled, the text is analysed for Haiku verification on the fly. Else, the text is analysed when the user pushes the Verify Haiku button
 - Postcondition:
-  - The haiku is verified. The user sees the result.
-
-####F1.2 Haiku-algoritm
-
-- Scenario: 
-Haiku-algoritm
-
-- Trigger: 
-Användaren klickar ‘Verify Haiku’-knappen.
-
-- Precondition:
-Ingen.
-
-- Basic path:
-Användaren startar applikationen och matar eventuellt in en textsträng. Sedan klickar användaren på ‘Verify Haiku’-knappen.
-
-- Exceptional path: 
-Icke latinska alfabetet-tecken har fyllts i i textfältet. Användaren meddelas om felet och ingen Haiku-verifiering sker.
-Inget har fyllts i i textfältet av användaren. Användaren meddelas om felet och ingen Haiku-verifiering sker.
-
-- Post condition:
-Ett meddelande om den inmatade textsträngens Haiku-värde och möjlighet att dela till twitter ges till användaren. Om den uppfyller kraven för en Haiku meddelas användaren. Användaren har fortfarande möjlighet att mata in ny textsträng och få den verifierad.
-
-#### F1.3 Rättning av Haiku
-
-- Scenario: 
-Rättning av Haiku.
-
-- Trigger: 
-Användaren har matat in en textsträng som ej uppfyller Haiku-kraven.
-
-- Precondition:
-Användaren har matat in textsträng och klickat ‘Verify Haiku’-knappen. 
-
-- Basic path:
-Användaren matar in textsträng i textfältet och klickar ‘Verify Haiku’-knappen. Haiku-verifiering sker i applikationen.
-
-- Exceptional path: 
-Ingen.
-
-- Post condition:
-Användaren meddelas på något sätt (grafiskt, text) om vad den behöver göra för att få en giltig Haiku. Den nyss inmatade textsträngen finns kvar så användaren inte behöver skriva in den igen.
+  - The haiku is verified. Either the three lines constitute a Haiku or they don't. The user sees the result.
 
  
 ### F2 Twitter requirements
