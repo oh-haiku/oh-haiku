@@ -9,7 +9,27 @@
 #### 1.2 General characteristics of application
 
 ### 2 Test enviroment
-#### T2 Twitter testcases
+
+#### T1 General test cases
+
+##### T1.1 Text input
+- Description: 
+The user should be able to enter text into three text input fields.
+
+- Precondition:
+The user starts the app
+
+- Test steps:
+Start the app
+
+- Result state:
+The user is presented with three text input fields
+
+- Related requirements
+F1.1
+
+
+#### T2 Twitter test cases
 ##### T2.1 Tweet the text
 
 - Description: 
