@@ -21,11 +21,11 @@ The app shall let the user save his or her tweets.
 
 #### F1.1 Text input
 
-- Scenario: Input text
+- Scenario: Text input in the Haiku Composition View
 - Trigger: The user starts the application or navigates to the haiku composition view
 - Precondition: The application has started
-- Basic Path: The user clicks on an input field and starts typing
-- Postcondition: F1.2
+- Basic Path: The user starts the app, clicks on an input field and starts typing
+- Postcondition: The user is presented with the Haiku Composition view, which consists of three text input fields. The user can click on an input field and start typing.
 
 #### F1.2 Syllable counting
 - Scenario: A text is analysed to give a syllable count
@@ -104,11 +104,7 @@ The user has logged in with Twitter, clicked on "Analyse friends" and typed a te
 The friend's username doesn't exist. The user is reported by some error-message. 
 
 - Post condition:
-F2.2, Information about the Haiku-tweets-proportion of the friend appears.  
-
-### 2.2.1 Algorithm that counts syllables
-
-1. It should be possible to identify and count syllables in a given text
+F2.2, Information about the Haiku-tweets-proportion of the friend appears.
 
 ### F3 Saving and retrieving haikus
 
