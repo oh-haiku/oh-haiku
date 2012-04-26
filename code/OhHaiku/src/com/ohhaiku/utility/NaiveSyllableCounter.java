@@ -3,7 +3,7 @@ package com.ohhaiku.utility;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class NaiveSyllableCounter implements ISyllableCounter {
+public class NaiveSyllableCounter implements SyllableCounter {
 
   public NaiveSyllableCounter() {}
   /*
