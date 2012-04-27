@@ -25,9 +25,106 @@ Start the app
 - Result state:
 The user is presented with three text input fields
 
-- Related requirements
+- Related requirements:
 F1.1
 
+##### T1.2 Syllable analysis with live analysis disabled
+- Description: 
+Text should not be analysed on the fly if live analysis is disabled
+
+- Precondition
+T1.1
+
+- Test steps:
+  1. Start the app
+  2. Disable live analysis
+  3. Enter text
+  4. Leave text field
+  
+- Result state:
+The user should not be presented with any syllable information or
+
+- Related requirements:
+F1.2
+
+##### T1.3 Syllable analysis with live analysis enabled
+- Description: 
+Text should be analysed on the fly if live analysis is enabled
+
+- Precondition
+T1.1
+
+- Test steps:
+  1. Start the app
+  2. Enable live analysis
+  3. Enter text
+  4. Leave text field
+  
+- Result state:
+The user is presented with the number of syllables in the text field
+
+- Related requirements:
+F1.2
+
+##### T1.4 Haiku analysis button
+- Description: 
+Haikus analysis should be triggered by the check-button
+
+- Precondition
+T1.1 and T1.2 or T1.3
+
+- Test steps:
+  1. Start the app
+  2. Enter text into the three text fields
+  3. Click the Check button
+  
+- Result state:
+The user should be presented with Haiku verification information, true or false
+
+- Related requirements:
+F1.3
+
+##### T1.5 Haiku analysis of a valid Haiku
+- Description: 
+A valid Haiku should be verified as such
+
+- Precondition
+T1.1, T1.2 or T1.3 and T1.4
+
+- Test steps:
+  1. Start the app
+  2. Enter text into the text fields:
+      - Hej mitt är Per
+      - Jag är inte här just nu
+      - Jag var där en gång
+  3. Click the Check button
+  
+- Result state:
+The user should told that the Haiku is valid
+
+- Related requirements:
+F1.3
+
+##### T1.6 Haiku analysis of an invalid Haiku
+- Description: 
+A invalid Haiku should be verified as such
+
+- Precondition
+T1.1, T1.2 or T1.3 and T1.4
+
+- Test steps:
+  1. Start the app
+  2. Enter text into the text fields:
+      - Detta är för många stavelser
+      - En två
+      - Att
+  3. Click the Check button
+  
+- Result state:
+The user should told that the Haiku is invalid
+
+- Related requirements:
+F1.3
 
 #### T2 Twitter test cases
 ##### T2.1 Tweet the text
@@ -81,6 +178,10 @@ A list of tweets will be shown in descending order with respect to the creation 
 Next to each tweet a message will be shown notifing the user of the haiku state.
 
 - Related requirement
+
+
+##### T3.1 Save a haiku
+TODO
 
 ### 3 System information
 
