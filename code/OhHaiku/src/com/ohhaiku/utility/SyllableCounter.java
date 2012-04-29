@@ -1,6 +1,6 @@
 package com.ohhaiku.utility;
 
-public interface SyllableCounter {
+public abstract class SyllableCounter {
 
 	public abstract int count(String phrase);
 
