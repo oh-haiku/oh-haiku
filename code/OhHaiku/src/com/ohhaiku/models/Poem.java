@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.j256.ormlite.table.DatabaseTable;
+
 /*
  * A poem holds a three line poem.
  * A poem is a candidate Haiku.
  */
+@DatabaseTable
 public class Poem implements Serializable {
   private static final long serialVersionUID = -724565731711438L;
   private ArrayList<String> lines;
