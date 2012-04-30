@@ -3,9 +3,9 @@ package com.ohhaiku.utility;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class NaiveSyllableCounter extends SyllableCounter {
+public class SwedishSyllableCounter extends SyllableCounter {
 
-  public NaiveSyllableCounter() {}
+  public SwedishSyllableCounter() {}
   /*
   * A regular expression that matches any number of consecutive vowels
   */

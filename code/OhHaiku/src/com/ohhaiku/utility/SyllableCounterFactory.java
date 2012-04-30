@@ -6,6 +6,11 @@ package com.ohhaiku.utility;
 public abstract class SyllableCounterFactory {
   private String language;
   
+  public SyllableCounterFactory(String language)
+  {
+    this.language = language;
+  }
+  
   public abstract SyllableCounter getSyllableCounter();
   
   /**
@@ -13,8 +18,5 @@ public abstract class SyllableCounterFactory {
    */
   public String getLanguage() {
     return language;
-  }
-  public void setLanguage(String language) {
-    this.language = language;
   }
 }
