@@ -29,8 +29,8 @@ public class Poem implements Serializable {
     lines.set(n, content);
   }
   
-  public void getLine(int n)
+  public String getLine(int n)
   {
-    lines.get(n);
+    return lines.get(n);
   }
 }
