@@ -1,9 +1,6 @@
 package com.ohhaiku.models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import com.j256.ormlite.table.DatabaseTable;
 
 /*
@@ -13,27 +10,33 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable
 public class Poem implements Serializable {
   private static final long serialVersionUID = -724565731711438L;
-  private ArrayList<String> lines;
+  private String[] lines;
   
   public Poem()
   {
-    lines = new ArrayList<String>();
+    lines = new String[3];
   }
   
   public Poem(String[] lines) 
   {
-    this.lines = new ArrayList<String>(Arrays.asList(lines));
+    if (lines.length != 3)
+      throw new IllegalArgumentException("Argument did not contain 3 lines");
+    else
+      this.lines = lines;
   }
   
   public void setLine(int n, String content)
   {
     if (n > 3)
-      throw new IllegalArgumentException("Cannot set line number " + n);
-    lines.set(n, content);
+      throw new IndexOutOfBoundsException("Cannot set line number " + n);
+    lines[n] = content;
+      
   }
   
   public String getLine(int n)
   {
-    return lines.get(n);
+    if (n > 3)
+      throw new IndexOutOfBoundsException("Cannot get line number " + n);
+    return lines[n];
   }
 }
