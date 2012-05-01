@@ -1,20 +1,19 @@
 package com.ohhaiku;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 /*
- * Main activity: shows the Haiku composition window.
+ * Activity that displays the user's saved Haikus (both finished and unfinished ones).
  */
 
-public class OhHaikuActivity extends Activity {
-    /** Called when the activity is first created. */
+public class BrowseSavedHaikusActivity extends Activity{
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
         TextView tw = new TextView(this);
-        tw.setText("Hello world!");
+        tw.setText("Saved Haikus");
         setContentView(tw);
     }
 }
