@@ -1,0 +1,92 @@
+<mockup version="1.0" skin="sketch" measuredW="834" measuredH="544" mockupW="282" mockupH="510">
+  <controls>
+    <control controlID="0" controlTypeID="__group__" x="552" y="34" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="0"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="49" y="145" w="146" h="-1" measuredW="165" measuredH="27" zOrder="1" locked="false" isInGroup="0">
+          <controlProperties>
+            <markup>true</markup>
+            <state>up</state>
+            <text>Put%20your%201st%20haiku%20line%20here</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="49" y="190" w="146" h="-1" measuredW="170" measuredH="27" zOrder="2" locked="false" isInGroup="0">
+          <controlProperties>
+            <markup>true</markup>
+            <text>Put%20your%202nd%20haiku%20line%20here</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="49" y="234" w="146" h="-1" measuredW="168" measuredH="27" zOrder="3" locked="false" isInGroup="0">
+          <controlProperties>
+            <markup>true</markup>
+            <text>Put%20your%203rd%20haiku%20line%20here</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="217" y="154" w="16" h="14" measuredW="48" measuredH="30" zOrder="4" locked="false" isInGroup="0">
+          <controlProperties>
+            <color>16777215</color>
+            <icon>CheckMarkIcon%7Csmall</icon>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="217" y="196" w="16" h="14" measuredW="48" measuredH="30" zOrder="5" locked="false" isInGroup="0">
+          <controlProperties>
+            <icon>CheckMarkIcon%7Csmall</icon>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="217" y="240" w="16" h="14" measuredW="48" measuredH="30" zOrder="6" locked="false" isInGroup="0">
+          <controlProperties>
+            <icon>CheckMarkIcon%7Csmall</icon>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="7" controlTypeID="com.balsamiq.mockups::Button" x="44" y="373" w="-1" h="-1" measuredW="58" measuredH="27" zOrder="7" locked="false" isInGroup="0">
+          <controlProperties>
+            <href>Oh-haiku%202%20menu%26bm%3BOh-haiku%202%20menu.bmml%26bm%3BOh-haiku%202%20menu.bmml%26bm%3BOh-haiku%202%20menu.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2244%2C373%2C102%2C400%22%20href%3D%22Oh-haiku%25202%2520menu.bmml%22%20alt%3D%22Oh-haiku%202%20menu%22%20id%3D%227%22/%3E</map>
+            <text>Share</text>
+          </controlProperties>
+        </control>
+        <control controlID="8" controlTypeID="com.balsamiq.mockups::Button" x="112" y="373" w="-1" h="-1" measuredW="55" measuredH="27" zOrder="8" locked="false" isInGroup="0">
+          <controlProperties>
+            <href>Oh-haiku%202%20menu%26bm%3BOh-haiku%202%20menu.bmml%26bm%3BOh-haiku%202%20menu.bmml%26bm%3BOh-haiku%202%20menu.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22112%2C373%2C167%2C400%22%20href%3D%22Oh-haiku%25202%2520menu.bmml%22%20alt%3D%22Oh-haiku%202%20menu%22%20id%3D%228%22/%3E</map>
+            <menuIcon>false</menuIcon>
+            <text>Menu</text>
+          </controlProperties>
+        </control>
+        <control controlID="9" controlTypeID="com.balsamiq.mockups::Button" x="178" y="373" w="55" h="27" measuredW="54" measuredH="27" zOrder="9" locked="false" isInGroup="0">
+          <controlProperties>
+            <text>Save</text>
+          </controlProperties>
+        </control>
+        <control controlID="10" controlTypeID="com.balsamiq.mockups::HelpButton" x="34" y="108" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="10" locked="false" isInGroup="0"/>
+        <control controlID="11" controlTypeID="com.balsamiq.mockups::Image" x="49" y="277" w="176" h="63" measuredW="77" measuredH="79" zOrder="11" locked="false" isInGroup="0">
+          <controlProperties>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="12" controlTypeID="com.balsamiq.mockups::Switch" x="178" y="103" w="-1" h="-1" measuredW="68" measuredH="28" zOrder="12" locked="false" isInGroup="0">
+          <controlProperties>
+            <onOffState>off</onOffState>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="593" y="148" w="200" h="282" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.75</backgroundAlpha>
+        <color>5865130</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="629" y="258" w="116" h="27" measuredW="62" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Oh-haiku%26bm%3BOh-haiku.bmml%26bm%3BOh-haiku.bmml%26bm%3BOh-haiku.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2277%2C224%2C193%2C251%22%20href%3D%22Oh-haiku.bmml%22%20alt%3D%22Oh-haiku%22%20id%3D%222%22/%3E</map>
+        <text>Tweet</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
