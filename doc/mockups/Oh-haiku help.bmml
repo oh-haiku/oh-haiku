@@ -1,0 +1,22 @@
+<mockup version="1.0" skin="sketch" measuredW="796" measuredH="581" mockupW="282" mockupH="510">
+  <controls>
+    <control controlID="0" controlTypeID="__group__" x="514" y="71" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <markup>true</markup>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="6" controlTypeID="__group__" x="0" y="0" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="0">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="6"/>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="43" y="122" w="193" h="21" measuredW="149" measuredH="21" zOrder="1" locked="false" isInGroup="6">
+              <controlProperties>
+                <align>center</align>
+                <text>how%20the%20application%20works</text>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
