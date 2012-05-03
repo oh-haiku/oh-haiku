@@ -2,7 +2,6 @@ package com.ohhaiku.database;
 
 import java.sql.SQLException;
 
-import android.R;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;

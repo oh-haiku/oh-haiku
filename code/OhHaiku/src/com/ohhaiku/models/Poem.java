@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -20,6 +19,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable
 public class Poem implements Serializable {
   private static final long serialVersionUID = -724565731711438L;
+  
   @DatabaseField(generatedId = true)
   private Integer id;
   
@@ -28,7 +28,8 @@ public class Poem implements Serializable {
   /*
    * The following fields are only used for ORMLite
    * We want to persist the lines in the arraylist as three separate strings
-   * but ORMLite only allows annotation of fields.
+   * in the database, instead of one serialized arraylist in one column,
+   * which would be the standard ORMLite-way of doing it. 
    * By using the useGetSet option, we can define getters and setters
    * that fetch the string from the ArrayList.
    * Hence, these fields are never actually used.
@@ -72,6 +73,18 @@ public class Poem implements Serializable {
   public List<String> getLines()
   {
     return getLinesAsList();
+  }
+  
+  public void setLines(List<String> lines) {
+    if (lines.size() != 3) {
+      throw new IllegalArgumentException("List did not contain three lines");
+    } else {
+      this.lines = new ArrayList<String>(lines);
+    }
+  }
+  
+  public void setLines(String[] lines) {
+    setLines(Arrays.asList(lines));
   }
   
   public List<String> getLinesAsList()
@@ -132,6 +145,9 @@ public class Poem implements Serializable {
     return true;
   }
 
+  /*
+   * Getters and setters which are used by OrmLite
+   */
   public Integer getId() {
     return id;
   }
@@ -163,5 +179,13 @@ public class Poem implements Serializable {
   public void setLine2(String line2) {
     this.setLine(2, line2);
   }
+
+public boolean emptyRows() {
+	ArrayList <String> temp = new ArrayList<String>(Arrays.asList(new String[]{"", "", ""}));
+	  return (equals(temp));
+}
+
+
+
   
 }

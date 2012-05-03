@@ -3,37 +3,124 @@ package com.ohhaiku;
 import java.sql.SQLException;
 import java.util.List;
 
+import android.app.Activity;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ListView;
+
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 import com.ohhaiku.database.DatabaseHelper;
 import com.ohhaiku.models.Poem;
-
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import com.ohhaiku.utility.Constants;
+import com.ohhaiku.views.PoemAdapter;
 
 /*
  * Activity that displays the user's saved Haikus (both finished and unfinished ones).
  */
 public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelper> {
+	private ListView lv;
+	private List<Poem> poems;
+  private PoemAdapter adapter;
 	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
-      setContentView(R.layout.browse);
-      setUpListView();
-    }
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.browse);
+    lv = (ListView) findViewById(R.id.listView);
+    fetchPoems();
+    setUpClickListeners();
+  }
 
-    private void setUpListView() {
-      try {
-        Dao<Poem, Integer> poemDao = getHelper().getPoemDao();
-        List<Poem> poems = poemDao.queryForAll();
-        ListAdapter adapter = new ArrayAdapter<Poem>(this, R.layout.poem, poems);
-        ListView lv = (ListView) findViewById(R.id.listView);
-        lv.setAdapter(adapter);
-      } catch (SQLException e) {
-        throw new RuntimeException("Could not get Haikus");
+  private void setUpClickListeners() {
+    lv.setOnItemClickListener(new OnItemClickListener() {
+
+      public void onItemClick(AdapterView<?> parent, View view, int position, 
+          long id) {
+        Poem thePoem = poems.get(position);
+        Intent intent = new Intent(getBaseContext(), HaikuCompositionActivity.class);
+        intent.putExtra(Constants.HAIKU_ID, thePoem.getId());
+        setResult(Activity.RESULT_OK, intent);
+        finish();
       }
+      
+    });
+    
+    lv.setOnItemLongClickListener(new HaikuLongClickListener());
+  }
+
+  /*
+   * Deletes a poem and triggers a GUI redraw.
+   */
+  private void deletePoem(Poem p) {
+    Dao<Poem, Integer> dao;
+    try {
+      dao = getHelper().getPoemDao();
+      dao.delete(p);
+      adapter.remove(p);
+    } catch (SQLException e) {
+      throw new RuntimeException("Could not delete Haiku.");
     }
+  }
+  
+  /*
+   * Fetches poems and triggers GUI draw.
+   */
+  private void fetchPoems() {
+    try {
+      Dao<Poem, Integer> poemDao = getHelper().getPoemDao();
+      poems = poemDao.queryForAll();
+      adapter = new PoemAdapter(this, R.layout.poem, poems);
+      lv.setAdapter(adapter);
+    } catch (SQLException e) {
+      throw new RuntimeException("Could not get Haikus.");
+    }
+  }
+  
+  /*
+   * Internal class for handling long click events.
+   */
+  private class HaikuLongClickListener implements OnItemLongClickListener {
+
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position,
+        long id) {
+      BrowseSavedHaikusActivity activity = BrowseSavedHaikusActivity.this;
+      final Poem p = (Poem) parent.getItemAtPosition(position);
+      
+      // Build the alert dialog
+      Builder b = new Builder(activity);
+      b.setTitle("Delete a Haiku");
+      b.setMessage("Would you like to delete the following Haiku?\n" + p.toString());
+      
+      // Set up modal view buttons
+      b.setPositiveButton("Delete", new OnClickListener() {
+
+        public void onClick(DialogInterface dialog, int which) {
+          deletePoem(p);
+        }
+        
+      });
+      b.setNegativeButton("Cancel", new OnClickListener() {
+
+        public void onClick(DialogInterface dialog, int which) {
+          dialog.dismiss();
+        }
+        
+      });
+      
+      // Show the dialog
+      b.show();
+      
+      // Returning true means that we have consumed the long click event.
+      return true;
+    }
+    
+  }
 }

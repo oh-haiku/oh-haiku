@@ -1,259 +1,77 @@
 # Test plan
 
+##TODOLIST FROM MAX (erase this when done)
+ - Skapa en testrapport som för en version av appen går igenom och markerar vilka test som går igenom och vilka som failar. 
+ - Gärna i en överskådlig lista som bara refererar till testets ID, resultat och eventuella kommentarer (som om ett test failar pga obefintlig implementation). 
+Detta blir relevant när ni har en release.
+
 ## Testcases
 
 ### 1 Introduction
 
 #### 1.1 Purpose of application
+The germ of this application is a tweet. The Swedish comedian Jesper Rönndahl (@jesperronndahl)
+tweeted that he often thinks in chunks of three unrelated thoughts. He indicated that he would 
+like to have an app that could tell him whether these three sentences constitute a haiku poem.
+
 
 #### 1.2 General characteristics of application
 
-### 2 Test enviroment
-
-#### T1 General test cases
-
-##### T1.1 Text input
-- Description: 
-The user should be able to enter text into three text input fields.
-
-- Precondition:
-The user starts the app
-
-- Test steps:
-Start the app
-
-- Result state:
-The user is presented with three text input fields
-
-- Related requirements:
-F1.1
-
-##### T1.2 Syllable analysis with live analysis disabled
-- Description: 
-Text should not be analysed on the fly if live analysis is disabled
-
-- Precondition
-T1.1
-
-- Test steps:
-  1. Start the app
-  2. Disable live analysis
-  3. Enter text
-  4. Leave text field
-  
-- Result state:
-The user should not be presented with any syllable information or
-
-- Related requirements:
-F1.2
-
-##### T1.3 Syllable analysis with live analysis enabled
-- Description: 
-Text should be analysed on the fly if live analysis is enabled
+This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku-rules and tweet the text. The application is also an easy way to store the users poems.
+ 
+### 2 Test environment
 
-- Precondition
-T1.1
 
-- Test steps:
-  1. Start the app
-  2. Enable live analysis
-  3. Enter text
-  4. Leave text field
-  
-- Result state:
-The user is presented with the number of syllables in the text field
+ - Vilka förberedelser behöver göras innan man kan testa
+ - Var finns koden eller .apk?
+ - Hur installeras denna?
+ - Behöver man tömma eller skapa en databas?
+ - Behövs internetuppkoppling (kanske ett spciellt nätverk)?
 
-- Related requirements:
-F1.2
+####2.1 Hardware enviroment
+We run most of our tests on a HTC-phone and therefore not using the emulator. 
 
-##### T1.4 Haiku analysis button
-- Description: 
-Haikus analysis should be triggered by the check-button
+HTC ...
+Screen: 
 
-- Precondition
-T1.1 and T1.2 or T1.3
 
-- Test steps:
-  1. Start the app
-  2. Enter text into the three text fields
-  3. Click the Check button
-  
-- Result state:
-The user should be presented with Haiku verification information, true or false
+Använder ni emulatorn eller riktig telefon vid dessa?
 
-- Related requirements:
-F1.3
+####2.2 Software environment
+(what software (incl version) was used?)
+####2.2.3 Softwares
 
-##### T1.5 Haiku analysis of a valid Haiku
-- Description: 
-A valid Haiku should be verified as such
+Coding:
 
-- Precondition
-T1.1, T1.2 or T1.3 and T1.4
+ - Eclipse SDK Version 3.6 (Helios) or later. 
 
-- Test steps:
-  1. Start the app
-  2. Enter text into the text fields:
-      - Hej mitt är Per
-      - Jag är inte här just nu
-      - Jag var där en gång
-  3. Click the Check button
-  
-- Result state:
-The user should told that the Haiku is valid
+Mockups:
 
-- Related requirements:
-F1.3
+ - Balsamiq Mockups Version 2.1.16
 
-##### T1.6 Haiku analysis of an invalid Haiku
-- Description: 
-A invalid Haiku should be verified as such
+Code coverage:
 
-- Precondition
-T1.1, T1.2 or T1.3 and T1.4
+ - [EclEmma](http://www.eclemma.org/)
 
-- Test steps:
-  1. Start the app
-  2. Enter text into the text fields:
-      - Detta är för många stavelser
-      - En två
-      - Att
-  3. Click the Check button
-  
-- Result state:
-The user should told that the Haiku is invalid
+Nightly builds:
 
-- Related requirements:
-F1.3
+ - [Travis CI](http://travis-ci.org/)
 
-#### T2 Twitter test cases
-##### T2.1 Tweet the text
+Unit tests:
 
-- Description: 
-When the user presses "Tweet" the text is submitted to Twitter
+ - JUnit 3 with Android extensions
 
-- Precondition: 
-T1.1, T1.3, T2.2 The text-string is written or loaded from saved Haikus and the Haiku is certified correctly. The test checking that the user is logged in with Twitter must be passed.  
 
-- Test steps:
-Press "Share", then the options "Tweet", "Send by sms" and "e-mail" should appear. When the user presses "Tweet", the text should be submitted to Twitter if the user is logged in with the Twitter-credentials. 
+GUI-tests:
 
-- Result state:
-The text is submitted and the user is informed
+ - [robotium](http://code.google.com/p/robotium/)
 
-- Related requirement
-F2.1
 
 
-##### T2.2 Logging in with Twitter and store user-credentials
 
-- Description: 
-The user inserts Twitter-credentials and presses "Log in with Twitter" and has an option to store the credentials. 
 
-- Precondition: 
-Start application and press "Settings" should have been tested.  
 
-- Test steps:
-The user can insert Twitter-credentials and store them. If the typed Twitter-credentials is wrong in some way (either the username doesn't exist or the password is wrong), the user is informed by some sort of error-message (graphical, sound). If the user presses "remember me" the credentials is stored. 
-
-- Result state:
-The user is logged in with Twitter
-
-- Related requirement
-F2.2
-
-##### T2.3 Analysis of other users on Twitter, optional
-
-- Description: 
-The user clicks on "Check Twitter for #haiku".
-
-- Precondition: 
-The user has an internet connection. No twitter account is required.
-
-- Test steps:
-If no internet connection is established an error message will be shown.
-
-- Result state:
-A list of tweets will be shown in descending order with respect to the creation date.
-Next to each tweet a message will be shown notifing the user of the haiku state.
-
-- Related requirement
-
-
-##### T3.1 Save a haiku
-- Description:
-The user saves a haiku
-
-- Precondition:
-N/A
-
-- Test steps:
-  1. Start app
-  2. Enter text into text fields: "apa", "bepa", "cepa"
-  3. Click save
-
-- Result state:
-A message "Haiku saved!" appears
-
-- Related requirement:
-F3.1
-
-
-##### T3.2 Check for presence of saved haiku
-
-- Description
-Check that a saved haiku is in the My saved Haikus list
-
-- Precondition:
-T3.1
-
-- Test steps:
-  1. T3.1
-  2. T4.2
-  
-- Result state:
-The user is in the My saved Haikus view and a haiku containing the lines "apa", "bepa", "cepa" is visible
-
-- Related requirements:
-F3.1, F3.2
-
-#### T4 Navigational tests
-
-##### T4.1 Menu
-
-- Description:
-There is a menu
-
-- Precondition:
-N/A
-
-- Test steps:
-  1. Start app
-  2. Click Menu button
-
-- Result state:
-The user is presented with a menu with 4 menu items: login to twitter, help, browse saved haikus and FAQ
-
-- Related requirements
-TODO: should have menu requirements
-
-##### T4.2 Browse haikus
-
-- Description:
-The user can browse previously saved haikus
-
-- Precondition:
-N/A
-
-- Test steps:
-  1. T4.1
-  2. Click the My saved Haikus button
-
-- Result state:
-The user sees a list of Haikus or the message "No saved Haikus"
-
-- Related requirements:
-F3.2
+####2.2.3 Software settings
 
 ### 3 System information
 
@@ -261,7 +79,10 @@ F3.2
 
 ### 4 Known bugs and limitations
 
-### 5 Test specifcation
+### 5 Test specification
+For documentation on the tests, view [RAD-document with tests](https://github.com/oh-haiku/oh-haiku/blob/master/doc/RAD.md)
+
+
 
 ### 6 Automatic test
 
@@ -290,3 +111,8 @@ We'll be using two branches for oh-haiku, one unstable called *master* and one s
 Both of these will be testet each time something is pushed to Github, but we aren't expecting everyting in *master* to pass.
 
 The *stable* branch should reflect the deployed version (maybe on Google Play). Each release is tagged using *git tags*. Each tag is in it self named according to the [semver](http://semver.org/) version conversion.
+
+
+FRÅN KURSHEMSIDA:
+(present a table with Test id, Result, Comment)
+(use comment to say what bug the test resulted in or that the test could not be performed since the requirement is not yet implemented)

@@ -3,75 +3,143 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/bg_all"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    >
 
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="85dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/logo" />
+        
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_marginTop="20dp"
+    	android:layout_gravity="center_horizontal"
+    	>
+        
     <EditText
         android:id="@+id/editTextRow1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="text" />
 
-    <EditText
-        android:id="@+id/editTextRow2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/editTextRow3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text" >
-
-        <requestFocus />
-    </EditText>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/CheckHaikuButton"
-            android:layout_width="92dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.31"
-            android:text="@string/check_button_title" />
-
-        <Button
-            android:id="@+id/TweetHaikuButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tweet_button_title" />
-
-        <Button
-            android:id="@+id/MenuButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.17"
-            android:onClick="goToMenu"
-            android:text="@string/menu_button_title" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="229dp"
-        android:layout_height="wrap_content"
-        android:text="@string/certified_text"
-        android:visibility="visible"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/SaveButton"
-        style="?android:attr/buttonStyleSmall"
+    <ImageView
+        android:id="@+id/row1_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save_button_title" />
+        android:src="@drawable/grey_icn" />
+
+ </LinearLayout>
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+    	>
+        
+   
+    <EditText
+        android:id="@+id/editTextRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <ImageView
+        android:id="@+id/row2_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/grey_icn" />
+
+ </LinearLayout>
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+    	>
+        
+   
+    <EditText
+        android:id="@+id/editTextRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <ImageView
+        android:id="@+id/row3_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/grey_icn" />
+
+ </LinearLayout>
+
+     <TextView
+         android:id="@+id/statusText"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:visibility="visible" 
+         />
+
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+    	>
+     <Button
+         android:id="@+id/CheckHaikuButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:ems="10"
+         android:onClick="onCheck"
+         android:text="@string/check_button_title" />
+     <Button
+    	        android:id="@+id/ClearButton"
+    	        android:layout_width="wrap_content"
+    	        android:layout_height="wrap_content"
+    	        android:onClick="onClear"
+    	        android:text="@string/clear_button_text" />
+	</LinearLayout>
+    	<LinearLayout
+    	    android:id="@+id/saveAndStatusView"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:orientation="horizontal"
+    	    android:layout_gravity="center_horizontal" >
+
+    	    <Button
+    	        android:id="@+id/TweetHaikuButton"
+    	        android:layout_width="wrap_content"
+    	        android:layout_height="wrap_content"
+    	        android:text="@string/tweet_button_title" 
+    	        />
+
+    	    <Button
+    	        android:id="@+id/MenuButton"
+    	        android:layout_width="wrap_content"
+    	        android:layout_height="wrap_content"
+    	        android:onClick="onGoToMenu"
+    	        android:text="@string/menu_button_title" />
+
+    	    <Button
+    	        android:id="@+id/PersistButton"
+    	        android:layout_width="wrap_content"
+    	        android:layout_height="wrap_content"
+    	        android:onClick="onPersist"
+    	        android:text="@string/save_button_title" />
+
+    	    
+
+    	</LinearLayout>
 
 </LinearLayout>

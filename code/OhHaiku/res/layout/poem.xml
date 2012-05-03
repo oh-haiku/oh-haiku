@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="10dp"
-    android:textSize="16sp" >
-</TextView>
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip"
+    android:gravity="left"
+    android:background="@android:color/black">
+    <ImageView
+        android:id="@+id/haiku_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="6dip"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="@string/haiku_description_text" />
+    <TextView
+        android:id="@+id/haikuText"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+    />
+
+</LinearLayout>
