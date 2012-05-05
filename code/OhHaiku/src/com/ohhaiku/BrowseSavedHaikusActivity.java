@@ -8,6 +8,7 @@ import android.widget.TextView;
  * Activity that displays the user's saved Haikus (both finished and unfinished ones).
  */
 
+
 public class BrowseSavedHaikusActivity extends Activity{
 	
     @Override

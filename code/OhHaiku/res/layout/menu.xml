@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" android:alpha="80" android:background="@drawable/bg2">
+    android:orientation="vertical" android:alpha="80" android:background="@drawable/bg_all">
     <Button
         android:id="@+id/Button03"
         android:layout_width="match_parent"

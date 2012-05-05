@@ -8,6 +8,7 @@ import android.widget.TextView;
  * Activity that allows the user to tweet a Haiku.
  */
 
+
 public class TweetAHaikuActivity extends Activity{
 	
     @Override

@@ -2,51 +2,83 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" android:background="@drawable/bg2">
+    android:background="@drawable/bg_all"
+    android:orientation="vertical" >
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="fill_content"
-        android:ems="10" android:translationY="120dp">
+        android:ems="10"
+        android:translationY="120dp" >
 
         <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/EditText01"
+        android:id="@+id/editTextRow1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" android:layout_marginTop="100"/>
-    
+        android:layout_marginTop="100"
+        android:ems="10" />
+
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editTextRow2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10">
-
-        <requestFocus />
-    </EditText>
- 
-        <EditText
-        android:id="@+id/editText3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10">
+        android:ems="10" >
 
         <requestFocus />
     </EditText>
 
-        <Button
-            android:id="@+id/Button01"
-            android:layout_width="92dp"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+    <EditText
+        android:id="@+id/editTextRow3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/CheckHaikuButton"
             android:layout_width="92dp"
             android:layout_height="wrap_content"
-            android:text="Button" android:layout_marginLeft="92dp"/>
-   
+            android:layout_weight="0.31"
+            android:text="Check" />
+
+        <Button
+            android:id="@+id/TweetHaikuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.17"
+            android:text="Tweet" />
+
+        <Button
+            android:id="@+id/MenuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.17"
+            android:text="Menu" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:text="Certified Haiku!"
+     
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/SaveButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save" />
+
 </LinearLayout>

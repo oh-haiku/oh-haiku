@@ -3,15 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent" 
     android:layout_width="fill_parent"
-    android:background="@drawable/bg2">
+    android:background="@drawable/bg_all">
     <TableRow> 
         <TextView 
             android:text="User Name:"
             android:width ="120px"
-            />
+            android:layout_marginTop="100dp"/>
         <EditText 
             android:id="@+id/txtUserName" 
-            android:width="200px" />
+            android:width="200px" android:layout_marginTop="100dp"/>
     </TableRow> 
     <TableRow>
         <TextView 
