@@ -1,4 +1,5 @@
 package com.ohhaiku;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -6,6 +7,7 @@ import android.widget.TextView;
 /*
  * Activity that displays the user's saved Haikus (both finished and unfinished ones).
  */
+
 
 public class BrowseSavedHaikusActivity extends Activity{
 	
