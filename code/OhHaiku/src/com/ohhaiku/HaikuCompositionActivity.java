@@ -31,15 +31,15 @@ public class HaikuCompositionActivity extends Activity implements OnClickListene
     	super.onCreate(savedInstanceState);
         TextView tw = new TextView(this);
         tw.setText("Skriv in din Haiku!");
-        setContentView(tw);
-        checkHaikuButton = (Button) findViewById(R.id.CheckHaikuButton);//osäker om hur vi ska skapa "R"-class? 
-        checkHaikuButton.setOnClickListener((android.view.View.OnClickListener) this);
-        tweetHaikuButton = (Button) findViewById(R.id.TweetHaikuButton); 
-        tweetHaikuButton.setOnClickListener((android.view.View.OnClickListener) this);
-        menuButton = (Button) findViewById(R.id.MenuButton); 
-        menuButton.setOnClickListener((android.view.View.OnClickListener) this);
-        saveButton = (Button) findViewById(R.id.SaveButton); 
-        saveButton.setOnClickListener((android.view.View.OnClickListener) this);
+        setContentView(R.layout.main);
+//        checkHaikuButton = (Button) findViewById(R.id.CheckHaikuButton);
+//        checkHaikuButton.setOnClickListener((android.view.View.OnClickListener) this);
+//        tweetHaikuButton = (Button) findViewById(R.id.TweetHaikuButton); 
+//        tweetHaikuButton.setOnClickListener((android.view.View.OnClickListener) this);
+//        menuButton = (Button) findViewById(R.id.MenuButton); 
+//        menuButton.setOnClickListener((android.view.View.OnClickListener) this);
+//        saveButton = (Button) findViewById(R.id.SaveButton); 
+//        saveButton.setOnClickListener((android.view.View.OnClickListener) this);
     	
     }
 
