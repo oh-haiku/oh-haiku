@@ -181,7 +181,79 @@ Next to each tweet a message will be shown notifing the user of the haiku state.
 
 
 ##### T3.1 Save a haiku
-TODO
+- Description:
+The user saves a haiku
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Enter text into text fields: "apa", "bepa", "cepa"
+  3. Click save
+
+- Result state:
+A message "Haiku saved!" appears
+
+- Related requirement:
+F3.1
+
+
+##### T3.2 Check for presence of saved haiku
+
+- Description
+Check that a saved haiku is in the My saved Haikus list
+
+- Precondition:
+T3.1
+
+- Test steps:
+  1. T3.1
+  2. T4.2
+  
+- Result state:
+The user is in the My saved Haikus view and a haiku containing the lines "apa", "bepa", "cepa" is visible
+
+- Related requirements:
+F3.1, F3.2
+
+#### T4 Navigational tests
+
+##### T4.1 Menu
+
+- Description:
+There is a menu
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Click Menu button
+
+- Result state:
+The user is presented with a menu with 4 menu items: login to twitter, help, browse saved haikus and FAQ
+
+- Related requirements
+TODO: should have menu requirements
+
+##### T4.2 Browse haikus
+
+- Description:
+The user can browse previously saved haikus
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. T4.1
+  2. Click the My saved Haikus button
+
+- Result state:
+The user sees a list of Haikus or the message "No saved Haikus"
+
+- Related requirements:
+F3.2
 
 ### 3 System information
 
