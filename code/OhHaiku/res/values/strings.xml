@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, OhHaikuActivity!</string>
     <string name="app_name">OhHaiku</string>
+    <string name="menuButton">Menu</string>
 
 </resources>
