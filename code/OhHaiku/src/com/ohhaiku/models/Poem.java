@@ -33,10 +33,13 @@ public class Poem implements Serializable {
    * that fetch the string from the ArrayList.
    * Hence, these fields are never actually used.
    */
+  @SuppressWarnings("unused")
   @DatabaseField(useGetSet = true)
   private String line0;
+  @SuppressWarnings("unused")
   @DatabaseField(useGetSet = true)
   private String line1;
+  @SuppressWarnings("unused")
   @DatabaseField(useGetSet = true)
   private String line2;
   
