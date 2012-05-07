@@ -33,14 +33,18 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
       throw new RuntimeException(e);
     }
   }
-
+  
+  /**
+   * Triggered upon upgrade.
+   * WARNING: drops all tables if the new DATABASE_VERSION does not match the old
+   */
   @Override
   public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion,
       int newVersion) {
     try {
       Log.i(DatabaseHelper.class.getName(), "onUpgrade");
       TableUtils.dropTable(connectionSource, Poem.class, true);
-      // after we drop the old databases, we create the new ones
+      // after we drop the old tables, we create the new ones
       onCreate(db, connectionSource);
     } catch (SQLException e) {
       Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);
@@ -48,6 +52,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
   }
   
+  /**
+   * @return A DAO-object which can be used to persist Poems
+   * @throws SQLException
+   */
   public Dao<Poem, Integer> getPoemDao() throws SQLException {
     if (poemDao == null)
       poemDao = getDao(Poem.class);
