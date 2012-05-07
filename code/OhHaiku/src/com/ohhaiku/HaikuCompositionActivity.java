@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -42,6 +43,10 @@ public class HaikuCompositionActivity extends Activity implements OnClickListene
 //        saveButton.setOnClickListener((android.view.View.OnClickListener) this);
     	
     }
+	
+	public void goToMenu(View view) {
+    startActivity(new Intent(this, MenuActivity.class));
+	}
 
 	public void onClick(DialogInterface arg0, int buttonID) {
 		if ( buttonID== R.id.CheckHaikuButton){
