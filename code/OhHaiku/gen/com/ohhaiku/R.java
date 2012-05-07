@@ -29,7 +29,7 @@ public final class R {
         public static final int editTextRow1=0x7f050005;
         public static final int editTextRow2=0x7f050006;
         public static final int editTextRow3=0x7f050007;
-        public static final int mediaController1=0x7f050000;
+        public static final int listView=0x7f050000;
         public static final int textView1=0x7f05000b;
         public static final int txtPassword=0x7f050002;
         public static final int txtUserName=0x7f050001;
@@ -40,9 +40,11 @@ public final class R {
         public static final int logintwitter=0x7f030002;
         public static final int main=0x7f030003;
         public static final int menu=0x7f030004;
+        public static final int poem=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f040001;
         public static final int hello=0x7f040000;
+        public static final int menuButton=0x7f040002;
     }
 }
