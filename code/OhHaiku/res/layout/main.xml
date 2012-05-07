@@ -42,21 +42,21 @@
             android:layout_width="92dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.31"
-            android:text="Check" />
+            android:text="@string/check_button_title" />
 
         <Button
             android:id="@+id/TweetHaikuButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.17"
-            android:text="Tweet" />
+            android:text="@string/tweet_button_title" />
 
         <Button
             android:id="@+id/MenuButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.17"
-            android:text="@string/menuButton"
+            android:text="@string/menu_button_title"
             android:onClick="goToMenu"/>
     </LinearLayout>
 
@@ -64,7 +64,7 @@
         android:id="@+id/textView1"
         android:layout_width="229dp"
         android:layout_height="wrap_content"
-        android:text="Certified Haiku!"
+        android:text="@string/certified_text"
      
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -73,6 +73,6 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:text="@string/save_button_title" />
 
 </LinearLayout>

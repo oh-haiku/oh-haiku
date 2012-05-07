@@ -3,6 +3,11 @@
 
     <string name="hello">Hello World, OhHaikuActivity!</string>
     <string name="app_name">OhHaiku</string>
-    <string name="menuButton">Menu</string>
+    <string name="tweet_button_title">Tweet</string>
+    <string name="save_button_title">Save</string>
+    <string name="help_button_title">Help</string>
+    <string name="menu_button_title">Menu</string>
+    <string name="check_button_title">Check</string>
+    <string name="certified_text">Certified Haiku!</string>
 
 </resources>
