@@ -7,24 +7,28 @@
         android:id="@+id/Button03"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log in to Twitter" android:layout_marginTop="100dp"/>
+        android:text="@string/log_in_to_twitter_title" android:layout_marginTop="100dp"
+        android:onClick="loginToTwitter"/>
 
     <Button
         android:id="@+id/Button02"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Help" android:layout_marginTop="10dp"/>
+        android:text="@string/help_button_title" android:layout_marginTop="10dp"
+        android:onClick="goToHelp"/>
 
     <Button
         android:id="@+id/Button01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My saved Haikus" android:layout_marginTop="10dp"/>
+        android:text="@string/saved_haikus_button_title" android:layout_marginTop="10dp"
+        android:onClick="goToSavedHaikus"/>
 
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FAQ" android:layout_marginTop="10dp"/>
+        android:text="@string/faq_button_title" android:layout_marginTop="10dp"
+        android:onClick="goToFAQ"/>
 
 </LinearLayout>
