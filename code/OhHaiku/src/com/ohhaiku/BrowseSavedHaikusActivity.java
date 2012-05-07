@@ -16,15 +16,13 @@ import android.widget.ListView;
 /*
  * Activity that displays the user's saved Haikus (both finished and unfinished ones).
  */
-
-
 public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.browse);
-        setUpListView();
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.browse);
+      setUpListView();
     }
 
     private void setUpListView() {
