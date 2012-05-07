@@ -6,29 +6,29 @@
     android:orientation="vertical" >
 
     <EditText
-        android:inputType="text"
         android:id="@+id/editTextRow1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:ems="10" />
+        android:ems="10"
+        android:inputType="text" />
 
     <EditText
-        android:inputType="text"
         android:id="@+id/editTextRow2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
+        android:ems="10"
+        android:inputType="text" >
 
         <requestFocus />
     </EditText>
 
     <EditText
-        android:inputType="text"
         android:id="@+id/editTextRow3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
+        android:ems="10"
+        android:inputType="text" >
 
         <requestFocus />
     </EditText>
@@ -48,7 +48,6 @@
             android:id="@+id/TweetHaikuButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.17"
             android:text="@string/tweet_button_title" />
 
         <Button
@@ -56,8 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.17"
-            android:text="@string/menu_button_title"
-            android:onClick="goToMenu"/>
+            android:onClick="goToMenu"
+            android:text="@string/menu_button_title" />
     </LinearLayout>
 
     <TextView
@@ -65,7 +64,7 @@
         android:layout_width="229dp"
         android:layout_height="wrap_content"
         android:text="@string/certified_text"
-     
+        android:visibility="visible"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
