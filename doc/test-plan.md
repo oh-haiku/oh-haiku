@@ -280,9 +280,9 @@ will push the code from GH to Travis CI. TCI will run all test for us, but in a 
 
 #### 6.3 Unit test
 
-A test framework called (or named) [testng](http://testng.org/doc/index.html) together with JUnit has been chosen for this project.
+JUnit 3 with Android extensions will be used for unit testing.
 
-We can't test the GUI using *testng*, instead something like [robotium](http://code.google.com/p/robotium/) might be used.
+We can't test the GUI using *JUnit*, instead something like [robotium](http://code.google.com/p/robotium/) might be used.
 
 ### 7 Test report
 
