@@ -14,8 +14,6 @@ public class TweetAHaikuActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    TextView tw = new TextView(this);
-	    tw.setText("Tweet a haiku");
-	    setContentView(tw);
+	    setContentView(R.layout.logintwitter);
 	 }
 }

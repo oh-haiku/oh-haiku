@@ -24,7 +24,7 @@ public class MenuActivity extends Activity {
 	}
 	
 	public void goToFAQ(View view) {
-	  // TODO: write gotoFAQ method
+	  startActivity(new Intent(this, TweetAHaikuActivity.class));
 	}
 	
 	public void loginToTwitter(View view) {
