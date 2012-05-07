@@ -51,7 +51,7 @@ public class HaikuCompositionActivity extends Activity implements OnClickListene
 	public void onClick(DialogInterface arg0, int buttonID) {
 		if ( buttonID== R.id.CheckHaikuButton){
 			//check if every haiku-row has text, then start check-haiku-activity
-			if ((textRow1.getText().toString().length() <1) && (textRow2.getText().toString().length() <1) && (textRow2.getText().toString().length() <1) ) {
+			if ((textRow1.getText().toString().length() <1) && (textRow2.getText().toString().length() <1) && (textRow3.getText().toString().length() <1) ) {
 				//startActivity(new Intent(this, ...)); 
 			}
 		}
