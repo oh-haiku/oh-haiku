@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity 
-        	android:name=".BrowseSavedActivity"
+        	android:name="BrowseSavedHaikusActivity"
         	android:label="@string/app_name" >
         </activity>
         <activity 
