@@ -3,8 +3,9 @@
     package="com.ohhaiku"
     android:versionCode="1"
     android:versionName="1.0" >
-
-    <uses-sdk android:minSdkVersion="7" />
+    
+    <uses-sdk android:targetSdkVersion="8"
+              android:minSdkVersion="8" />
 
     <application
         android:icon="@drawable/ic_launcher"
