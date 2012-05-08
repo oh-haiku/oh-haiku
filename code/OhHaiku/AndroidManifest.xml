@@ -10,13 +10,29 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".OhHaikuActivity"
+            android:name=".HaikuCompositionActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity 
+        	android:name="BrowseSavedHaikusActivity"
+        	android:label="@string/app_name" >
+        </activity>
+        <activity 
+        	android:name=".TweetAHaikuActivity"
+        	android:label="@string/app_name" >
+        </activity>
+        <activity 
+        	android:name=".HelpActivity"
+        	android:label="@string/app_name" >
+        </activity>
+        <activity 
+        	android:name=".MenuActivity"
+        	android:label="@string/app_name" >
         </activity>
     </application>
 

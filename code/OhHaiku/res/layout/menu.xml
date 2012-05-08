@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/bg_all">
+    <Button
+        android:id="@+id/Button03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/log_in_to_twitter_title" android:layout_marginTop="100dp"
+        android:onClick="loginToTwitter"/>
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/help_button_title" android:layout_marginTop="10dp"
+        android:onClick="goToHelp"/>
+
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/saved_haikus_button_title" android:layout_marginTop="10dp"
+        android:onClick="goToSavedHaikus"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/faq_button_title" android:layout_marginTop="10dp"
+        android:onClick="goToFAQ"/>
+
+</LinearLayout>

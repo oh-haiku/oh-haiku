@@ -1,0 +1,36 @@
+<mockup version="1.0" skin="sketch" measuredW="988" measuredH="589" mockupW="282" mockupH="510">
+  <controls>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::iPhone" x="706" y="79" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <markup>true</markup>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::HSplitter" x="942" y="187" w="-1" h="305" measuredW="12" measuredH="100" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Canvas" x="736" y="185" w="206" h="70" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <color>15374745</color>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Canvas" x="736" y="255" w="206" h="70" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <color>9684093</color>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Canvas" x="736" y="325" w="206" h="70" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>9684093</borderColor>
+        <borderStyle>none</borderStyle>
+        <color>9684093</color>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Canvas" x="736" y="395" w="206" h="70" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>10027008</borderColor>
+        <borderStyle>none</borderStyle>
+        <color>15374745</color>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
