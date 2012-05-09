@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/bg_all"
     android:orientation="vertical" >
-
+    
     <EditText
         android:id="@+id/editTextRow1"
         android:layout_width="match_parent"
@@ -42,7 +42,8 @@
             android:layout_width="92dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.31"
-            android:text="@string/check_button_title" />
+            android:text="@string/check_button_title"
+            android:onClick="onCheck" />
 
         <Button
             android:id="@+id/TweetHaikuButton"
@@ -59,20 +60,26 @@
             android:text="@string/menu_button_title" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="229dp"
-        android:layout_height="wrap_content"
-        android:text="@string/certified_text"
-        android:visibility="visible"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:id="@+id/saveAndStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <Button
-        android:id="@+id/SaveButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save_button_title"
-        android:onClick="saveHaiku" />
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:text="@string/certified_text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/SaveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:onClick="saveHaiku"
+            android:text="@string/save_button_title" />
+    </LinearLayout>
 
 </LinearLayout>
