@@ -3,6 +3,7 @@ package com.ohhaiku.views;
 import java.util.List;
 
 import com.ohhaiku.R;
+import com.ohhaiku.models.Haiku;
 import com.ohhaiku.models.Poem;
 
 import android.content.Context;
@@ -38,7 +39,8 @@ public class PoemAdapter extends ArrayAdapter<Poem> {
      CheckBox checkBox = (CheckBox) v.findViewById(R.id.haikuVerifiedCheckBox);
      // TODO: Check haiku now
      if (checkBox != null) {
-       checkBox.setChecked(true);
+       Haiku h = new Haiku(p);
+       checkBox.setChecked(h.isValid());
      }
     }
     return v;
