@@ -24,10 +24,10 @@ public class MenuActivity extends Activity {
 	}
 	
 	public void goToFAQ(View view) {
-	  startActivity(new Intent(this, TweetAHaikuActivity.class));
+	  // TODO
 	}
 	
 	public void loginToTwitter(View view) {
-	  // TODO write login to twitter method
+	  startActivity(new Intent(this, BrowseSavedHaikusActivity.class));
 	}
 }
