@@ -69,7 +69,6 @@
             android:id="@+id/statusText"
             android:layout_width="229dp"
             android:layout_height="wrap_content"
-            android:text="@string/certified_text"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible" />
 
