@@ -7,9 +7,9 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 import com.ohhaiku.database.DatabaseHelper;
 import com.ohhaiku.models.Poem;
+import com.ohhaiku.views.PoemAdapter;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -29,7 +29,7 @@ public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelpe
       try {
         Dao<Poem, Integer> poemDao = getHelper().getPoemDao();
         List<Poem> poems = poemDao.queryForAll();
-        ListAdapter adapter = new ArrayAdapter<Poem>(this, R.layout.poem, poems);
+        ListAdapter adapter = new PoemAdapter(this, R.layout.poem, poems);
         ListView lv = (ListView) findViewById(R.id.listView);
         lv.setAdapter(adapter);
       } catch (SQLException e) {
