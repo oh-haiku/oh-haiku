@@ -29,6 +29,9 @@ public final class R {
         public static final int editTextRow1=0x7f050005;
         public static final int editTextRow2=0x7f050006;
         public static final int editTextRow3=0x7f050007;
+        public static final int haikuText=0x7f050012;
+        public static final int haikuVerifiedCheckBox=0x7f050013;
+        public static final int icon=0x7f050011;
         public static final int listView=0x7f050000;
         public static final int textView1=0x7f05000b;
         public static final int txtPassword=0x7f050002;
@@ -47,6 +50,7 @@ public final class R {
         public static final int certified_text=0x7f040007;
         public static final int check_button_title=0x7f040006;
         public static final int faq_button_title=0x7f04000a;
+        public static final int haiku_description_text=0x7f04000b;
         public static final int hello=0x7f040000;
         public static final int help_button_title=0x7f040004;
         public static final int log_in_to_twitter_title=0x7f040008;

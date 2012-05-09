@@ -12,5 +12,6 @@
     <string name="log_in_to_twitter_title">Log in to Twitter</string>
     <string name="saved_haikus_button_title">My saved Haikus</string>
     <string name="faq_button_title">FAQ</string>
+    <string name="haiku_description_text">Haiku Icon</string>
 
 </resources>
