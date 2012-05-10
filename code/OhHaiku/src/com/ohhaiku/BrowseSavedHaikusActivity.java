@@ -3,12 +3,6 @@ package com.ohhaiku;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
-import com.j256.ormlite.dao.Dao;
-import com.ohhaiku.database.DatabaseHelper;
-import com.ohhaiku.models.Poem;
-import com.ohhaiku.views.PoemAdapter;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +10,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
+import com.j256.ormlite.dao.Dao;
+import com.ohhaiku.database.DatabaseHelper;
+import com.ohhaiku.models.Poem;
+import com.ohhaiku.views.PoemAdapter;
 
 /*
  * Activity that displays the user's saved Haikus (both finished and unfinished ones).
