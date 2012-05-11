@@ -124,5 +124,6 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   private void setPoem(Poem poem) {
     this.poem = poem;
     setLines(poem.getLinesAsArray());
+    setStatus(getString(R.string.haiku_loaded_text));
   }
 }//HaikuCompositionActivity
