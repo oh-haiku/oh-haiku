@@ -4,7 +4,9 @@
 
 package com.ohhaiku.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.ohhaiku.models.Poem;
 import com.ohhaiku.test.factory.PoemFactory;
@@ -68,5 +70,11 @@ public class PoemTests extends TestCase {
   
   public void testGetLinesAsArray() {
     assertTrue(Arrays.deepEquals(PoemFactory.LINES, populatedPoem.getLinesAsArray()));
+  }
+  
+  public void testGetLinesAsList() {
+    List<String> originalStrings = new ArrayList<String>(Arrays.asList(PoemFactory.LINES));
+    assertEquals(originalStrings, populatedPoem.getLinesAsList());
+    assertEquals(originalStrings, populatedPoem.getLines());
   }
 }
