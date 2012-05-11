@@ -10,8 +10,8 @@ public class Haiku {
   private SwedishSyllableCounterFactory scf = new SwedishSyllableCounterFactory();
   
   // Number of desired syllables for each line in the poem, according to Haiku rules.
-  private final int correctSyllablesLine0and2 = 5;
-  private final int correctSyllablesLine1 = 7;
+  private static final int correctSyllablesLine0and2 = 5;
+  private static final int correctSyllablesLine1 = 7;
   
   public Haiku(Poem poem) 
   {
