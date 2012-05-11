@@ -55,6 +55,7 @@ public final class R {
         public static final int check_button_title=0x7f040006;
         public static final int faq_button_title=0x7f04000a;
         public static final int haiku_description_text=0x7f04000b;
+        public static final int haiku_load_failed_text=0x7f04000f;
         public static final int hello=0x7f040000;
         public static final int help_button_title=0x7f040004;
         public static final int log_in_to_twitter_title=0x7f040008;
