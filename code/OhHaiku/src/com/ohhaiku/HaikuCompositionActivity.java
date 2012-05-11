@@ -20,8 +20,6 @@ import com.ohhaiku.Constants;
 /*
  * Main activity: shows the Haiku composition window.
  */
-
-
 public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   private static final String logTag = "HaikuComposition";
   private static final int DEFAULT_VALUE = -1;
@@ -142,5 +140,9 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     if (b != null) {
       b.setText(text);
     }
+  }
+  
+  private void updatePoem() {
+    
   }
 }//HaikuCompositionActivity
