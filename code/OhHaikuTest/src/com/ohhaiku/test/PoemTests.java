@@ -56,4 +56,19 @@ public class PoemTests extends TestCase {
   public void testLine2Getter() {
     assertEquals(line2, populatedPoem.getLine2());
   }
+  
+  public void testLine0Setter() {
+    p.setLine0(line0);
+    assertEquals(line0, p.getLine0());
+  }
+  
+  public void testLine1Setter() {
+    p.setLine1(line1);
+    assertEquals(line1, p.getLine1());
+  }
+  
+  public void testLine2Setter() {
+    p.setLine2(line2);
+    assertEquals(line2, p.getLine2());
+  }
 }
