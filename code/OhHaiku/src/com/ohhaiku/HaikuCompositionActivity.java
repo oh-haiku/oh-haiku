@@ -76,7 +76,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   public void setLines(String[] lines) {
     TextView[] views = getTextViews();
     for (int i = 0; i < 3; i++) {
-      views[i].setText(lines[0]);
+      views[i].setText(lines[i]);
     }
   }
 	
@@ -124,12 +124,15 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   
   private void setPoem(Poem poem) {
     this.poem = poem;
+    Log.i(logTag, poem.toString());
     setLines(poem.getLinesAsArray());
     setStatus(getString(R.string.haiku_loaded_text));
     setPersistButtonText(getString(R.string.update_button_title));
   }
   
+  @SuppressWarnings("unused")
   private void onClear(View v) {
+    poem = null;
     setLines(new String[] {"", "", ""});
     setPersistButtonText(getString(R.string.save_button_title));
   }
