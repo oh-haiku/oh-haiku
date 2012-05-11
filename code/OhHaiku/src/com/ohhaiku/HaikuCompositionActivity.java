@@ -24,6 +24,8 @@ import com.ohhaiku.Constants;
 public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   private static final String logTag = "HaikuComposition";
   private static final int DEFAULT_VALUE = -1;
+  
+  private Poem poem;
 
   /** Called when the activity is first created. */	
 	@Override
@@ -47,13 +49,19 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
   }
   
-  public String[] getLines() {
+  private TextView[] getTextViews() {
     TextView[] views = new TextView[3];
     
     // Fetch textviews containing the poem lines
     views[0] = (TextView) this.findViewById(R.id.editTextRow1);
     views[1] = (TextView) this.findViewById(R.id.editTextRow2);
     views[2] = (TextView) this.findViewById(R.id.editTextRow3);
+    
+    return views;
+  }
+  
+  public String[] getLines() {
+    TextView[] views = getTextViews();
     
     String[] lines = new String[3];
     
@@ -62,6 +70,13 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
     
     return lines;
+  }
+  
+  public void setLines(String[] lines) {
+    TextView[] views = getTextViews();
+    for (int i = 0; i < 3; i++) {
+      views[i].setText(lines[0]);
+    }
   }
 	
 	// Click handlers
@@ -97,7 +112,17 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   }
 
   private void loadHaiku(int id) {
-    // TODO Auto-generated method stub
-    
+    try {
+      Dao<Poem, Integer> dao = getHelper().getPoemDao();
+      Poem p = dao.queryForId(id);
+      setPoem(p);
+    } catch (SQLException e) {
+      setStatus(getString(R.string.haiku_load_failed_text));
+    }
+  }
+  
+  private void setPoem(Poem poem) {
+    this.poem = poem;
+    setLines(poem.getLinesAsArray());
   }
 }//HaikuCompositionActivity
