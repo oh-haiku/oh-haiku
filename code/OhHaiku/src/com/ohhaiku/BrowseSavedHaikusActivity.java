@@ -3,6 +3,7 @@ package com.ohhaiku;
 import java.sql.SQLException;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,8 +37,9 @@ public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelpe
           long id) {
         Poem thePoem = poems.get(position);
         Intent intent = new Intent(getBaseContext(), HaikuCompositionActivity.class);
-        intent.putExtra("POEM_ID", thePoem.getId());
-        startActivity(intent);
+        intent.putExtra(Constants.HAIKU_ID, thePoem.getId());
+        setResult(Activity.RESULT_OK, intent);
+        finish();
       }
       
     });
