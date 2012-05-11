@@ -29,7 +29,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   }
 
   public void goToMenu(View view) {
-    startActivity(new Intent(this, MenuActivity.class));
+    startActivityForResult(new Intent(this, MenuActivity.class), 0);
 	}
   
   public void onCheck(View view) {
@@ -78,5 +78,11 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   private void setStatus(String status) {
     TextView statusView = (TextView) this.findViewById(R.id.statusText);
     statusView.setText(status);
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    // TODO Auto-generated method stub
+    super.onActivityResult(requestCode, resultCode, data);
   }
 }//HaikuCompositionActivity

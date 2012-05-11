@@ -19,10 +19,10 @@ public final class R {
         public static final int Button01=0x7f050013;
         public static final int Button02=0x7f050012;
         public static final int Button03=0x7f050011;
-        public static final int CheckHaikuButton=0x7f05000b;
-        public static final int MenuButton=0x7f05000d;
+        public static final int CheckHaikuButton=0x7f05000c;
+        public static final int MenuButton=0x7f05000f;
         public static final int SaveButton=0x7f050010;
-        public static final int TweetHaikuButton=0x7f05000c;
+        public static final int TweetHaikuButton=0x7f05000e;
         public static final int button1=0x7f050014;
         public static final int buttonSignIn=0x7f050004;
         public static final int checkbox1=0x7f050006;
@@ -36,8 +36,8 @@ public final class R {
         public static final int haikuVerifiedCheckBox=0x7f050017;
         public static final int icon=0x7f050015;
         public static final int listView=0x7f050000;
-        public static final int saveAndStatusView=0x7f05000e;
-        public static final int statusText=0x7f05000f;
+        public static final int saveAndStatusView=0x7f05000d;
+        public static final int statusText=0x7f05000b;
         public static final int txtPassword=0x7f050002;
         public static final int txtUserName=0x7f050001;
     }
