@@ -2,6 +2,7 @@ package com.ohhaiku;
 
 import java.sql.SQLException;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import com.j256.ormlite.dao.Dao;
 import com.ohhaiku.database.DatabaseHelper;
 import com.ohhaiku.models.Haiku;
 import com.ohhaiku.models.Poem;
+import com.ohhaiku.Constants;
 
 /*
  * Main activity: shows the Haiku composition window.
@@ -20,7 +22,9 @@ import com.ohhaiku.models.Poem;
 
 
 public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper> {
-  private final String logTag = "HaikuComposition";
+  private static final String logTag = "HaikuComposition";
+  private static final int DEFAULT_VALUE = -1;
+
   /** Called when the activity is first created. */	
 	@Override
   public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   }
 
   public void goToMenu(View view) {
-    startActivityForResult(new Intent(this, MenuActivity.class), 0);
+    startActivityForResult(new Intent(this, MenuActivity.class), Constants.LOAD_HAIKU);
 	}
   
   public void onCheck(View view) {
@@ -82,7 +86,18 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (resultCode == Activity.RESULT_OK && requestCode == Constants.LOAD_HAIKU) {
+      int id = data.getIntExtra(Constants.HAIKU_ID, DEFAULT_VALUE);
+      if (id != DEFAULT_VALUE) {
+        loadHaiku(id);
+      } else {
+        setStatus(getString(R.string.haiku_load_failed_text));
+      }
+    }
+  }
+
+  private void loadHaiku(int id) {
     // TODO Auto-generated method stub
-    super.onActivityResult(requestCode, resultCode, data);
+    
   }
 }//HaikuCompositionActivity
