@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
@@ -125,5 +126,18 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     this.poem = poem;
     setLines(poem.getLinesAsArray());
     setStatus(getString(R.string.haiku_loaded_text));
+    setPersistButtonText(getString(R.string.update_button_title));
+  }
+  
+  private void onClear(View v) {
+    setLines(new String[] {"", "", ""});
+    setPersistButtonText(getString(R.string.save_button_title));
+  }
+
+  private void setPersistButtonText(String text) {
+    Button b = (Button) findViewById(R.id.SaveButton);
+    if (b != null) {
+      b.setText(text);
+    }
   }
 }//HaikuCompositionActivity
