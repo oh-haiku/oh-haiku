@@ -11,19 +11,39 @@
 ### 2 Test enviroment
 
 #### T1 General test cases
+<br/>
 
-##### T1.1 Text input
+##### T1.1 Text input and clear text input fields
+<br/>
+
+######T1.1.1 Text input
 - Description: 
 The user should be able to enter text into three text input fields.
 
 - Precondition:
-The user starts the app
+The user starts the app, the HaikuCompositionActivity appears
 
 - Test steps:
 Start the app
 
 - Result state:
 The user is presented with three text input fields
+
+- Related requirements:
+F1.1
+
+###### T1.1.2 Clear all text input fields
+- Description: 
+The user should be able to clear the text in the three text input fields.
+
+- Precondition:
+The user starts the app, the HaikuCompositionActivity appears
+
+- Test steps:
+Start the app, write something in the three text input fields. Press "Clear" in the HaikuCompositionActivity
+
+- Result state:
+All of the input fields are cleared from text
 
 - Related requirements:
 F1.1
@@ -117,11 +137,12 @@ T1.1, T1.2 or T1.3 and T1.4
   2. Enter text into the text fields:
       - Detta är för många stavelser
       - En två
-      - Att
+      - Att apa bepa
   3. Click the Check button
   
 - Result state:
-The user should told that the Haiku is invalid
+The user should told that the Haiku is invalid,  but the third checkbox should be checked (5 syllables=correct). 
+
 
 - Related requirements:
 F1.3
@@ -133,17 +154,16 @@ F1.3
 When the user presses "Tweet" the text is submitted to Twitter
 
 - Precondition: 
-T1.1, T1.3, T2.2 The text-string is written or loaded from saved Haikus and the Haiku is certified correctly. The test checking that the user is logged in with Twitter must be passed.  
+(T1.1, T1.2 or T1.3, T1.5, T2.2) or (T4.3, T1.5, T2.2) The text-string is written or loaded from saved Haikus and the Haiku is certified correctly. The test checking that the user is logged in with Twitter must be passed.  
 
 - Test steps:
-Press "Share", then the options "Tweet", "Send by sms" and "e-mail" should appear. When the user presses "Tweet", the text should be submitted to Twitter if the user is logged in with the Twitter-credentials. 
+Press "Tweet". When the user presses the button the text should be submitted to Twitter if the user is logged in with the Twitter-credentials. 
 
 - Result state:
 The text is submitted and the user is informed
 
 - Related requirement
 F2.1
-
 
 ##### T2.2 Logging in with Twitter and store user-credentials
 
@@ -177,7 +197,7 @@ If no internet connection is established an error message will be shown.
 A list of tweets will be shown in descending order with respect to the creation date.
 Next to each tweet a message will be shown notifing the user of the haiku state.
 
-- Related requirement
+- Related requirement:
 
 
 ##### T3.1 Save a haiku
@@ -193,7 +213,7 @@ N/A
   3. Click save
 
 - Result state:
-A message "Haiku saved!" appears
+A message "Haiku saved!" appears, and also the save-button turns into a update-button. 
 
 - Related requirement:
 F3.1
@@ -254,6 +274,62 @@ The user sees a list of Haikus or the message "No saved Haikus"
 
 - Related requirements:
 F3.2
+
+##### T4.3 Load saved haikus
+
+- Description:
+The user can load a saved Haiku into the HaikuCompositionActivity. 
+
+- Precondition:
+T3.2, T4.2
+
+- Test steps:
+  1. T3.2
+  2. T4.2
+  3. Load a certain haiku
+
+- Result state:
+The chosen haiku is loaded in the HaikuCompositionActivity, and the save-button changes to an update-button
+
+- Related requirements:
+F3.3
+
+##### T4.4 Update haikus
+
+- Description:
+The user can update an already saved haiku or a loaded and manipulated haiku
+
+- Precondition:
+T3.1 or T4.3
+
+- Test steps:
+  1. T3.1 or T4.3
+  2. Click the Update-button when the text is manipulated in some way. The update-button shouldn't be clickable if the text isn't manipulated. 
+
+- Result state:
+The user sees "Haiku updated". 
+
+- Related requirements:
+F3.4
+
+##### T4.5 Remove saved haikus
+
+- Description:
+The user can remove a saved Haiku
+
+- Precondition:
+T3.2, T4.2
+
+- Test steps:
+  1. T3.2
+  2. T4.2
+  3. Click/Swipe a remove-button in the list of My saved haikus to remove a certain haiku
+
+- Result state:
+The haiku is removed from the My saved haikus-list 
+
+- Related requirements:
+F3.5
 
 ### 3 System information
 
