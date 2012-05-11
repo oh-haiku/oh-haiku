@@ -4,15 +4,14 @@
 
 package com.ohhaiku.test;
 
+import java.util.Arrays;
+
 import com.ohhaiku.models.Poem;
+import com.ohhaiku.test.factory.PoemFactory;
 
 import junit.framework.TestCase;
 
 public class PoemTests extends TestCase {
-  
-  private static final String line0 = "apa";
-  private static final String line1 = "bepa";
-  private static final String line2 = "cepa";
   
   private Poem p;
   private Poem populatedPoem;
@@ -20,13 +19,11 @@ public class PoemTests extends TestCase {
   @Override
   protected void setUp() {
     p = new Poem();
-    populatedPoem = new Poem(new String[] {line0, line1, line2});
+    populatedPoem = PoemFactory.getPopulatedPoem();
   }
   
   public void testItShouldReturnALine() {
-    p = new Poem();
-    p.setLine(0, "Apa");
-    assertEquals("Apa", p.getLine(0));
+    assertEquals(PoemFactory.LINE0, populatedPoem.getLine(0));
   }
   
   public void testItShouldReturnAnEmptyLine() {
@@ -35,10 +32,7 @@ public class PoemTests extends TestCase {
   }
   
   public void testItShouldReturnAPrettyString() {
-    p.setLine(0, "Apa");
-    p.setLine(1, "Bepa");
-    p.setLine(2, "Cepa");
-    assertEquals("Apa\nBepa\nCepa", p.toString());
+    assertEquals("apa\nbepa\ncepa", populatedPoem.toString());
   }
   
   /*
@@ -46,29 +40,33 @@ public class PoemTests extends TestCase {
    * Not intended for actual use by the programmer
    */
   public void testLine0Getter() {
-    assertEquals(line0, populatedPoem.getLine0());
+    assertEquals(PoemFactory.LINE0, populatedPoem.getLine0());
   }
   
   public void testLine1Getter() {
-    assertEquals(line1, populatedPoem.getLine1());
+    assertEquals(PoemFactory.LINE1, populatedPoem.getLine1());
   }
   
   public void testLine2Getter() {
-    assertEquals(line2, populatedPoem.getLine2());
+    assertEquals(PoemFactory.LINE2, populatedPoem.getLine2());
   }
   
   public void testLine0Setter() {
-    p.setLine0(line0);
-    assertEquals(line0, p.getLine0());
+    p.setLine0(PoemFactory.LINE0);
+    assertEquals(PoemFactory.LINE0, p.getLine0());
   }
   
   public void testLine1Setter() {
-    p.setLine1(line1);
-    assertEquals(line1, p.getLine1());
+    p.setLine1(PoemFactory.LINE1);
+    assertEquals(PoemFactory.LINE1, p.getLine1());
   }
   
   public void testLine2Setter() {
-    p.setLine2(line2);
-    assertEquals(line2, p.getLine2());
+    p.setLine2(PoemFactory.LINE2);
+    assertEquals(PoemFactory.LINE2, p.getLine2());
+  }
+  
+  public void testGetLinesAsArray() {
+    assertTrue(Arrays.deepEquals(PoemFactory.LINES, populatedPoem.getLinesAsArray()));
   }
 }
