@@ -16,5 +16,6 @@
     <string name="save_failed_text">Could not save Haiku</string>
     <string name="save_succeeded_text">Haiku was saved</string>
     <string name="not_certified_haiku_text">Not a valid Haiku</string>
+    <string name="help_text">Haiku is a type of poem which originates from Japan. A western Haiku implies 3 rows of text, with the syllables distributed according to 5,7,5. The Japan way of writing a Haiku is however more advanced and sophisticated.</string>
 
 </resources>
