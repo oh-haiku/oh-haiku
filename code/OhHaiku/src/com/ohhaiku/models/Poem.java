@@ -28,7 +28,8 @@ public class Poem implements Serializable {
   /*
    * The following fields are only used for ORMLite
    * We want to persist the lines in the arraylist as three separate strings
-   * but ORMLite only allows annotation of fields.
+   * in the database, instead of one serialized arraylist in one column,
+   * which would be the standard ORMLite-way of doing it. 
    * By using the useGetSet option, we can define getters and setters
    * that fetch the string from the ArrayList.
    * Hence, these fields are never actually used.
@@ -72,6 +73,14 @@ public class Poem implements Serializable {
   public List<String> getLines()
   {
     return getLinesAsList();
+  }
+  
+  public void setLines(List<String> lines) {
+    if (lines.size() != 3) {
+      throw new IllegalArgumentException("List did not contain three lines");
+    } else {
+      this.lines = new ArrayList<String>(lines);
+    }
   }
   
   public List<String> getLinesAsList()
