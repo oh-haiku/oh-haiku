@@ -16,7 +16,7 @@ public class MenuActivity extends Activity {
 	}
 	
 	public void goToSavedHaikus(View view) {
-	  startActivity(new Intent(this, BrowseSavedHaikusActivity.class));
+	  startActivityForResult(new Intent(this, BrowseSavedHaikusActivity.class), Constants.LOAD_HAIKU);
 	}
 	
 	public void goToHelp(View view) {
@@ -30,4 +30,12 @@ public class MenuActivity extends Activity {
 	public void loginToTwitter(View view) {
 	  startActivity(new Intent(this, BrowseSavedHaikusActivity.class));
 	}
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (resultCode == Activity.RESULT_OK && requestCode == Constants.LOAD_HAIKU) {
+      setResult(Activity.RESULT_OK, data);
+      finish();
+    }
+  }
 }
