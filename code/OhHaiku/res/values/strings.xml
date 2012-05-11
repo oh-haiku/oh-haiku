@@ -16,5 +16,6 @@
     <string name="save_failed_text">Could not save Haiku</string>
     <string name="save_succeeded_text">Haiku was saved</string>
     <string name="not_certified_haiku_text">Not a valid Haiku</string>
+    <string name="haiku_load_failed_text">Load haiku failed miserably</string>
 
 </resources>
