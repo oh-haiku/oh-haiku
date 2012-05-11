@@ -72,8 +72,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     } catch (SQLException e) {
       Log.e(logTag, "Could not save Haiku", e);
       setStatus(getString(R.string.save_failed_text));
-    }
-	  
+    } 
 	}
 
   private void setStatus(String status) {
