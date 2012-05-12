@@ -20,5 +20,7 @@
     <string name="help_text">Haiku is a type of poem which originates from Japan. A western Haiku implies 3 rows of text, with the syllables distributed according to 5,7,5. The Japan way of writing a Haiku is however more advanced and sophisticated.</string>
     <string name="haiku_loaded_text">Haiku loaded.</string>
     <string name="update_button_title">Update</string>
+    <string name="updated_haiku_text">Updated Haiku</string>
+    <string name="update_failed_text">Update failed</string>
 
 </resources>
