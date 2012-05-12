@@ -39,9 +39,9 @@ The app shall let the user save his or her tweets.
 
 ### F1.3 Haiku analysis
 - Scenario: All three lines of text are analysed for Haiku verification
-- Trigger: The user leaves a text field if live analysis is enabled, or the user pushes the Verify Haiku button
+- Trigger: The user leaves a text field if live analysis is enabled, or the user pushes the Check-button
 - Precondition: Text is present in any of the input fields
-- Basic Path: The user enters text into any or all text input fields. If live analysis is enabled, the text is analysed for Haiku verification on the fly. Else, the text is analysed when the user pushes the Verify Haiku button
+- Basic Path: The user enters text into any or all text input fields. If live analysis is enabled, the text is analysed for Haiku verification on the fly. Else, the text is analysed when the user pushes the Check-button. 
 - Postcondition:
   - The haiku is verified. Either the three lines constitute a Haiku or they don't. The user sees the result.
 
@@ -86,7 +86,7 @@ The typed Twitter-credentials is wrong in some way. Either the username doesn't 
 - Post condition:
 The user is informed graphically if the application is connected to Twitter. 
 
-####F2.3 Analysis of other users on Twitter
+####F2.3 Analysis of other users on Twitter, optional
 
 - Scenario: 
 Analyse other users on Twitter
@@ -114,7 +114,7 @@ F2.2, Information about the Haiku-tweets-proportion of the friend appears.
 - Precondition: The user has entered text into any of the text input fields
 - Basic path: The user starts the app, enters some text and pushes the save button
 - Exceptional path: There is insufficient space to save the haiku. The user is notified. The haiku is not saved.
-- Post condition: The haiku has been saved to the haiku storage and can be accessed later. The GUI informs the user of this.
+- Post condition: The haiku has been saved to the haiku storage and can be accessed later. The GUI informs the user of this. The save-button changes to an update-button
 
 #### F3.2 Browse saved haikus
 - Scenario: Browse saved haikus
@@ -129,10 +129,11 @@ F2.2, Information about the Haiku-tweets-proportion of the friend appears.
 - Trigger: The user selects a haiku in the My saved haikus view
 - Precondition: F3.2
 - Basic path: F3.2, then the user selects a haiku
-- Post condition: The user is taken to the text input view. The selected haiku has been entered into the text input fields.
+- Post condition: The user is taken to the text input view. The selected haiku has been entered into the text input fields and the save-button has changed into an update-button. 
 
 #### F3.4 Update a haiku
 As F3.1, except the Save button is labelled Update and clicking it updates the existing haiku
+- Precondition: As 3.1, but the text must have been manipulated after the last save, to be able to press the update-button
 
 #### F3.5 Remove a saved haiku
 - Scenario: Remove a saved haiku
@@ -141,7 +142,7 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Basic path: F3.2, then the user clicks the remove button
 - Post condition: The haiku is removed from the haiku storage.
 
-### F4 SMS-related requirements
+### F4 SMS-related requirements, optional
 
 #### F4.1 Browse the user's SMSes
 - Scenario: Browse the user's SMSes
