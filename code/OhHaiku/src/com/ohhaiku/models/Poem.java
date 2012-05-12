@@ -83,6 +83,10 @@ public class Poem implements Serializable {
     }
   }
   
+  public void setLines(String[] lines) {
+    setLines(Arrays.asList(lines));
+  }
+  
   public List<String> getLinesAsList()
   {
     return lines;
