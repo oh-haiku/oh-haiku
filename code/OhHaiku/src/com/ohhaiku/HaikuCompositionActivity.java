@@ -78,14 +78,13 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
   }
 	
-	// Click handlers
-	public void saveHaiku(View view) {
-	  Poem p = new Poem(getLines());
+	public void saveHaiku() {
+	  poem = new Poem(getLines());
 	  
 	  // Try to persist poem
 	  try {
 	    Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
-      poemPersister.create(p);
+      poemPersister.create(poem);
       setStatus(getString(R.string.save_succeeded_text));
     } catch (SQLException e) {
       Log.e(logTag, "Could not save Haiku", e);
@@ -136,13 +135,29 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   }
 
   private void setPersistButtonText(String text) {
-    Button b = (Button) findViewById(R.id.SaveButton);
+    Button b = (Button) findViewById(R.id.PersistButton);
     if (b != null) {
       b.setText(text);
     }
   }
   
-  private void updatePoem() {
+  public void onPersist(View v) {
+    if (poem == null) {
+      saveHaiku();
+    } else {
+      updateHaiku();
+    }
+  }
+  
+  private void updateHaiku() {
+    poem.setLines(getLines());
+    try {
+      Dao<Poem, Integer> dao = getHelper().getPoemDao();
+      dao.update(poem);
+      setStatus(getString(R.string.updated_haiku_text));
+    } catch (SQLException e) {
+      setStatus(getString(R.string.update_failed_text));
+    }
     
   }
 }//HaikuCompositionActivity
