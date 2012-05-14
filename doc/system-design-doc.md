@@ -3,6 +3,12 @@
 Version 1.
 Author: Jesper Josefsson
 
+##TODOLIST FROM MAX
+
+ - Intern dependency-analys. Vilka beroenden finns mellan era moduler, vad kan ni påverka, vad kan ni inte påverka pga. Android?
+ - Access och security: Vilka krav uppfyller appen i förhållande till Twitters specifikationer?
+ - Boundary conditions, finns några? Åtar ni er att hantera input som inte passar för SMS eller Twitter? (Detta är endast ett exempel, försök identifiera fler boundary conditions).
+ - Release-procedur (finns inte med i mallen) Beskriv hur en release i ert projekt går till, vad görs i versionshanteringssystemet, vad gör ni med er .apk?
 
 ## General information
 Oh-Haiku is an Android Application which helps users compose Haiku poems and lets the user save poems and share them via Twitter, SMS or e-mail.
