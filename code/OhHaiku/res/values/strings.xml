@@ -22,5 +22,6 @@
     <string name="update_button_title">Update</string>
     <string name="updated_haiku_text">Updated Haiku</string>
     <string name="update_failed_text">Update failed</string>
+    <string name="clear_button_text">Clear</string>
 
 </resources>

@@ -171,7 +171,6 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   /**
    * Click handler for the clear button
    */
-  @SuppressWarnings("unused")
   public void onClear(View v) {
     poem = null;
     setLines(new String[] {"", "", ""});

@@ -119,6 +119,13 @@
     	        android:layout_height="wrap_content"
     	        android:onClick="onPersist"
     	        android:text="@string/save_button_title" />
+    	    <Button 
+    	        android:id="@+id/ClearButton"
+    	        android:layout_width="wrap_content"
+    	        android:layout_height="wrap_content"
+    	        android:onClick="onClear"
+    	        android:text="@string/clear_button_text"
+    	        />
     	</LinearLayout>
 
 </LinearLayout>
