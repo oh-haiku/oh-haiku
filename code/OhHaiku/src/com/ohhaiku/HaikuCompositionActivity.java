@@ -33,10 +33,16 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setContentView(R.layout.main);
   }
 
-  public void goToMenu(View view) {
+	/*
+	 * Click handler
+	 */
+  public void onGoToMenu(View view) {
     startActivityForResult(new Intent(this, MenuActivity.class), Constants.LOAD_HAIKU);
 	}
   
+  /*
+   * Click handler
+   */
   public void onCheck(View view) {
     Poem p = new Poem(getLines());
     Haiku h = new Haiku(p);
