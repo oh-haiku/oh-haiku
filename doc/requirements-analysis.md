@@ -1,10 +1,26 @@
 #Requirements and Analysis Document for OH-Haiku
 
 #1 Introduction
-
+##1.1 Purpose of application
 The germ of this application is a tweet. The Swedish comedian Jesper Rönndahl (@jesperronndahl)
 tweeted that he often thinks in chunks of three unrelated thoughts. He indicated that he would 
 like to have an app that could tell him whether these three sentences constitute a haiku poem.
+
+##1.2 General characteristics of application
+This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku-rules and tweet the text. The application is also an easy way to store the users poems. 
+##1.3 Scope of application
+Our scope is to let the user be able to write Haikus, save them and tweet them. The Japan Haiku is written in one single vertical row and the only thing that is counted is the sound of the tokens which means that syllables are ignored. According to the Haiku criterias the Haiku should for example contain a word that refers to a time of year, not be sentimental, not contain too strong adjectives and merge nature observations with the conditions of life. It is nearly impossible to write an algorithm to check those things. Our algorithm focuses on the Western Haiku and therefore on counting syllables.   
+
+##1.4 Objectives and success criteria of the project
+The purpose of this project is the releasing of the application. Hopefully some people wants this type of application and since both the launch icon and the UI is very attractive and simple we are convinced that the release will be successful. 
+##1.5 Definitions, acronyms and abbreviations
+ - Certified Haiku- A piece of text  divided in three rows, with syllables distributed according to 5-7-5.
+ - Not valid Haiku - A piece of text divided in three rows, with syllables not distributed according to 5-7-5. 
+ - Tweet- A post made on microblogging website Twitter
+ - Haiku Composition Activity - The initial view where the user is able to enter a piece of text divided in three rows. 
+
+We don't use any other type of abbreviations than those stated above.   
+
 
 # 2 Proposed application
 ## 2.1 Overview
@@ -176,7 +192,7 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Exceptional Path: The user chooses to reject the SMS by pushing the cancel button
 - Post condition: The user is returned to the parent view. If the user pushed the send button, an SMS is sent. Otherwise, nothing happens.
 
-### F5 Email related requirements
+### F5 Email related requirements, optional
 #### F5.1 Share a haiku via email
 - Scenario: Prepare to send a haiku as an email
 - Trigger: The user clicks the share button and then the Mail button in the text input view or when viewing a saved haiku
@@ -239,26 +255,364 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Shall use en suitable license. The MIT license will be used if no conflicts occur, for example from using external libraries. The project may become licensed under a GPL license if necessary
 
 ###2.4 Application models 
-####2.4.1 Scenarios  
-####2.4.2 Use case model Use cases priority 
+####2.4.1 Scenarios
+In general the user is able to enter a piece of text, check if the text is written according to our Haiku-criterias and if it is, tweet it. The user can log in to Twitter with Twitter credentials and therefore the user doesn't need to go to Twitter to subscribe the Haiku. The user is also able to get help with writing a Haiku, and save and browse written Haikus. 
+   
+####2.4.2 Use case model Use cases priority
+ 
 ####2.4.3 Static model 
 ####2.4.4 Dynamic model
 ####2.4.5 User interface
-####2.5 Test cases
-####2.6 Possible future directions
-####2.7 References
+We want to use an attractive UI that is independent of the screen density. The leadwords in the creating process is simplicity, straightness and accessibility. The user should get going quickly and it should be easy to navigate. If the user gets to the menu when starting the application it takes time to get started writing. The user may go to the menu the first time but after that it is essential to be able to write Haikus and tweet them quickly. 
 
+The lotus flower is a persistent feature in the application and it should bring thoughts to Japan.   
+####2.5 Test cases
+
+
+##### T1 General test cases
+<br/>
+
+###### T1.1 Text input and clear text input fields
+<br/>
+
+######T1.1.1 Text input
+- Description: 
+The user should be able to enter text into three text input fields.
+
+- Precondition:
+The user starts the app, the HaikuCompositionActivity appears
+
+- Test steps:
+Start the app
+
+- Result state:
+The user is presented with three text input fields
+
+- Related requirements:
+F1.1
+
+###### T1.1.2 Clear all text input fields
+- Description: 
+The user should be able to clear the text in the three text input fields.
+
+- Precondition:
+The user starts the app, the HaikuCompositionActivity appears
+
+- Test steps:
+Start the app, write something in the three text input fields. Press "Clear" in the HaikuCompositionActivity
+
+- Result state:
+All of the input fields are cleared from text
+
+- Related requirements:
+F1.1
+
+###### T1.2 Syllable analysis with live analysis disabled
+- Description: 
+Text should not be analysed on the fly if live analysis is disabled
+
+- Precondition
+T1.1
+
+- Test steps:
+  1. Start the app
+  2. Disable live analysis
+  3. Enter text
+  4. Leave text field
+  
+- Result state:
+The user should not be presented with any syllable information or
+
+- Related requirements:
+F1.2
+
+###### T1.3 Syllable analysis with live analysis enabled
+- Description: 
+Text should be analysed on the fly if live analysis is enabled
+
+- Precondition
+T1.1
+
+- Test steps:
+  1. Start the app
+  2. Enable live analysis
+  3. Enter text
+  4. Leave text field
+  
+- Result state:
+The user is presented with the number of syllables in the text field
+
+- Related requirements:
+F1.2
+
+###### T1.4 Haiku analysis button
+- Description: 
+Haikus analysis should be triggered by the check-button
+
+- Precondition
+T1.1 and T1.2 or T1.3
+
+- Test steps:
+  1. Start the app
+  2. Enter text into the three text fields
+  3. Click the Check button
+  
+- Result state:
+The user should be presented with Haiku verification information, true or false
+
+- Related requirements:
+F1.3
+
+###### T1.5 Haiku analysis of a valid Haiku
+- Description: 
+A valid Haiku should be verified as such
+
+- Precondition
+T1.1, T1.2 or T1.3 and T1.4
+
+- Test steps:
+  1. Start the app
+  2. Enter text into the text fields:
+      - Hej mitt är Per
+      - Jag är inte här just nu
+      - Jag var där en gång
+  3. Click the Check button
+  
+- Result state:
+The user should told that the Haiku is valid
+
+- Related requirements:
+F1.3
+
+###### T1.6 Haiku analysis of an invalid Haiku
+- Description: 
+A invalid Haiku should be verified as such
+
+- Precondition
+T1.1, T1.2 or T1.3 and T1.4
+
+- Test steps:
+  1. Start the app
+  2. Enter text into the text fields:
+      - Detta är för många stavelser
+      - En två
+      - Att apa bepa
+  3. Click the Check button
+  
+- Result state:
+The user should told that the Haiku is invalid,  but the third checkbox should be checked (5 syllables=correct). 
+
+
+- Related requirements:
+F1.3
+
+##### T2 Twitter test cases
+###### T2.1 Tweet the text
+
+- Description: 
+When the user presses "Tweet" the text is submitted to Twitter
+
+- Precondition: 
+(T1.1, T1.2 or T1.3, T1.5, T2.2) or (T4.3, T1.5, T2.2) The text-string is written or loaded from saved Haikus and the Haiku is certified correctly. The test checking that the user is logged in with Twitter must be passed.  
+
+- Test steps:
+Press "Tweet". When the user presses the button the text should be submitted to Twitter if the user is logged in with the Twitter-credentials. 
+
+- Result state:
+The text is submitted and the user is informed
+
+- Related requirement
+F2.1
+
+###### T2.2 Logging in with Twitter and store user-credentials
+
+- Description: 
+The user inserts Twitter-credentials and presses "Log in with Twitter" and has an option to store the credentials. 
+
+- Precondition: 
+Start application and press "Settings" should have been tested.  
+
+- Test steps:
+The user can insert Twitter-credentials and store them. If the typed Twitter-credentials is wrong in some way (either the username doesn't exist or the password is wrong), the user is informed by some sort of error-message (graphical, sound). If the user presses "remember me" the credentials is stored. 
+
+- Result state:
+The user is logged in with Twitter
+
+- Related requirement
+F2.2
+
+###### T2.3 Analysis of other users on Twitter, optional
+
+- Description: 
+The user clicks on "Check Twitter for #haiku".
+
+- Precondition: 
+The user has an internet connection. No twitter account is required.
+
+- Test steps:
+If no internet connection is established an error message will be shown.
+
+- Result state:
+A list of tweets will be shown in descending order with respect to the creation date.
+Next to each tweet a message will be shown notifing the user of the haiku state.
+
+- Related requirement:
+
+
+###### T3.1 Save a haiku
+- Description:
+The user saves a haiku
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Enter text into text fields: "apa", "bepa", "cepa"
+  3. Click save
+
+- Result state:
+A message "Haiku saved!" appears, and also the save-button turns into a update-button. 
+
+- Related requirement:
+F3.1
+
+
+###### T3.2 Check for presence of saved haiku
+
+- Description
+Check that a saved haiku is in the My saved Haikus list
+
+- Precondition:
+T3.1
+
+- Test steps:
+  1. T3.1
+  2. T4.2
+  
+- Result state:
+The user is in the My saved Haikus view and a haiku containing the lines "apa", "bepa", "cepa" is visible
+
+- Related requirements:
+F3.1, F3.2
+
+##### T4 Navigational tests
+
+###### T4.1 Menu
+
+- Description:
+There is a menu
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Click Menu button
+
+- Result state:
+The user is presented with a menu with 4 menu items: login to twitter, help, browse saved haikus and FAQ
+
+- Related requirements
+TODO: should have menu requirements
+
+###### T4.2 Browse haikus
+
+- Description:
+The user can browse previously saved haikus
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. T4.1
+  2. Click the My saved Haikus button
+
+- Result state:
+The user sees a list of Haikus or the message "No saved Haikus"
+
+- Related requirements:
+F3.2
+
+###### T4.3 Load saved haikus
+
+- Description:
+The user can load a saved Haiku into the HaikuCompositionActivity. 
+
+- Precondition:
+T3.2, T4.2
+
+- Test steps:
+  1. T3.2
+  2. T4.2
+  3. Load a certain haiku
+
+- Result state:
+The chosen haiku is loaded in the HaikuCompositionActivity, and the save-button changes to an update-button
+
+- Related requirements:
+F3.3
+
+###### T4.4 Update haikus
+
+- Description:
+The user can update an already saved haiku or a loaded and manipulated haiku
+
+- Precondition:
+T3.1 or T4.3
+
+- Test steps:
+  1. T3.1 or T4.3
+  2. Click the Update-button when the text is manipulated in some way. The update-button shouldn't be clickable if the text isn't manipulated. 
+
+- Result state:
+The user sees "Haiku updated". 
+
+- Related requirements:
+F3.4
+
+###### T4.5 Remove saved haikus
+
+- Description:
+The user can remove a saved Haiku
+
+- Precondition:
+T3.2, T4.2
+
+- Test steps:
+  1. T3.2
+  2. T4.2
+  3. Click/Swipe a remove-button in the list of My saved haikus to remove a certain haiku
+
+- Result state:
+The haiku is removed from the My saved haikus-list 
+
+- Related requirements:
+F3.5
+
+
+#####2.6 Possible future directions
+In general the possible future directions should focus on developing the Haiku-algorithm. This algorithm is rather naive and should be more effective if it took these criterias into consideration:
+ - It contains a word that refers to a time of year 
+ - It is divided in two parts in order to surprise 
+ - It is not sentimental
+ - It merges nature observations with the conditions of life
+ - It should be short-spoken and avoid repetition
+ - It should not contain personal pronominals
+ - It should avoid too strong adjectives
+
+#####2.7 References
+References on the Haiku algorithm:
+
+ - [Svenska Haiku Sällskapet](http://www.haiku-shs.org/shs.htm)
+ - [Wikipedias definition av en Haiku](http://sv.wikipedia.org/wiki/Haiku)
  
 
 
-
-
-
 #3 Architecture
-Arkitekturen kommer att följa MVC-mönstret (Model - View - Controller) vilket innebär att data och presentation separeras. 
-Data enkapsuleras i en modell. Vyn presenterar data från modellen. Kontrollern förmedlar händelser i vyn till modellen och förändringar i modelldata till vyn.
-På så vis kan till exempel databasmotorn eller hela lagringslösningen bytas ut utan att det påverkar vyn. I gengäld kan även presentationen av data förändras utan att modellen behöver skrivas om. 
+The architecture will follow the MVC which means that data and presentation is separated. The data is encapsulated in a modell. The view presents data from the model. The controller transmits events in the view to the modell and changes in the model data to the view. By this the whole database or the storage solution be switched without any consequences on the view. 
 
 #4 Design
-Färdiga stavelseräknande algoritmer ska undersökas. Ett möjligt alternativ är att använda sig av en algoritm som används i LaTeX. Den finns beskriven i en doktorsavhandling. Färdiga implementationer finns släppta under GPL-licens. Val av den implementationen skulle alltså föranleda ett byte av licens.
-Även vad gäller Twitter-integrationen skall färdiga bibliotek undersökas. Twitter4J är ett möjligt alternativ. Biblioteket skötet auktorisering och autentisering mot Twitter via OAuth. Licensen är Apache, vilken torde vara kompatibel med MIT.
+Already developed syllable counters will be considered. A possible alternative is to use an algorithm that is used in LaTeX. That algorithm is stated in a doctoral dissertation. Finished implementations are already released under the GPL-license. If we will choose that implementation we have to change our choice of license. 
+
+In terms of the Twitter-integration we will consider existing libraries. Twitter4J is a possible alternative. The library manage authorization and authentification with Twitter through OAuth. The license is Apache, which should be compatible with MIT. 
