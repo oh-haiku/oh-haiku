@@ -1,3 +1,7 @@
+/**
+ * @author Jesper Josefsson
+ */
+
 package com.ohhaiku;
 
 import java.sql.SQLException;
@@ -24,6 +28,10 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   private static final String logTag = "HaikuComposition";
   private static final int DEFAULT_VALUE = -1;
   
+  /*
+   * This variable is only set with a persisted poem.
+   * Used to enable updates of poems
+   */
   private Poem poem;
 
   /** Called when the activity is first created. */	
@@ -33,15 +41,16 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setContentView(R.layout.main);
   }
 
-	/*
-	 * Click handler
+	/**
+	 * Click handler for the menu button
+	 * Starts the menu, possibly expecting a result in the form of Poem
 	 */
   public void onGoToMenu(View view) {
     startActivityForResult(new Intent(this, MenuActivity.class), Constants.LOAD_HAIKU);
 	}
   
-  /*
-   * Click handler
+  /**
+   * Click handler for the Check Haiku button
    */
   public void onCheck(View view) {
     Poem p = new Poem(getLines());
@@ -54,6 +63,9 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
   }
   
+  /*
+   * Returns three textViews corresponding to the three lines of the Haiku
+   */
   private TextView[] getTextViews() {
     TextView[] views = new TextView[3];
     
@@ -65,7 +77,10 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     return views;
   }
   
-  public String[] getLines() {
+  /*
+   * Returns an array of Strings, representing the three lines of the Haiku
+   */
+  private String[] getLines() {
     TextView[] views = getTextViews();
     
     String[] lines = new String[3];
@@ -77,14 +92,20 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     return lines;
   }
   
-  public void setLines(String[] lines) {
+  /*
+   * Sets the three lines of the Haiku
+   */
+  private void setLines(String[] lines) {
     TextView[] views = getTextViews();
     for (int i = 0; i < 3; i++) {
       views[i].setText(lines[i]);
     }
   }
 	
-	public void saveHaiku() {
+  /*
+   * Fetches the Haiku from the composition view and attempts to persist it.
+   */
+	private void saveHaiku() {
 	  poem = new Poem(getLines());
 	  
 	  // Try to persist poem
@@ -98,11 +119,18 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     } 
 	}
 
+	/*
+	 * Sets the status text view.
+	 */
   private void setStatus(String status) {
     TextView statusView = (TextView) this.findViewById(R.id.statusText);
     statusView.setText(status);
   }
-
+  
+  /*
+   * Called when the Menu activity passes on a Haiku from the BrowseSavedHaikus Activity
+   * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
+   */
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (resultCode == Activity.RESULT_OK && requestCode == Constants.LOAD_HAIKU) {
@@ -114,7 +142,10 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       }
     }
   }
-
+  
+  /*
+   * Fetches a haiku from the database by ID
+   */
   private void loadHaiku(int id) {
     try {
       Dao<Poem, Integer> dao = getHelper().getPoemDao();
@@ -125,6 +156,10 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
   }
   
+  /*
+   * Sets the current poem.
+   * This will set the instance variable and render the Haiku in the GUI
+   */
   private void setPoem(Poem poem) {
     this.poem = poem;
     Log.i(logTag, poem.toString());
@@ -133,13 +168,19 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setPersistButtonText(getString(R.string.update_button_title));
   }
   
+  /**
+   * Click handler for the clear button
+   */
   @SuppressWarnings("unused")
-  private void onClear(View v) {
+  public void onClear(View v) {
     poem = null;
     setLines(new String[] {"", "", ""});
     setPersistButtonText(getString(R.string.save_button_title));
   }
 
+  /*
+   * Sets the text of the persist button. Used toggle between "Update" and "Save"
+   */
   private void setPersistButtonText(String text) {
     Button b = (Button) findViewById(R.id.PersistButton);
     if (b != null) {
@@ -147,6 +188,10 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
   }
   
+  /**
+   * Click handler for the Save/Update button
+   * Checks if the current haiku has been saved, if so - updates it. Otherwise, saves a new Haiku.
+   */
   public void onPersist(View v) {
     if (poem == null) {
       saveHaiku();
@@ -155,6 +200,9 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
   }
   
+  /*
+   * Updates the current Haiku using the contents of the textViews.
+   */
   private void updateHaiku() {
     poem.setLines(getLines());
     try {
