@@ -41,6 +41,36 @@ Använder ni emulatorn eller riktig telefon vid dessa?
 (what software (incl version) was used?)
 ####2.2.3 Softwares
 
+Coding:
+
+ - Eclipse SDK Version 3.6 (Helios) or later. 
+
+Mockups:
+
+ - Balsamiq Mockups Version 2.1.16
+
+Code coverage:
+
+ - [EclEmma](http://www.eclemma.org/)
+
+Nightly builds:
+
+ - [Travis CI](http://travis-ci.org/)
+
+Unit tests:
+
+ - JUnit 3 with Android extensions
+
+
+GUI-tests:
+
+ - [robotium](http://code.google.com/p/robotium/)
+
+
+
+
+
+
 ####2.2.3 Software settings
 
 ### 3 System information
@@ -50,7 +80,8 @@ Använder ni emulatorn eller riktig telefon vid dessa?
 ### 4 Known bugs and limitations
 
 ### 5 Test specification
-For documentation on the tests: 
+For documentation on the tests, view [RAD-document with tests](https://github.com/oh-haiku/oh-haiku/blob/master/doc/RAD.md)
+
 
 
 ### 6 Automatic test
