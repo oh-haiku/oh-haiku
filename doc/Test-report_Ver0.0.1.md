@@ -1,6 +1,6 @@
-#Test-report for OH-HAIKU Release Ver 0.0.1
+#Test-report for OH-HAIKU Release Ver 0.1.0
 
-This is the test-report for Release Ver 0.0.1 of the OH-HAIKU application. The contents of the written tests can be viewed in the [RAD-document](https://github.com/oh-haiku/oh-haiku/blob/master/doc/RAD.md). For further information about the tests, take a look at the [Test-plan](https://github.com/oh-haiku/oh-haiku/blob/master/doc/test-plan.md) for the project. 
+This is the test-report for Release Ver 0.1.0 of the OH-HAIKU application. The contents of the written tests can be viewed in the [RAD-document](https://github.com/oh-haiku/oh-haiku/blob/master/doc/RAD.md). For further information about the tests, take a look at the [Test-plan](https://github.com/oh-haiku/oh-haiku/blob/master/doc/test-plan.md) for the project. 
 ##1 Written tests
 
 These tests has been done according to the [Test-plan](https://github.com/oh-haiku/oh-haiku/blob/master/doc/test-plan.md) for the project. 
