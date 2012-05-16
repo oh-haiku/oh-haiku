@@ -20,7 +20,7 @@ import com.j256.ormlite.dao.Dao;
 import com.ohhaiku.database.DatabaseHelper;
 import com.ohhaiku.models.Haiku;
 import com.ohhaiku.models.Poem;
-import com.ohhaiku.Constants;
+import com.ohhaiku.utility.Constants;
 
 /*
  * Main activity: shows the Haiku composition window.
@@ -225,6 +225,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     poem = null;
     setLines(new String[] {"", "", ""});
     setPersistButtonText(getString(R.string.save_button_title));
+    setStatus("");
   }
 
   /*

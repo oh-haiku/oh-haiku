@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PoemAdapter extends ArrayAdapter<Poem> {
@@ -36,11 +37,15 @@ public class PoemAdapter extends ArrayAdapter<Poem> {
        haikuText.setText(p.toString());
      }
      
-     CheckBox checkBox = (CheckBox) v.findViewById(R.id.haikuVerifiedCheckBox);
+     ImageView image = (ImageView) v.findViewById(R.id.haiku_icon);
      // TODO: Check haiku now
-     if (checkBox != null) {
+     if (image != null) {
        Haiku h = new Haiku(p);
-       checkBox.setChecked(h.isValid());
+       if (h.isValid()) {
+         image.setImageResource(R.drawable.green_icn);
+       } else {
+         image.setImageResource(R.drawable.grey_icn);
+       }
      }
     }
     return v;
