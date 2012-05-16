@@ -56,18 +56,8 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   public void onCheck(View view) {
     Poem p = new Poem(getLines());
     Haiku h = new Haiku(p);
-
-    //valid Rows
-
-    for (int i=0;i<3;i++) {
-      boolean validrow = h.isValidRow(i);
-      if (validrow){
-        setValidRowImage(i);
-      }
-      else {
-        setDefaultRowImage(i);
-      } 
-    }//sets new images if the row is valid
+    
+    setValidRows(h);
 
     boolean valid = h.isValid();
     if (valid) {
@@ -131,6 +121,19 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       Log.e(logTag, "Could not save Haiku", e);
       setStatus(getString(R.string.save_failed_text));
     } 
+	}
+	
+	
+	private void setValidRows(Haiku h){
+	   for (int i=0;i<3;i++) {
+	    	 boolean validrow = h.isValidRow(i);
+	    	 if (validrow){
+	    		 setValidRowImage(i);
+	    	 }
+	    	 else {
+	    		 setDefaultRowImage(i);
+	    	 } 
+	    }
 	}
 	
 	private void setDefaultRowImage(int row) {

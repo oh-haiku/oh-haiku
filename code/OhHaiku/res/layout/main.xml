@@ -81,9 +81,12 @@
          android:visibility="visible" 
          />
 
-    
-     
-
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+    	>
      <Button
          android:id="@+id/CheckHaikuButton"
          android:layout_width="wrap_content"
@@ -91,9 +94,14 @@
          android:layout_gravity="center_horizontal"
          android:ems="10"
          android:onClick="onCheck"
-         android:text="@string/check_button_title"
-          />
-
+         android:text="@string/check_button_title" />
+     <Button
+    	        android:id="@+id/ClearButton"
+    	        android:layout_width="wrap_content"
+    	        android:layout_height="wrap_content"
+    	        android:onClick="onClear"
+    	        android:text="@string/clear_button_text" />
+	</LinearLayout>
     	<LinearLayout
     	    android:id="@+id/saveAndStatusView"
     	    android:layout_width="wrap_content"
@@ -121,13 +129,9 @@
     	        android:layout_height="wrap_content"
     	        android:onClick="onPersist"
     	        android:text="@string/save_button_title" />
-    	    <Button 
-    	        android:id="@+id/ClearButton"
-    	        android:layout_width="wrap_content"
-    	        android:layout_height="wrap_content"
-    	        android:onClick="onClear"
-    	        android:text="@string/clear_button_text"
-    	        />
+
+    	    
+
     	</LinearLayout>
 
 </LinearLayout>
