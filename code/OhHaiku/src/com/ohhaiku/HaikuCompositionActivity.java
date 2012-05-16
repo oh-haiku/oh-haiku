@@ -175,6 +175,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     poem = null;
     setLines(new String[] {"", "", ""});
     setPersistButtonText(getString(R.string.save_button_title));
+    setStatus("");
   }
 
   /*
