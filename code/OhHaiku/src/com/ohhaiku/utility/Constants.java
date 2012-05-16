@@ -1,4 +1,4 @@
-package com.ohhaiku;
+package com.ohhaiku.utility;
 
 public class Constants {
   public static final int LOAD_HAIKU = 123898914;

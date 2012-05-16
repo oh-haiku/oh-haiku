@@ -16,6 +16,7 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 import com.ohhaiku.database.DatabaseHelper;
 import com.ohhaiku.models.Poem;
+import com.ohhaiku.utility.Constants;
 import com.ohhaiku.views.PoemAdapter;
 
 /*
