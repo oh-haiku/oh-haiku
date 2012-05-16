@@ -24,6 +24,8 @@ This is the first release of the Oh-Haiku application. In general the release sh
  - Can't log in with Twitter credentials
  - Can't store Twitter credentials
  - Can’t see which rows that are correct when browsing saved haikus
+ - The Lotus-flowers that should work as correct-row-indicators doesn't work when loading a saved Haiku
+ - The save-button doesn't change text to "Update" after changes in the text
  - Background looks weird in landscape view
  - Background looks weird in some devices
  - The buttons in the HaikuCompositionView aren't aligned
