@@ -1,4 +1,4 @@
-package com.ohhaiku.test;
+package com.ohhaiku.test.modeltests;
 
 import com.ohhaiku.models.Poem;
 import com.ohhaiku.models.Haiku;

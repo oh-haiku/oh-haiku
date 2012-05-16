@@ -2,7 +2,7 @@
  * @author Jesper Josefsson
  */
 
-package com.ohhaiku.test;
+package com.ohhaiku.test.modeltests;
 
 import java.util.ArrayList;
 import java.util.Arrays;
