@@ -17,6 +17,7 @@ local.properties
 .settings/
 .loadpath
 gen/**/*
+*.keystore
 
 # External tool builders
 .externalToolBuilders/
