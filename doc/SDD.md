@@ -46,22 +46,27 @@ Abstract classes;
 - SyllableCounterFactory
   - Extending classes provide instances of SyllableCounter for a particular language
 
-Classes:
+Models:
 - Haiku
   - Checks whether a poem is a haiku
   - Uses a SyllableCounterFactory to generate new instances of SyllableCounter for a particular language
 - Poem
   - Encapsulates three rows of text
   - Serializable for database storage
+  
+Activities:
+- TODO: list activities
+  
 
 ### Data persistency
-A SQLite database will be used to store Twitter tokens, saved Haiku poems
+A SQLite database will be used to store saved Haiku poems.
 
 ### Testing
 JUnit 3 will be used for testing
 
 ### Dependencies
-The aim has been to solve dependencies using a package manager, for example Maven. This idea is shelved for now, as configuring Maven for Android turned out to be quite tricky.
+The aim was to solve dependencies using a package manager, for example Maven. This idea is shelved for now, as configuring Maven for Android turned out to be quite tricky.
 Instead, 3PP packages will be added as JAR-files.
 
 - ORMLite
+- Twitter4J

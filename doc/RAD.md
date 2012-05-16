@@ -9,25 +9,22 @@ like to have an app that could tell him whether these three sentences constitute
 ##1.2 General characteristics of application
 This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku-rules and tweet the text. The application is also an easy way to store the users poems. 
 ##1.3 Scope of application
-Our scope is to let the user be able to write Haikus, save them and tweet them. The Japan Haiku is written in one single vertical row and the only thing that is counted is the sound of the tokens which means that syllables are ignored. According to the Haiku criterias the Haiku should for example contain a word that refers to a time of year, not be sentimental, not contain too strong adjectives and merge nature observations with the conditions of life. It is nearly impossible to write an algorithm to check those things. Our algorithm focuses on the Western Haiku and therefore on counting syllables.   
+Our scope is to let the user be able to write Haikus, save them and tweet them. The Japanese Haiku is written in one single vertical row and the only thing that is counted is the sound of the tokens which means that syllables are ignored. According to the Haiku criterias the Haiku should for example contain a word that refers to a time of year, not be sentimental, not contain too strong adjectives and merge nature observations with the conditions of life. It is nearly impossible to write an algorithm to check those things. Our algorithm focuses on the Western Haiku and therefore on counting syllables.
+Only a Swedish language version is planned at the moment. Syllable counting is performed by counting groups of single or consequtive vowels. The algorithm does not handle compound words, i.e. vidareutveckla.
 
 ##1.4 Objectives and success criteria of the project
-The purpose of this project is the releasing of the application. Hopefully some people wants this type of application and since both the launch icon and the UI is very attractive and simple we are convinced that the release will be successful. 
+The purpose of this project is the release of the application. The success criteria is that version 1 of the application has been released as an apk package.
 ##1.5 Definitions, acronyms and abbreviations
- - Certified Haiku- A piece of text  divided in three rows, with syllables distributed according to 5-7-5.
- - Not valid Haiku - A piece of text divided in three rows, with syllables not distributed according to 5-7-5. 
- - Tweet- A post made on microblogging website Twitter
+ - Certified Haiku - A piece of text divided into three rows, with syllables distributed according to 5-7-5.
+ - Non-valid Haiku - Any piece of text with a number of lines not equal to three, or syllables not distributed according to 5-7-5. 
+ - Tweet - A post made on the microblogging website Twitter
  - Haiku Composition Activity - The initial view where the user is able to enter a piece of text divided in three rows. 
-
-We don't use any other type of abbreviations than those stated above.   
-
 
 # 2 Proposed application
 ## 2.1 Overview
 The app shall be able to tell if a piece of text is a haiku. 
 The app will help the user to write a haiku by indicating where more syllables are needed
 or where they need to be removed.
-The app shall give the user some kind of score, based upon how close the text is to a haiku.
 The user shall be able to tweet his or her haikus.
 The app shall let the user save his or her tweets.
 
@@ -592,7 +589,9 @@ F3.5
 
 
 #####2.6 Possible future directions
-In general the possible future directions should focus on developing the Haiku-algorithm. This algorithm is rather naive and should be more effective if it took these criterias into consideration:
+In general the possible future directions should focus on developing the Haiku-algorithm.
+First and foremost, the algorithm should be able to handle Swedish compound words.
+The algorithm could also take artistic values into account, like the following:
  - It contains a word that refers to a time of year 
  - It is divided in two parts in order to surprise 
  - It is not sentimental
@@ -600,6 +599,8 @@ In general the possible future directions should focus on developing the Haiku-a
  - It should be short-spoken and avoid repetition
  - It should not contain personal pronominals
  - It should avoid too strong adjectives
+ 
+Adding additional languages should also be possible.
 
 #####2.7 References
 References on the Haiku algorithm:
@@ -610,9 +611,11 @@ References on the Haiku algorithm:
 
 
 #3 Architecture
-The architecture will follow the MVC which means that data and presentation is separated. The data is encapsulated in a modell. The view presents data from the model. The controller transmits events in the view to the modell and changes in the model data to the view. By this the whole database or the storage solution be switched without any consequences on the view. 
+The application is a standard Android application with a database. The database is used to store Haiku poems. The application has modules for counting syllables and checking whether an input string is a valid Haiku. The application adheres to the standard Android MVC pattern. All views have corresponding Activities. Activities communicate with each other using Android Activity Results. The application has modules for Twitter authentication and authorization.
 
 #4 Design
-Already developed syllable counters will be considered. A possible alternative is to use an algorithm that is used in LaTeX. That algorithm is stated in a doctoral dissertation. Finished implementations are already released under the GPL-license. If we will choose that implementation we have to change our choice of license. 
+Ready-made syllable counters will be considered. A possible alternative is to use an algorithm that is used in LaTeX. That algorithm is stated in a doctoral dissertation. Finished implementations are already released under the GPL-license. If we will choose that implementation we have to change our choice of license. 
+
+The ORMLite library is used for database interaction. Activities that need to access the database extend the ORMLiteBaseActivity class.
 
 In terms of the Twitter-integration we will consider existing libraries. Twitter4J is a possible alternative. The library manage authorization and authentification with Twitter through OAuth. The license is Apache, which should be compatible with MIT. 
