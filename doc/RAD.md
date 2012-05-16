@@ -155,9 +155,46 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Basic path: F3.2, then the user clicks the remove button
 - Post condition: The haiku is removed from the haiku storage.
 
-### F4 SMS-related requirements, optional
+### F4 Navigational requirements
 
-#### F4.1 Browse the user's SMSes
+####F4.1 Navigation to Menu
+- Scenario: Navigation to Menu
+- Trigger: The user clicks Menu in the haikuCompositionView
+- Precondition: The user has started the application
+- Basic path: The user clicks Menu
+- Post condition: The application is launched
+
+####F4.2 Navigation to Log in with Twitter
+- Scenario: Navigation to Log in with Twitter
+- Trigger: The user clicks Log in to Twitter
+- Precondition: F4.1
+- Basic path: The user clicks menu and Log in to Twitter
+- Post condition: The Log-in-to-Twitter-view is shown
+
+####F4.3 Navigation to Help
+- Scenario: Navigation to Help
+- Trigger: The user clicks Help
+- Precondition: F4.1
+- Basic path: The user clicks menu and Help
+- Post condition: The Help-view is shown
+
+####F4.4 Navigation to My saved Haikus
+- Scenario: Navigation to My saved Haikus
+- Trigger: The user clicks My saved Haikus
+- Precondition: F4.1
+- Basic path: The user clicks menu and My saved Haikus
+- Post condition: The My saved Haikus-list is shown
+
+####F4.5 Navigation to FAQ
+- Scenario: Navigation to FAQ
+- Trigger: The user clicks FAQ
+- Precondition: F4.1
+- Basic path: The user clicks menu and FAQ
+- Post condition: The FAQ-view appears
+
+### F5 SMS-related requirements, optional
+
+#### F5.1 Browse the user's SMSes
 - Scenario: Browse the user's SMSes
 - Trigger: The user clicks the SMSes-button in the main menu
 - Precondition: The user has authorized the app to read his or her SMSes
@@ -165,7 +202,7 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Exceptional path: N/A
 - Post condition: The user sees a list of his or her SMSes
 
-#### F4.2 Analyze an SMS
+#### F5.2 Analyze an SMS
 - Scenario: Analyze an SMS
 - Trigger: The user selects an SMS in the Browse SMSes view
 - Precondition: F4.1
@@ -173,7 +210,7 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Exceptional path: N/A
 - Post condition: The user sees the selected SMS, indication whether the SMS is a haiku and the number of syllables on each row.
 
-#### F4.3 Prepare to share a haiku via SMS
+#### F5.3 Prepare to share a haiku via SMS
 - Scenario: Prepare to send a haiku as an SMS
 - Trigger: The user clicks the share button and then the Via SMS button in the text input view or when viewing a saved haiku
 - Precondition: The users has authorized the app to send SMSes. The user has a saved haiku or has entered text in the text input view
@@ -181,7 +218,7 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Exceptional path: N/A
 - Post condition: The user is presented with a preview of the SMS that is to be sent
 
-#### F4.4 Share a haiku via SMS
+#### F5.4 Share a haiku via SMS
 - Scenario: Send a haiku as an SMS
 - Trigger: F4.3
 - Precondition: F4.3
@@ -189,8 +226,8 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Exceptional Path: The user chooses to reject the SMS by pushing the cancel button
 - Post condition: The user is returned to the parent view. If the user pushed the send button, an SMS is sent. Otherwise, nothing happens.
 
-### F5 Email related requirements, optional
-#### F5.1 Share a haiku via email
+### F6 Email related requirements, optional
+#### F6.1 Share a haiku via email
 - Scenario: Prepare to send a haiku as an email
 - Trigger: The user clicks the share button and then the Mail button in the text input view or when viewing a saved haiku
 - Precondition: The user has a saved haiku or has entered text in the text input view
@@ -272,6 +309,7 @@ The lotus flower is a persistent feature in the application and it should bring 
 #### T1.1 Text input and clear text input fields
 <br/>
 
+
 #### T1.1.1 Text input
 - Description: 
 The user should be able to enter text into three text input fields.
@@ -299,7 +337,7 @@ The user starts the app, the HaikuCompositionActivity appears
 Start the app, write something in the three text input fields. Press "Clear" in the HaikuCompositionActivity
 
 - Result state:
-All of the input fields are cleared from text
+All of the input fields are cleared from text, and the check-lotus-flowers turns grey. 
 
 - Related requirements:
 F1.1
@@ -318,7 +356,7 @@ T1.1
   4. Leave text field
   
 - Result state:
-The user should not be presented with any syllable information or
+The user should not be presented with any syllable information. 
 
 - Related requirements:
 F1.2
@@ -355,7 +393,7 @@ T1.1 and T1.2 or T1.3
   3. Click the Check button
   
 - Result state:
-The user should be presented with Haiku verification information, true or false
+The user should be presented with Haiku verification information, true or false and beside each row a lotus-flower turns green if the row is correct. 
 
 - Related requirements:
 F1.3
@@ -376,7 +414,7 @@ T1.1, T1.2 or T1.3 and T1.4
   3. Click the Check button
   
 - Result state:
-The user should told that the Haiku is valid
+The user should told that the Haiku is valid and  the lotus-flowers on each row turns green. 
 
 - Related requirements:
 F1.3
@@ -397,7 +435,7 @@ T1.1, T1.2 or T1.3 and T1.4
   3. Click the Check button
   
 - Result state:
-The user should told that the Haiku is invalid,  but the third checkbox should be checked (5 syllables=correct). 
+The user should told that the Haiku is invalid,  but the lotus-flower on the third row should turn green (5 syllables=correct). 
 
 
 - Related requirements:
@@ -427,7 +465,7 @@ F2.1
 The user inserts Twitter-credentials and presses "Log in with Twitter" and has an option to store the credentials. 
 
 - Precondition: 
-Start application and press "Settings" should have been tested.  
+Start application and press Menu->Log in with Twitter should have been tested.  
 
 - Test steps:
 The user can insert Twitter-credentials and store them. If the typed Twitter-credentials is wrong in some way (either the username doesn't exist or the password is wrong), the user is informed by some sort of error-message (graphical, sound). If the user presses "remember me" the credentials is stored. 
@@ -456,6 +494,7 @@ Next to each tweet a message will be shown notifing the user of the haiku state.
 - Related requirement:
 
 
+###Saving, browsing, retrieving and updating haikus
 #### T3.1 Save a haiku
 - Description:
 The user saves a haiku
@@ -493,27 +532,25 @@ The user is in the My saved Haikus view and a haiku containing the lines "apa", 
 - Related requirements:
 F3.1, F3.2
 
-### T4 Navigational tests
+#### T3.3 Correct rows of a saved haiku
 
-#### T4.1 Menu
-
-- Description:
-There is a menu
+- Description
+Shows which rows that are correct of a saved haiku, in the "My saved Haikus"-list
 
 - Precondition:
-N/A
+T3.1
 
 - Test steps:
-  1. Start app
-  2. Click Menu button
-
+  1. T3.1
+  2. T4.2
+  
 - Result state:
-The user is presented with a menu with 4 menu items: login to twitter, help, browse saved haikus and FAQ
+The user is in the My saved Haikus view and there is an image with the haiku that reveals which rows that are correctly written. Grey leaves = not valid row. Green leaves = correct row. 
 
-- Related requirements
-TODO: should have menu requirements
+- Related requirements:
+F3.1, F3.2
 
-#### T4.2 Browse haikus
+#### T3.4 Browse haikus
 
 - Description:
 The user can browse previously saved haikus
@@ -531,7 +568,7 @@ The user sees a list of Haikus or the message "No saved Haikus"
 - Related requirements:
 F3.2
 
-#### T4.3 Load saved haikus
+#### T3.5 Load saved haikus
 
 - Description:
 The user can load a saved Haiku into the HaikuCompositionActivity. 
@@ -545,12 +582,12 @@ T3.2, T4.2
   3. Load a certain haiku
 
 - Result state:
-The chosen haiku is loaded in the HaikuCompositionActivity, and the save-button changes to an update-button
+The chosen haiku is loaded in the HaikuCompositionActivity, and the save-button changes to an update-button. The lotus-flowers indicates which rows that are correctly written. 
 
 - Related requirements:
 F3.3
 
-#### T4.4 Update haikus
+#### T3.6 Update haikus
 
 - Description:
 The user can update an already saved haiku or a loaded and manipulated haiku
@@ -563,12 +600,12 @@ T3.1 or T4.3
   2. Click the Update-button when the text is manipulated in some way. The update-button shouldn't be clickable if the text isn't manipulated. 
 
 - Result state:
-The user sees "Haiku updated". 
+The user sees "Haiku updated" and the lotus-flowers changes according to the current haiku. 
 
 - Related requirements:
 F3.4
 
-#### T4.5 Remove saved haikus
+#### T3.7 Remove saved haikus
 
 - Description:
 The user can remove a saved Haiku
@@ -582,10 +619,106 @@ T3.2, T4.2
   3. Click/Swipe a remove-button in the list of My saved haikus to remove a certain haiku
 
 - Result state:
-The haiku is removed from the My saved haikus-list 
+The haiku is removed from the My saved haikus-list.
 
 - Related requirements:
 F3.5
+
+
+### T4 Navigational tests
+
+#### T4.1 Menu
+
+- Description:
+There is a menu
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Click Menu button
+
+- Result state:
+The user is presented with a menu with 4 menu items: login to twitter, help, browse saved haikus and FAQ
+
+- Related requirements:
+F4.1
+
+#### T4.2 Log in to Twitter
+
+- Description:
+Log in to Twitter
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Click Menu button
+  3. Click Log in to Twitter
+
+- Result state:
+The user is presented with a login-view and is able to enter his/her credentials. 
+
+- Related requirements:
+F4.2
+
+#### T4.3 Help
+
+- Description:
+There is a Help-function
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Click Menu button
+  3. Click Help
+
+- Result state:
+The user is presented with a Help-function with a text explaining how to write a Haiku. 
+
+- Related requirements: F4.3
+
+#### T4.4 My saved Haikus
+
+- Description:
+My saved Haikus
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Click Menu button
+  3. Click My saved Haikus
+
+- Result state:
+The user is presented with list of the saved Haikus. 
+
+- Related requirements: F4.4
+
+#### T4.5 FAQ
+
+- Description:
+There is a FAQ
+
+- Precondition:
+N/A
+
+- Test steps:
+  1. Start app
+  2. Click Menu button
+  3. Click FAQ
+
+- Result state:
+The user is presented with a FAQ
+
+- Related requirements: F4.5
+
+
 
 
 ## 2.6 Possible future directions
