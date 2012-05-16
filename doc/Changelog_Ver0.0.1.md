@@ -1,4 +1,4 @@
-#Changelog Ver. 0.0.1
+#Changelog Ver. 0.1.0
 This is the first release of the Oh-Haiku application. In general the release should have taken all requirements into consideration except the Twitter-requirements, the optional requirements and some of the non-functional requirements.
  
 ##Adds
