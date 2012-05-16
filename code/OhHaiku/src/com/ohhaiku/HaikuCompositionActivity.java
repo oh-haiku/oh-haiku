@@ -226,7 +226,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setLines(new String[] {"", "", ""});
     setPersistButtonText(getString(R.string.save_button_title));
     setStatus("");
-    for (int i=0;i>3;i++) {
+    for (int i=0;i<3;i++) {
     	setDefaultRowImage(i);
     }
   }
