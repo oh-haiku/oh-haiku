@@ -57,7 +57,8 @@ These tests has been done according to the [Test-plan](https://github.com/oh-hai
     </tr>
 <tr>
         <td>T3.1</td>
-		<td>Passed</td>
+		<td>Fail</td>
+                <td>Save button does not turn into update button when saving</td>
     </tr>
 <tr>
         <td>T3.2</td>
