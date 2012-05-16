@@ -21,12 +21,11 @@
         android:ems="10"
         android:inputType="text" />
 
-    <CheckBox
-        android:id="@+id/checkbox1"
+    <ImageView
+        android:id="@+id/row1_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="false" 
-        />
+        android:src="@drawable/grey_icn" />
 
  </LinearLayout>
      <LinearLayout
@@ -44,11 +43,11 @@
         android:ems="10"
         android:inputType="text" />
 
-    <CheckBox
-        android:id="@+id/checkbox2"
+    <ImageView
+        android:id="@+id/row2_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="false" />
+        android:src="@drawable/grey_icn" />
 
  </LinearLayout>
      <LinearLayout
@@ -66,11 +65,11 @@
         android:ems="10"
         android:inputType="text" />
 
-    <CheckBox
-        android:id="@+id/checkbox3"
+    <ImageView
+        android:id="@+id/row3_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="false" />
+        android:src="@drawable/grey_icn" />
 
  </LinearLayout>
 
@@ -81,6 +80,9 @@
          android:textAppearance="?android:attr/textAppearanceLarge"
          android:visibility="visible" 
          />
+
+    
+     
 
      <Button
          android:id="@+id/CheckHaikuButton"
