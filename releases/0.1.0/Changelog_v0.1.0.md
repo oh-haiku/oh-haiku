@@ -25,6 +25,6 @@ This is the first release of the Oh-Haiku application. In general the release sh
  - Can't store Twitter credentials
  - Can’t see which rows that are correct when browsing saved haikus
  - Background looks weird in landscape view
- - Background looks weird with some devices
+ - Background looks weird in some devices
  - The buttons in the HaikuCompositionView aren't aligned
  - The FAQ is empty

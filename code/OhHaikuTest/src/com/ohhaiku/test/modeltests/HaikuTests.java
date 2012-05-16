@@ -1,4 +1,4 @@
-package com.ohhaiku.test;
+package com.ohhaiku.test.modeltests;
 
 import com.ohhaiku.models.Poem;
 import com.ohhaiku.models.Haiku;
@@ -67,5 +67,10 @@ public class HaikuTests extends TestCase {
 	public void testItShouldNotBeValidHaiku() {
 		h.setPoem(incorrectPoem);
 		assertFalse(h.isValid());
+	}
+	
+	public void testPoemSet() {
+	  h.setPoem(correctPoem);
+	  assertEquals(correctPoem, h.getPoem());
 	}
 }

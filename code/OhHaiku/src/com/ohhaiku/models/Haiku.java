@@ -49,5 +49,31 @@ public class Haiku {
   {
     return (isValidRow(0) && isValidRow(1) && isValidRow(2));
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((poem == null) ? 0 : poem.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Haiku other = (Haiku) obj;
+    if (poem == null) {
+      if (other.poem != null)
+        return false;
+    } else if (!poem.equals(other.poem))
+      return false;
+    return true;
+  }
+
   
 }

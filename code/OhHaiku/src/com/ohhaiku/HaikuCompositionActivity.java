@@ -56,14 +56,9 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   public void onCheck(View view) {
     Poem p = new Poem(getLines());
     Haiku h = new Haiku(p);
+    
     setValidRows(h);
-    //valid Rows
-      
- //sets new images if the row is valid
-    
-   
-    
-    
+
     boolean valid = h.isValid();
     if (valid) {
       setStatus(getString(R.string.certified_text));

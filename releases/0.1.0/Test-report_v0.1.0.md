@@ -81,15 +81,17 @@ These tests has been done according to the [Test-plan](https://github.com/oh-hai
     </tr>
 <tr>
         <td>T4.3</td>
-		<td>-</td>
+		<td>Passed</td>
     </tr>
 <tr>
         <td>T4.4</td>
-		<td>-</td>
+		<td>Fail</td>
+		<td>Updated button clickable</td>
     </tr>
 <tr>
         <td>T4.5</td>
-		<td>-</td>
+		<td>Fail</td>
+		<td>Not implemented</td>
     </tr>
 </table>
 

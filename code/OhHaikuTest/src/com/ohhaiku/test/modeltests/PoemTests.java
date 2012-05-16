@@ -2,7 +2,7 @@
  * @author Jesper Josefsson
  */
 
-package com.ohhaiku.test;
+package com.ohhaiku.test.modeltests;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,5 +76,23 @@ public class PoemTests extends TestCase {
     List<String> originalStrings = new ArrayList<String>(Arrays.asList(PoemFactory.LINES));
     assertEquals(originalStrings, populatedPoem.getLinesAsList());
     assertEquals(originalStrings, populatedPoem.getLines());
+  }
+  
+  public void testSetLinesShouldFail() {
+    try {
+      p.setLines(new String[] {""});
+      fail("Set lines with other than three lines should fail!");
+    } catch (IllegalArgumentException e) {
+      // Test successful.
+    }
+  }
+  
+  public void testSetLinesShouldNotFail() {
+    try {
+      p.setLines(PoemFactory.LINES);
+
+    } catch (IllegalArgumentException e) {
+      fail("Set lines with three lines should not fail!");
+    }
   }
 }
