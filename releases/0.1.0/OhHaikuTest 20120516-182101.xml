@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testrun name="OhHaikuTest" project="OhHaikuTest" tests="23" started="23" failures="0" errors="0" ignored="0">
+  <testsuite name="com.ohhaiku.test.modeltests.PoemTests" time="0.754">
+    <testcase name="testGetLinesAsArray" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.051"/>
+    <testcase name="testGetLinesAsList" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.053"/>
+    <testcase name="testItShouldReturnALine" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.052"/>
+    <testcase name="testItShouldReturnAPrettyString" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.052"/>
+    <testcase name="testItShouldReturnAnEmptyLine" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.052"/>
+    <testcase name="testLine0Getter" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.052"/>
+    <testcase name="testLine0Setter" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.052"/>
+    <testcase name="testLine1Getter" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.052"/>
+    <testcase name="testLine1Setter" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.077"/>
+    <testcase name="testLine2Getter" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.053"/>
+    <testcase name="testLine2Setter" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.052"/>
+    <testcase name="testSetLinesShouldFail" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.052"/>
+    <testcase name="testSetLinesShouldNotFail" classname="com.ohhaiku.test.modeltests.PoemTests" time="0.103"/>
+  </testsuite>
+  <testsuite name="com.ohhaiku.test.modeltests.HaikuTests" time="0.492">
+    <testcase name="testItShouldBeValidHaiku" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.051"/>
+    <testcase name="testItShouldBeValidRow0" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.052"/>
+    <testcase name="testItShouldBeValidRow1" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.052"/>
+    <testcase name="testItShouldBeValidRow2" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.052"/>
+    <testcase name="testItShouldNotBeValidHaiku" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.078"/>
+    <testcase name="testItShouldNotBeValidRow0" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.052"/>
+    <testcase name="testItShouldNotBeValidRow1" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.052"/>
+    <testcase name="testItShouldNotBeValidRow2" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.051"/>
+    <testcase name="testPoemSet" classname="com.ohhaiku.test.modeltests.HaikuTests" time="0.052"/>
+  </testsuite>
+  <testsuite name="com.ohhaiku.test.activitytests.HaikuCompositionActivityTests" time="0.177">
+    <testcase name="testAndroidTestCaseSetupProperly" classname="com.ohhaiku.test.activitytests.HaikuCompositionActivityTests" time="0.177"/>
+  </testsuite>
+</testrun>
