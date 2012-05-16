@@ -1,4 +1,4 @@
-#Changelog Ver. 0.1.0
+#Changelog OH-HAIKU version 0.1.0
 This is the first release of the Oh-Haiku application. In general the release should have taken all requirements into consideration except the Twitter-requirements, the optional requirements and some of the non-functional requirements.
  
 ##Adds
@@ -14,17 +14,20 @@ This is the first release of the Oh-Haiku application. In general the release sh
  - Menu-functionality, with Help, FAQ and My saved Haikus
 
 ##Changes
- -
+
+- N/A
 
 ##Deletes
--
+
+- N/A
 
 ##Known bugs
- - Can’t tweet any Haikus
+ - Can't tweet any Haikus
  - Can't log in with Twitter credentials
  - Can't store Twitter credentials
- - Can’t see which rows that are correct when browsing saved haikus
+ - Can't see which rows that are correct when browsing saved haikus
  - Background looks weird in landscape view
  - Background looks weird in some devices
  - The buttons in the HaikuCompositionView aren't aligned
  - The FAQ is empty
+ - The save button does not change label Update after a Haiku is saved.

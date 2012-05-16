@@ -95,6 +95,26 @@ These tests has been done according to the [Test-plan](https://github.com/oh-hai
     </tr>
 </table>
 
-##2 Ecl-Emma
+##2 Unit-tests
+Here follows the test output of the `ant test` action:
 
-##3 Unit-tests
+    -test-project-check:
+
+    test:
+         [echo] Running tests ...
+         [exec] 
+         [exec] com.ohhaiku.test.activitytests.HaikuCompositionActivityTests:.
+         [exec] com.ohhaiku.test.modeltests.HaikuTests:.........
+         [exec] com.ohhaiku.test.modeltests.PoemTests:.............
+         [exec] Test results for InstrumentationTestRunner=.......................
+         [exec] Time: 0.668
+         [exec] 
+         [exec] OK (23 tests)
+         [exec] 
+         [exec] 
+
+    BUILD SUCCESSFUL
+    Total time: 5 seconds
+
+##3 Coverage report
+The coverage report can be accessed [here](./coverage/coverage.html)
