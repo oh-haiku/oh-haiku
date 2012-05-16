@@ -10,10 +10,16 @@ Detta blir relevant när ni har en release.
 ### 1 Introduction
 
 #### 1.1 Purpose of application
+The germ of this application is a tweet. The Swedish comedian Jesper Rönndahl (@jesperronndahl)
+tweeted that he often thinks in chunks of three unrelated thoughts. He indicated that he would 
+like to have an app that could tell him whether these three sentences constitute a haiku poem.
+
 
 #### 1.2 General characteristics of application
 
-### 2 Test enviroment
+This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku-rules and tweet the text. The application is also an easy way to store the users poems.
+ 
+### 2 Test environment
 
 
  - Vilka förberedelser behöver göras innan man kan testa
@@ -23,7 +29,11 @@ Detta blir relevant när ni har en release.
  - Behövs internetuppkoppling (kanske ett spciellt nätverk)?
 
 ####2.1 Hardware enviroment
-(what computers/devices was/wered used?)
+We run most of our tests on a HTC-phone and therefore not using the emulator. 
+
+HTC ...
+Screen: 
+
 
 Använder ni emulatorn eller riktig telefon vid dessa?
 
@@ -39,7 +49,9 @@ Använder ni emulatorn eller riktig telefon vid dessa?
 
 ### 4 Known bugs and limitations
 
-### 5 Test specifcation
+### 5 Test specification
+For documentation on the tests: 
+
 
 ### 6 Automatic test
 
@@ -68,3 +80,8 @@ We'll be using two branches for oh-haiku, one unstable called *master* and one s
 Both of these will be testet each time something is pushed to Github, but we aren't expecting everyting in *master* to pass.
 
 The *stable* branch should reflect the deployed version (maybe on Google Play). Each release is tagged using *git tags*. Each tag is in it self named according to the [semver](http://semver.org/) version conversion.
+
+
+FRÅN KURSHEMSIDA:
+(present a table with Test id, Result, Comment)
+(use comment to say what bug the test resulted in or that the test could not be performed since the requirement is not yet implemented)
