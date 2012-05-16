@@ -5,7 +5,7 @@ To get started with developing Oh-Haiku
 
 1. Install Eclipse
 2. Install the Android Development Toolkit
-3. Get the correct Android API: API 7
+3. Get the correct Android API: API 8
 4. Clone the project from Github
 5. Create an Eclipse workspace in the `code` directory
 6. Create a new Android Project, choose `Create project from existing source`, select the OhHaiku directory
