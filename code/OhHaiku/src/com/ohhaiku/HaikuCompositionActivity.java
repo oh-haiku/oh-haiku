@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
@@ -55,6 +56,22 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   public void onCheck(View view) {
     Poem p = new Poem(getLines());
     Haiku h = new Haiku(p);
+    
+    //valid Rows
+      
+    for (int i=0;i<3;i++) {
+    	 boolean validrow = h.isValidRow(i);
+    	 if (validrow){
+    		 setValidRowImage(i);
+    	 }
+    	 else {
+    		 setDefaultRowImage(i);
+    	 } 
+    }//sets new images if the row is valid
+    
+   
+    
+    
     boolean valid = h.isValid();
     if (valid) {
       setStatus(getString(R.string.certified_text));
@@ -118,7 +135,40 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       setStatus(getString(R.string.save_failed_text));
     } 
 	}
-
+	
+	private void setDefaultRowImage(int row) {
+		if (row==0){
+			ImageView image = (ImageView) this.findViewById(R.id.row1_status);
+	        image.setImageResource(R.drawable.grey_icn);	
+		}
+		if (row==1){
+			ImageView image = (ImageView) this.findViewById(R.id.row2_status);
+	        image.setImageResource(R.drawable.grey_icn);	
+		}
+		if (row==2){
+			ImageView image = (ImageView) this.findViewById(R.id.row3_status);
+	        image.setImageResource(R.drawable.grey_icn);	
+		}
+		
+	}
+	
+	private void setValidRowImage(int row) {
+		if (row==0){
+			ImageView image = (ImageView) this.findViewById(R.id.row1_status);
+	        image.setImageResource(R.drawable.line1_icn);	
+		}
+		if (row==1){
+			ImageView image = (ImageView) this.findViewById(R.id.row2_status);
+	        image.setImageResource(R.drawable.line2_icn);	
+		}
+		if (row==2){
+			ImageView image = (ImageView) this.findViewById(R.id.row3_status);
+	        image.setImageResource(R.drawable.line3_icn);	
+		}
+		
+	}//sets the image of every row
+	
+	
 	/*
 	 * Sets the status text view.
 	 */
