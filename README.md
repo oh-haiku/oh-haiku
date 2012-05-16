@@ -10,7 +10,6 @@ To get started with developing Oh-Haiku
 5. Create an Eclipse workspace in the `code` directory
 6. Create a new Android Project, choose `Create project from existing source`, select the OhHaiku directory
 7. Create a new Android Test Project, choose `Create project from existing source`, select the OhHaikuTest directory, choose the OhHaiku project as test target.
-8. In both projects, select any jar-files in the lib directory, right click and choose `Build Path > Add to Build Path`
 
 
 To use Emma to check for Test Coverage:
