@@ -50,7 +50,7 @@ The app shall let the user save his or her tweets.
   - If Basic path: The user is given the syllable count for the given line of text.
   - If Exc. path: The user is given the syllable count, invalid characters are ignored
 
-### F1.3 Haiku analysis
+#### F1.3 Haiku analysis
 - Scenario: All three lines of text are analysed for Haiku verification
 - Trigger: The user leaves a text field if live analysis is enabled, or the user pushes the Check-button
 - Precondition: Text is present in any of the input fields
@@ -198,9 +198,9 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Exceptional path: N/A
 - Post condition: The user is sent to the mail application of the phone, with the haiku inserted in the message body
 	
-### 2.3 Non-functional requirements
+## 2.3 Non-functional requirements
 
-####2.3.1 Usability
+###2.3.1 Usability
 
 - A smooth and nice GUI
 - Take Asian influences in consideration when developing the GUI
@@ -213,13 +213,13 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - The application shall notify the user at start up if a more recent version of the application exists
 - A text that fails Haiku verification should not be tweetable using the application. (Twitter scenario 2.1)
 
-####2.3.2 Reliability
+###2.3.2 Reliability
 
 - The Verify Haiku function should never fail! (Verify Haiku scenario 1.2)
 - Saved Haikus should not be deletable by mistake 
 - The Haiku should not disappear if access to Twitter or Internet is missing
 
-####2.3.3 Performance
+###2.3.3 Performance
 
 - Response time should not be noticeable (all scenarios)
 - Verifying if a text is a Haiku should not take more than 10(?) ms (Verify Haiku scenario 1.2)
@@ -228,51 +228,51 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Robust
 - Resource light, according to Android's demands
 
-####2.3.4 Scalability, Extensibility
+###2.3.4 Scalability, Extensibility
 
 - Logic calculating syllables shall be separated from the Haiku logic
 - The interface should be designed in a way making it possible to implement other rule based poetry later
 - The design should easily be changable so that the rule algorithm can be used in other applications
 
-####2.3.5 Packaging and Installation
+###2.3.5 Packaging and Installation
 - Shall be packaged as a Android application and be released on Google Play
 - Shall have a selling description on Google Play
 
-####2.3.6 Accessibility
+###2.3.6 Accessibility
 - Verifying if a text is a Haiku should not require Internet access (Verify Haiku scenario 1.2)
 - Saving a Haiku/text should not require Internet access (Save Haiku scenario 3.1)
 - Updating to more recent versions of the application should not be required to use the application. (all scenarios)
 - Using the application shall not require a twitter account (all scenarios)
 
-####2.3.7 Maintainability
+###2.3.7 Maintainability
 - A clear channel to receive feedback and bug reports
 - The application will be updated regularly if demanded
 
-####2.3.8 Legal
+###2.3.8 Legal
 - Shall use en suitable license. The MIT license will be used if no conflicts occur, for example from using external libraries. The project may become licensed under a GPL license if necessary
 
-###2.4 Application models 
-####2.4.1 Scenarios
+##2.4 Application models 
+###2.4.1 Scenarios
 In general the user is able to enter a piece of text, check if the text is written according to our Haiku-criterias and if it is, tweet it. The user can log in to Twitter with Twitter credentials and therefore the user doesn't need to go to Twitter to subscribe the Haiku. The user is also able to get help with writing a Haiku, and save and browse written Haikus. 
    
-####2.4.2 Use case model Use cases priority
+###2.4.2 Use case model Use cases priority
  
-####2.4.3 Static model 
-####2.4.4 Dynamic model
-####2.4.5 User interface
+###2.4.3 Static model 
+###2.4.4 Dynamic model
+###2.4.5 User interface
 We want to use an attractive UI that is independent of the screen density. The leadwords in the creating process is simplicity, straightness and accessibility. The user should get going quickly and it should be easy to navigate. If the user gets to the menu when starting the application it takes time to get started writing. The user may go to the menu the first time but after that it is essential to be able to write Haikus and tweet them quickly. 
 
 The lotus flower is a persistent feature in the application and it should bring thoughts to Japan.   
-####2.5 Test cases
+## 2.5 Test cases
 
 
-##### T1 General test cases
+### T1 General test cases
 <br/>
 
-###### T1.1 Text input and clear text input fields
+#### T1.1 Text input and clear text input fields
 <br/>
 
-######T1.1.1 Text input
+#### T1.1.1 Text input
 - Description: 
 The user should be able to enter text into three text input fields.
 
@@ -288,7 +288,7 @@ The user is presented with three text input fields
 - Related requirements:
 F1.1
 
-###### T1.1.2 Clear all text input fields
+#### T1.1.2 Clear all text input fields
 - Description: 
 The user should be able to clear the text in the three text input fields.
 
@@ -304,7 +304,7 @@ All of the input fields are cleared from text
 - Related requirements:
 F1.1
 
-###### T1.2 Syllable analysis with live analysis disabled
+#### T1.2 Syllable analysis with live analysis disabled
 - Description: 
 Text should not be analysed on the fly if live analysis is disabled
 
@@ -323,7 +323,7 @@ The user should not be presented with any syllable information or
 - Related requirements:
 F1.2
 
-###### T1.3 Syllable analysis with live analysis enabled
+#### T1.3 Syllable analysis with live analysis enabled
 - Description: 
 Text should be analysed on the fly if live analysis is enabled
 
@@ -342,7 +342,7 @@ The user is presented with the number of syllables in the text field
 - Related requirements:
 F1.2
 
-###### T1.4 Haiku analysis button
+#### T1.4 Haiku analysis button
 - Description: 
 Haikus analysis should be triggered by the check-button
 
@@ -360,7 +360,7 @@ The user should be presented with Haiku verification information, true or false
 - Related requirements:
 F1.3
 
-###### T1.5 Haiku analysis of a valid Haiku
+#### T1.5 Haiku analysis of a valid Haiku
 - Description: 
 A valid Haiku should be verified as such
 
@@ -381,7 +381,7 @@ The user should told that the Haiku is valid
 - Related requirements:
 F1.3
 
-###### T1.6 Haiku analysis of an invalid Haiku
+#### T1.6 Haiku analysis of an invalid Haiku
 - Description: 
 A invalid Haiku should be verified as such
 
@@ -403,8 +403,8 @@ The user should told that the Haiku is invalid,  but the third checkbox should b
 - Related requirements:
 F1.3
 
-##### T2 Twitter test cases
-###### T2.1 Tweet the text
+### T2 Twitter test cases
+#### T2.1 Tweet the text
 
 - Description: 
 When the user presses "Tweet" the text is submitted to Twitter
@@ -421,7 +421,7 @@ The text is submitted and the user is informed
 - Related requirement
 F2.1
 
-###### T2.2 Logging in with Twitter and store user-credentials
+#### T2.2 Logging in with Twitter and store user-credentials
 
 - Description: 
 The user inserts Twitter-credentials and presses "Log in with Twitter" and has an option to store the credentials. 
@@ -438,7 +438,7 @@ The user is logged in with Twitter
 - Related requirement
 F2.2
 
-###### T2.3 Analysis of other users on Twitter, optional
+#### T2.3 Analysis of other users on Twitter, optional
 
 - Description: 
 The user clicks on "Check Twitter for #haiku".
@@ -456,7 +456,7 @@ Next to each tweet a message will be shown notifing the user of the haiku state.
 - Related requirement:
 
 
-###### T3.1 Save a haiku
+#### T3.1 Save a haiku
 - Description:
 The user saves a haiku
 
@@ -475,7 +475,7 @@ A message "Haiku saved!" appears, and also the save-button turns into a update-b
 F3.1
 
 
-###### T3.2 Check for presence of saved haiku
+#### T3.2 Check for presence of saved haiku
 
 - Description
 Check that a saved haiku is in the My saved Haikus list
@@ -493,9 +493,9 @@ The user is in the My saved Haikus view and a haiku containing the lines "apa", 
 - Related requirements:
 F3.1, F3.2
 
-##### T4 Navigational tests
+### T4 Navigational tests
 
-###### T4.1 Menu
+#### T4.1 Menu
 
 - Description:
 There is a menu
@@ -513,7 +513,7 @@ The user is presented with a menu with 4 menu items: login to twitter, help, bro
 - Related requirements
 TODO: should have menu requirements
 
-###### T4.2 Browse haikus
+#### T4.2 Browse haikus
 
 - Description:
 The user can browse previously saved haikus
@@ -531,7 +531,7 @@ The user sees a list of Haikus or the message "No saved Haikus"
 - Related requirements:
 F3.2
 
-###### T4.3 Load saved haikus
+#### T4.3 Load saved haikus
 
 - Description:
 The user can load a saved Haiku into the HaikuCompositionActivity. 
@@ -550,7 +550,7 @@ The chosen haiku is loaded in the HaikuCompositionActivity, and the save-button 
 - Related requirements:
 F3.3
 
-###### T4.4 Update haikus
+#### T4.4 Update haikus
 
 - Description:
 The user can update an already saved haiku or a loaded and manipulated haiku
@@ -568,7 +568,7 @@ The user sees "Haiku updated".
 - Related requirements:
 F3.4
 
-###### T4.5 Remove saved haikus
+#### T4.5 Remove saved haikus
 
 - Description:
 The user can remove a saved Haiku
@@ -588,7 +588,7 @@ The haiku is removed from the My saved haikus-list
 F3.5
 
 
-#####2.6 Possible future directions
+## 2.6 Possible future directions
 In general the possible future directions should focus on developing the Haiku-algorithm.
 First and foremost, the algorithm should be able to handle Swedish compound words.
 The algorithm could also take artistic values into account, like the following:
@@ -602,7 +602,7 @@ The algorithm could also take artistic values into account, like the following:
  
 Adding additional languages should also be possible.
 
-#####2.7 References
+## 2.7 References
 References on the Haiku algorithm:
 
  - [Svenska Haiku Sällskapet](http://www.haiku-shs.org/shs.htm)
