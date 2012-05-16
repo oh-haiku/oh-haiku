@@ -9,6 +9,7 @@ These tests has been done according to the [Test-plan](https://github.com/oh-hai
   <tr>
         <td><b>Test-ID</b></td>
 		<td><b>Test-result</b></td>
+		<td><b>Comments</b></td>
     </tr>
 
     <tr>
@@ -42,14 +43,17 @@ These tests has been done according to the [Test-plan](https://github.com/oh-hai
 <tr>
         <td>T2.1</td>
 		<td>Fail</td>
+		<td>Not implemented</td>
     </tr>
 <tr>
         <td>T2.2</td>
 		<td>Fail</td>
+		<td>Not implemented</td>
     </tr>
 <tr>
         <td>T2.3</td>
 		<td>Fail</td>
+		<td>Not implemented</td>
     </tr>
 <tr>
         <td>T3.1</td>
@@ -69,11 +73,11 @@ These tests has been done according to the [Test-plan](https://github.com/oh-hai
     </tr>
 <tr>
         <td>T4.1</td>
-		<td>-</td>
+		<td>Passed</td>
     </tr>
 <tr>
         <td>T4.2</td>
-		<td>-</td>
+		<td>Passed</td>
     </tr>
 <tr>
         <td>T4.3</td>
