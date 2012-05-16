@@ -116,6 +116,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	  try {
 	    Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
       poemPersister.create(poem);
+      setPoem(poem);
       setStatus(getString(R.string.save_succeeded_text));
     } catch (SQLException e) {
       Log.e(logTag, "Could not save Haiku", e);
