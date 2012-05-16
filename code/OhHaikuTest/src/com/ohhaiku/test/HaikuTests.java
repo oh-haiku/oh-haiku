@@ -68,4 +68,9 @@ public class HaikuTests extends TestCase {
 		h.setPoem(incorrectPoem);
 		assertFalse(h.isValid());
 	}
+	
+	public void testPoemSet() {
+	  h.setPoem(correctPoem);
+	  assertEquals(correctPoem, h.getPoem());
+	}
 }

@@ -77,4 +77,22 @@ public class PoemTests extends TestCase {
     assertEquals(originalStrings, populatedPoem.getLinesAsList());
     assertEquals(originalStrings, populatedPoem.getLines());
   }
+  
+  public void testSetLinesShouldFail() {
+    try {
+      p.setLines(new String[] {""});
+      fail("Set lines with other than three lines should fail!");
+    } catch (IllegalArgumentException e) {
+      // Test successful.
+    }
+  }
+  
+  public void testSetLinesShouldNotFail() {
+    try {
+      p.setLines(PoemFactory.LINES);
+
+    } catch (IllegalArgumentException e) {
+      fail("Set lines with three lines should not fail!");
+    }
+  }
 }
