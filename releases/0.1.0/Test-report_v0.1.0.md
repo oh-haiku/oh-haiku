@@ -26,11 +26,11 @@ These tests has been done according to the [Test-plan](https://github.com/oh-hai
     </tr>
 <tr>
         <td>T1.3</td>
-		<td>Passed</td>
+		<td>Fail</td>
     </tr>
 <tr>
         <td>T1.4</td>
-		<td>Fail</td>
+		<td>Passed</td>
     </tr>
 <tr>
         <td>T1.5</td>
@@ -63,14 +63,7 @@ These tests has been done according to the [Test-plan](https://github.com/oh-hai
         <td>T3.2</td>
 		<td>Passed</td>
     </tr>
-<tr>
-        <td>T3.2</td>
-		<td>Passed</td>
-    </tr>
-<tr>
-        <td>T3.2</td>
-		<td>Passed</td>
-    </tr>
+
 <tr>
         <td>T4.1</td>
 		<td>Passed</td>
