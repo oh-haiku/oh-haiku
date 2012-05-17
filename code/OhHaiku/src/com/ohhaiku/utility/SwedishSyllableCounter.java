@@ -20,7 +20,6 @@ public class SwedishSyllableCounter extends SyllableCounter {
     while (vowelMatcher.find()) {
       String match = vowelMatcher.group();
       if (!(match.length() == 0)) {
-        System.out.println("Match: " + match);
         matches++;
       }
     }
