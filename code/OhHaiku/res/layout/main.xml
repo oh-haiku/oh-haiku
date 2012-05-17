@@ -12,13 +12,14 @@
             android:layout_height="85dp"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
+         
             android:src="@drawable/logo" />
-        
+        	
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-    	android:layout_marginTop="20dp"
+    	android:layout_marginTop="7dp"
     	android:layout_gravity="center_horizontal"
     	>
         
@@ -83,11 +84,11 @@
 
      <TextView
          android:id="@+id/statusText"
-         android:layout_width="fill_parent"
+         android:layout_width="250dp"
          android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
          android:textAppearance="?android:attr/textAppearanceLarge"
-         android:visibility="visible" 
-         />
+         android:visibility="visible" />
 
      <LinearLayout
         android:orientation="horizontal"
