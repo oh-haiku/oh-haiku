@@ -54,6 +54,13 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * Click handler for the Check Haiku button
    */
   public void onCheck(View view) {
+    check();
+  }
+  
+  /*
+   * Private method to make it possible to check from other sources than click handlers
+   */
+  private void check() {
     Poem p = new Poem(getLines());
     Haiku h = new Haiku(p);
     
@@ -208,7 +215,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   }
   
   /*
-   * Sets the current poem.
+   * Sets and the current poem.
    * This will set the instance variable and render the Haiku in the GUI
    */
   private void setPoem(Poem poem) {
@@ -217,6 +224,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setLines(poem.getLinesAsArray());
     setStatus(getString(R.string.haiku_loaded_text));
     setPersistButtonText(getString(R.string.update_button_title));
+    check();
   }
   
   /**
