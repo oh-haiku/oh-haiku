@@ -14,14 +14,9 @@ To get started with developing Oh-Haiku
 
 To use Emma to check for Test Coverage:
 
-1. Make sure you have added the Android tools to your `$PATH` variable
-2. Navigate to the `code` directory
-3. Make your main project an Android CLI project: `android update project --target 8 --path ./OhHaiku`
-4. Check that tool hasn't done anything crazy (it messed up my `project-properties` file by changing the target to something stupid).
-5. Make your test project an Android CLI test-project: `android update test-project -m ../OhHaiku -p OhHaikuTest` (yup, the path to the main project really is relative to the test project...)
-6. Check for craziness.
-7. Start your emulator.
-8. Make an apk that is prepared for coverage testing:
+1. Make sure you have `ant` installed.
+2. Start your emulator.
+3. Make an apk that is prepared for coverage testing:
    - Go to the main project folder and enter: `ant emma debug install`
    - Go to the test project folder and enter: `ant emma debug install test`
-9. And Voilà!
+4. And Voilà!

@@ -33,7 +33,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * This variable is only set with a persisted poem.
    * Used to enable updates of poems
    */
-  private Poem poem;
+  private Poem currentPoem;
 
   /** Called when the activity is first created. */	
 	@Override
@@ -51,11 +51,26 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	  }
 	  else{
       setPersistButtonText(getString(R.string.save_button_title));
-	  }
-	  
+	  }  
 	}
 
-	/**
+	/*
+	 * Checks if the current poem has been persisted.
+	 */
+	private boolean isCurrentPoemSaved() {
+	  if (currentPoem == null) {
+	    return false;
+	  } else {
+  	  try {
+        Dao<Poem, Integer> dao = getHelper().getPoemDao();
+        return dao.idExists(currentPoem.getId());
+      } catch (SQLException e) {
+        return false;
+      }
+	  }
+  }
+
+  /**
 	 * Click handler for the menu button
 	 * Starts the menu, possibly expecting a result in the form of Poem
 	 */
@@ -130,13 +145,13 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * Fetches the Haiku from the composition view and attempts to persist it.
    */
 	private void saveHaiku() {
-	  poem = new Poem(getLines());
+	  currentPoem = new Poem(getLines());
 	  
 	  // Try to persist poem
 	  try {
 	    Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
-      poemPersister.create(poem);
-      setPoem(poem);
+      poemPersister.create(currentPoem);
+      setPoem(currentPoem);
       setStatus(getString(R.string.save_succeeded_text));
     } catch (SQLException e) {
       Log.e(logTag, "Could not save Haiku", e);
@@ -158,19 +173,15 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	}
 	
 	private void setDefaultRowImage(int row) {
-		if (row==0){
-			ImageView image = (ImageView) this.findViewById(R.id.row1_status);
-	        image.setImageResource(R.drawable.grey_icn);	
-		}
-		if (row==1){
-			ImageView image = (ImageView) this.findViewById(R.id.row2_status);
-	        image.setImageResource(R.drawable.grey_icn);	
-		}
-		if (row==2){
-			ImageView image = (ImageView) this.findViewById(R.id.row3_status);
-	        image.setImageResource(R.drawable.grey_icn);	
-		}
-		
+	  getRowImageViews()[row].setImageResource(R.drawable.grey_icn);
+	}
+	
+	private ImageView[] getRowImageViews() {
+	  return new ImageView[] {
+	      (ImageView) findViewById(R.id.row1_status),
+	      (ImageView) findViewById(R.id.row2_status),
+	      (ImageView) findViewById(R.id.row3_status)
+	  };
 	}
 	
 	private void setValidRowImage(int row) {
@@ -232,8 +243,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * This will set the instance variable and render the Haiku in the GUI
    */
   private void setPoem(Poem poem) {
-    this.poem = poem;
-    Log.i(logTag, poem.toString());
+    this.currentPoem = poem;
     setLines(poem.getLinesAsArray());
     setStatus(getString(R.string.haiku_loaded_text));
     setPersistButtonText(getString(R.string.update_button_title));
@@ -244,7 +254,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * Click handler for the clear button
    */
   public void onClear(View v) {
-    poem = null;
+    currentPoem = null;
     setLines(new String[] {"", "", ""});
     setPersistButtonText(getString(R.string.save_button_title));
     setStatus("");
@@ -265,52 +275,34 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   
   /**
    * Click handler for the Save/Update button
-   * Checks if the current haiku has been saved, if so - updates it. Otherwise, saves a new Haiku.
+   * Checks if there is a current haiku. If no - saves it. If yes - checks if it needs to created or updated.
+   * Triggers check.
    */
   public void onPersist(View v) {
- 
-    if(isCurrentPoemSaved()){
-      setPersistButtonText(getString(R.string.update_button_title));
-      updateHaiku();
-    }
-    else{
-      setPersistButtonText(getString(R.string.save_button_title));
-      saveHaiku(); 
-    }
- 
-/*	if (poem == null) {
+    check();
+    if (currentPoem == null) {
       saveHaiku();
     } else {
-      updateHaiku();
-    }*/
+      currentPoem.setLines(getLines());
+      createOrUpdate();
+    }
   }
   
   /*
-   * Updates the current Haiku using the contents of the textViews.
+   * Takes the current poem, updates it or creates it, sets status and persist button text.
    */
-  private void updateHaiku() {
-    poem.setLines(getLines());
+  private void createOrUpdate() {
     try {
       Dao<Poem, Integer> dao = getHelper().getPoemDao();
-      dao.update(poem);
-      setStatus(getString(R.string.updated_haiku_text));
-    } catch (SQLException e) {
-      setStatus(getString(R.string.update_failed_text));
-    }
-    
-  }
-  
-  // Returns true if the current poem is in the database
-  private boolean isCurrentPoemSaved()
-  {
-    try {
-      Dao<Poem, Integer> dao = getHelper().getPoemDao();
-      
-      return (dao.queryForSameId(poem) != null);
-
-      } catch (SQLException e) {
-        setStatus(getString(R.string.update_failed_text));
-        return false;
+      Dao.CreateOrUpdateStatus status = dao.createOrUpdate(currentPoem);
+      if (status.isCreated()) {
+        setStatus(getString(R.string.save_succeeded_text));
+      } else {
+        setStatus(getString(R.string.updated_haiku_text));
       }
+      setPersistButtonText(getString(R.string.update_button_title));
+    } catch (SQLException e) {
+      setStatus("Could not save or update poem");
+    }
   }
 }//HaikuCompositionActivity
