@@ -23,7 +23,11 @@
     <string name="updated_haiku_text">Updated Haiku</string>
     <string name="update_failed_text">Update failed</string>
     <string name="clear_button_text">Clear</string>
-    <string name="update_deleted_haiku_text">Tried to update deleted Haiku - saved new Haiku inste\'ad.</string>
+    <string name="update_deleted_haiku_text">Tried to update deleted Haiku - saved new Haiku instead.</string>
 	<string name="empty_rows_text">Cannot save/update an empty Haiku!</string>
-	<string name="faq1"> Q: Can i write fsdfsdf \n A: Yes</string>
+	<string name="faq1">Q: Is Haiku a form of Chinese poetry? \nA: No, it´s Japanese</string>
+	<string name="faq2">Q: Is it true that this app is made by Grupp51? \nA: Yes</string>
+	<string name="faq3">Q: Do I need to write a seasonal word in order to get a certified Haiku? \nA: No, this app allows you to write a Haiku without the use of seasonal words</string>
+	<string name="faq4">Q: Can I get a certified Haiku by only writing Chuck Norris? \nA: Yes</string>
+	<string name="faq5">Q: Is it true that the all famous Jesper Rönndahl asked for this app to be made? \nA: Yes</string>
 </resources>
