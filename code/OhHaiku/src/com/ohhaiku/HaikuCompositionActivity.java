@@ -5,8 +5,6 @@
 package com.ohhaiku;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
@@ -149,10 +148,6 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    */
 	private void saveHaiku() {
 	  currentPoem = new Poem(getLines());
-	  if (currentPoem.emptyRows()) {
-		  setStatus(getString(R.string.empty_rows_text));
-	  }
-	  else {
 	  // Try to persist poem
 	  try {
 	    Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
@@ -162,8 +157,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     } catch (SQLException e) {
       Log.e(logTag, "Could not save Haiku", e);
       setStatus(getString(R.string.save_failed_text));
-    } 
-	  }
+    }
 	}
 	
 	
@@ -286,36 +280,42 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * Triggers check.
    */
   public void onPersist(View v) {
-    check();
-    if (currentPoem == null) {
-      saveHaiku();
-    } else {
-      currentPoem.setLines(getLines());
-      createOrUpdate();
+    if (!rowsAreEmpty()) {
+      check();
+      if (currentPoem == null) {
+        saveHaiku();
+      } else {
+        currentPoem.setLines(getLines());
+        createOrUpdate();
+      }
     }
+    else{
+      Toast.makeText(this, "Cannot save/update empty Haiku!", Toast.LENGTH_LONG).show(); 
+    }
+        
   }
   
   /*
    * Takes the current poem, updates it or creates it, sets status and persist button text.
    */
   private void createOrUpdate() {
-	  if (currentPoem.emptyRows()) {
-		  setStatus(getString(R.string.empty_rows_text));
-	  }
-	  else {
-	  
-		  try {
-			  Dao<Poem, Integer> dao = getHelper().getPoemDao();
-			  Dao.CreateOrUpdateStatus status = dao.createOrUpdate(currentPoem);
-			  if (status.isCreated()) {
-				  setStatus(getString(R.string.save_succeeded_text));
-			  } else {
-				  setStatus(getString(R.string.updated_haiku_text));
-			  }
-			  setPersistButtonText(getString(R.string.update_button_title));
-		  } catch (SQLException e) {
-			  setStatus("Could not save or update poem");
+    try {
+      Dao<Poem, Integer> dao = getHelper().getPoemDao();
+      Dao.CreateOrUpdateStatus status = dao.createOrUpdate(currentPoem);
+      if (status.isCreated()) {
+          setStatus(getString(R.string.save_succeeded_text));
+      } else {
+        setStatus(getString(R.string.updated_haiku_text));
+      }
+      setPersistButtonText(getString(R.string.update_button_title));
+      } catch (SQLException e) {
+        setStatus("Could not save or update poem");
     }
-  }
   } 
+  
+  private boolean rowsAreEmpty()
+  {
+    String[] lines = getLines();
+    return (lines[0].trim().length() == 0 && lines[1].trim().length() == 0 && lines[2].trim().length() == 0);
+  }
 }//HaikuCompositionActivity

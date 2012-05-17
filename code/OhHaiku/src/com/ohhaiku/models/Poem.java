@@ -179,13 +179,4 @@ public class Poem implements Serializable {
   public void setLine2(String line2) {
     this.setLine(2, line2);
   }
-
-public boolean emptyRows() {
-	ArrayList <String> temp = new ArrayList<String>(Arrays.asList(new String[]{"", "", ""}));
-	  return (equals(temp));
-}
-
-
-
-  
 }
