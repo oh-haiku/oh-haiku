@@ -290,7 +290,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       }
     }
     else{
-      Toast.makeText(this, "Cannot save/update an empty Haiku!", Toast.LENGTH_LONG).show(); 
+      Toast.makeText(this, R.string.empty_rows_text, Toast.LENGTH_LONG).show(); 
     }
         
   }
