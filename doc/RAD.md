@@ -337,7 +337,7 @@ The user starts the app, the HaikuCompositionActivity appears
 Start the app, write something in the three text input fields. Press "Clear" in the HaikuCompositionActivity
 
 - Result state:
-All of the input fields are cleared from text, and the check-lotus-flowers turns grey. 
+All of the input fields are cleared from text, and the check-lotus-flowers turns grey. You can't save the Haiku directly after clearing
 
 - Related requirements:
 F1.1
@@ -393,7 +393,7 @@ T1.1 and T1.2 or T1.3
   3. Click the Check button
   
 - Result state:
-The user should be presented with Haiku verification information, true or false and beside each row a lotus-flower turns green if the row is correct. 
+The user should be presented with Haiku verification information, true or false. Beside each row a lotus-flower turns green if the row is correct. 
 
 - Related requirements:
 F1.3
@@ -508,7 +508,7 @@ N/A
   3. Click save
 
 - Result state:
-A message "Haiku saved!" appears, and also the save-button turns into a update-button. 
+A message "Haiku saved!" appears, and also the save-button turns into a update-button.  
 
 - Related requirement:
 F3.1
@@ -619,7 +619,7 @@ T3.2, T4.2
   3. Click/Swipe a remove-button in the list of My saved haikus to remove a certain haiku
 
 - Result state:
-The haiku is removed from the My saved haikus-list.
+The haiku is removed from the My saved haikus-list. If this is the current haiku in the composition-view, the user of course have to save this haiku to have it in the My saved Haikus again. 
 
 - Related requirements:
 F3.5
