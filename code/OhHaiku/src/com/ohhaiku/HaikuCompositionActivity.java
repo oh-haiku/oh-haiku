@@ -5,6 +5,8 @@
 package com.ohhaiku;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -140,13 +142,17 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       views[i].setText(lines[i]);
     }
   }
-	
+
+  
   /*
    * Fetches the Haiku from the composition view and attempts to persist it.
    */
 	private void saveHaiku() {
 	  currentPoem = new Poem(getLines());
-	  
+	  if (currentPoem.emptyRows()) {
+		  setStatus(getString(R.string.empty_rows_text));
+	  }
+	  else {
 	  // Try to persist poem
 	  try {
 	    Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
@@ -157,6 +163,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       Log.e(logTag, "Could not save Haiku", e);
       setStatus(getString(R.string.save_failed_text));
     } 
+	  }
 	}
 	
 	
@@ -292,17 +299,23 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * Takes the current poem, updates it or creates it, sets status and persist button text.
    */
   private void createOrUpdate() {
-    try {
-      Dao<Poem, Integer> dao = getHelper().getPoemDao();
-      Dao.CreateOrUpdateStatus status = dao.createOrUpdate(currentPoem);
-      if (status.isCreated()) {
-        setStatus(getString(R.string.save_succeeded_text));
-      } else {
-        setStatus(getString(R.string.updated_haiku_text));
-      }
-      setPersistButtonText(getString(R.string.update_button_title));
-    } catch (SQLException e) {
-      setStatus("Could not save or update poem");
+	  if (currentPoem.emptyRows()) {
+		  setStatus(getString(R.string.empty_rows_text));
+	  }
+	  else {
+	  
+		  try {
+			  Dao<Poem, Integer> dao = getHelper().getPoemDao();
+			  Dao.CreateOrUpdateStatus status = dao.createOrUpdate(currentPoem);
+			  if (status.isCreated()) {
+				  setStatus(getString(R.string.save_succeeded_text));
+			  } else {
+				  setStatus(getString(R.string.updated_haiku_text));
+			  }
+			  setPersistButtonText(getString(R.string.update_button_title));
+		  } catch (SQLException e) {
+			  setStatus("Could not save or update poem");
     }
   }
+  } 
 }//HaikuCompositionActivity
