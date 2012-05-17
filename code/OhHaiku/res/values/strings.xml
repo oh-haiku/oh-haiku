@@ -23,5 +23,6 @@
     <string name="updated_haiku_text">Updated Haiku</string>
     <string name="update_failed_text">Update failed</string>
     <string name="clear_button_text">Clear</string>
+    <string name="update_deleted_haiku_text">Tried to update deleted Haiku - saved new Haiku inste\'ad.</string>
 
 </resources>
