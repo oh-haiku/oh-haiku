@@ -55,35 +55,12 @@ public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelpe
       
     });
     
-    lv.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-      public boolean onItemLongClick(AdapterView<?> parent, View view, int position,
-          long id) {
-        BrowseSavedHaikusActivity activity = BrowseSavedHaikusActivity.this;
-        final Poem p = (Poem) parent.getItemAtPosition(position);
-        Builder b = new Builder(activity);
-        b.setTitle("Delete a Haiku");
-        b.setMessage("Would you like to delete the following Haiku?\n" + p.toString());
-        b.setPositiveButton("Delete", new OnClickListener() {
-
-          public void onClick(DialogInterface dialog, int which) {
-            deletePoem(p);
-          }});
-        b.setNegativeButton("Cancel", new OnClickListener() {
-
-          public void onClick(DialogInterface dialog, int which) {
-            dialog.dismiss();
-          }
-          
-        });
-        AlertDialog ad = b.create();
-        ad.show();
-        return true;
-      }
-      
-    });
+    lv.setOnItemLongClickListener(new HaikuLongClickListener());
   }
 
+  /*
+   * Deletes a poem and triggers a GUI redraw.
+   */
   private void deletePoem(Poem p) {
     Dao<Poem, Integer> dao;
     try {
@@ -91,11 +68,13 @@ public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelpe
       dao.delete(p);
       adapter.remove(p);
     } catch (SQLException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      throw new RuntimeException("Could not delete Haiku.");
     }
   }
   
+  /*
+   * Fetches poems and triggers GUI draw.
+   */
   private void fetchPoems() {
     try {
       Dao<Poem, Integer> poemDao = getHelper().getPoemDao();
@@ -103,7 +82,47 @@ public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelpe
       adapter = new PoemAdapter(this, R.layout.poem, poems);
       lv.setAdapter(adapter);
     } catch (SQLException e) {
-      throw new RuntimeException("Could not get Haikus");
+      throw new RuntimeException("Could not get Haikus.");
     }
+  }
+  
+  /*
+   * Internal class for handling long click events.
+   */
+  private class HaikuLongClickListener implements OnItemLongClickListener {
+
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position,
+        long id) {
+      BrowseSavedHaikusActivity activity = BrowseSavedHaikusActivity.this;
+      final Poem p = (Poem) parent.getItemAtPosition(position);
+      
+      // Build the alert dialog
+      Builder b = new Builder(activity);
+      b.setTitle("Delete a Haiku");
+      b.setMessage("Would you like to delete the following Haiku?\n" + p.toString());
+      
+      // Set up modal view buttons
+      b.setPositiveButton("Delete", new OnClickListener() {
+
+        public void onClick(DialogInterface dialog, int which) {
+          deletePoem(p);
+        }
+        
+      });
+      b.setNegativeButton("Cancel", new OnClickListener() {
+
+        public void onClick(DialogInterface dialog, int which) {
+          dialog.dismiss();
+        }
+        
+      });
+      
+      // Show the dialog
+      b.show();
+      
+      // Returning true means that we have consumed the long click event.
+      return true;
+    }
+    
   }
 }
