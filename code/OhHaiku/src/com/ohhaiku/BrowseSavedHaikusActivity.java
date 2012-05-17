@@ -30,7 +30,7 @@ import com.ohhaiku.views.PoemAdapter;
 public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 	private ListView lv;
 	private List<Poem> poems;
-  private ListAdapter adapter;
+  private PoemAdapter adapter;
 	
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -89,11 +89,11 @@ public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelpe
     try {
       dao = getHelper().getPoemDao();
       dao.delete(p);
+      adapter.remove(p);
     } catch (SQLException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    fetchPoems();
   }
   
   private void fetchPoems() {
