@@ -44,15 +44,45 @@ public class PoemAdapter extends ArrayAdapter<Poem> {
      ImageView image = (ImageView) v.findViewById(R.id.haiku_icon);
      // TODO: Check haiku now
      if (image != null) {
-       Haiku h = new Haiku(p);
-       if (h.isValid()) {
-         image.setImageResource(R.drawable.green_icn);
-       } else {
-         image.setImageResource(R.drawable.grey_icn);
-       }
+    	 Haiku h = new Haiku(p);
+    	 setImage(h, image);
      }
     }
     return v;
+  }
+  
+  private void setImage(Haiku h, ImageView m) {
+      if (h.isValid()) {
+        m.setImageResource(R.drawable.green_icn);
+      } else {
+      if (h.isValidRow(0)) {
+    	  if (h.isValidRow(1)) {
+    		m.setImageResource(R.drawable.line12_icn);
+    	  }
+    	  else if (h.isValidRow(2)) {
+    		m.setImageResource(R.drawable.line13_icn);
+    	  }
+    	  else {
+    		  m.setImageResource(R.drawable.line1_icn);
+    	  }
+      }
+      else if (h.isValidRow(1)) {
+    	  if (h.isValidRow(2)) {
+    		m.setImageResource(R.drawable.line23_icn);
+    	  }
+    	  else {
+    		m.setImageResource(R.drawable.line2_icn);
+    	  }
+    	  
+      }
+      else if (h.isValidRow(2)){
+    	m.setImageResource(R.drawable.line3_icn);
+      }
+      else {
+    	  m.setImageResource(R.drawable.grey_icn);
+      }
+      
+      }
   }
   
   
