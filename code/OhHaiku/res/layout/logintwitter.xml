@@ -9,26 +9,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+
            <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo" 
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
-        />
+               android:id="@+id/logo"
+               android:layout_width="100dp"
+               android:layout_height="85dp"
+               android:layout_marginLeft="4dp"
+               android:layout_marginTop="4dp"
+               android:src="@drawable/logo" />
     
     </LinearLayout>
     
     <TableRow> 
         <TextView 
             android:text="User Name:"
-            android:width ="120px"
+            
             android:layout_marginTop="20dp"
           />
         <EditText 
             android:id="@+id/txtUserName" 
-            android:width="200px" 
+            android:width="15dp" 
             android:layout_marginTop="20dp"
             />
     </TableRow> 
