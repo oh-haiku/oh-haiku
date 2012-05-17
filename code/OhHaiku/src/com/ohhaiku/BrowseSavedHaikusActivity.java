@@ -93,6 +93,7 @@ public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelpe
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+    fetchPoems();
   }
   
   private void fetchPoems() {
