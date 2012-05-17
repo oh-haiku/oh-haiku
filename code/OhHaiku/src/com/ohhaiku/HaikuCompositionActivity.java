@@ -41,6 +41,19 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   	super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
   }
+	
+	@Override
+	protected void onRestart(){
+	  super.onRestart();
+	  setStatus("");
+	  if(isCurrentPoemSaved()){
+	    setPersistButtonText(getString(R.string.update_button_title));
+	  }
+	  else{
+      setPersistButtonText(getString(R.string.save_button_title));
+	  }
+	  
+	}
 
 	/**
 	 * Click handler for the menu button
@@ -255,11 +268,21 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * Checks if the current haiku has been saved, if so - updates it. Otherwise, saves a new Haiku.
    */
   public void onPersist(View v) {
-    if (poem == null) {
+ 
+    if(isCurrentPoemSaved()){
+      setPersistButtonText(getString(R.string.update_button_title));
+      updateHaiku();
+    }
+    else{
+      setPersistButtonText(getString(R.string.save_button_title));
+      saveHaiku(); 
+    }
+ 
+/*	if (poem == null) {
       saveHaiku();
     } else {
       updateHaiku();
-    }
+    }*/
   }
   
   /*
@@ -275,5 +298,19 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       setStatus(getString(R.string.update_failed_text));
     }
     
+  }
+  
+  // Returns true if the current poem is in the database
+  private boolean isCurrentPoemSaved()
+  {
+    try {
+      Dao<Poem, Integer> dao = getHelper().getPoemDao();
+      
+      return (dao.queryForSameId(poem) != null);
+
+      } catch (SQLException e) {
+        setStatus(getString(R.string.update_failed_text));
+        return false;
+      }
   }
 }//HaikuCompositionActivity
