@@ -5,8 +5,6 @@
 package com.ohhaiku;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import android.app.Activity;
 import android.content.Intent;
