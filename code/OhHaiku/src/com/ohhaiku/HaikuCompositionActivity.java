@@ -90,7 +90,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    */
   public void onCheck(View view) {
 	   final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
-	  	Boolean isValid = true;
+	  	Boolean isValid = this.inputIsHaiku();
 	  	if(twitter != null && isValid){
 	  		activateTweetButton();
 	  	} else {
@@ -177,12 +177,12 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   }
   
   protected void onResume(){
-	  super.onResume();
+	 super.onResume();
   	final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
   	final Button tweetButton = (Button)findViewById(R.id.TweetHaikuButton);
   	final Button checkButton = (Button)findViewById(R.id.CheckHaikuButton);
   	
-  	Boolean isValid = true;
+  	Boolean isValid = this.inputIsHaiku();
   	if(twitter != null && isValid){
   		activateTweetButton();
   	} else {
