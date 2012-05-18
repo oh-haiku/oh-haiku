@@ -42,11 +42,11 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   	super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
   }
-	
+
 	@Override
 	protected void onRestart(){
 	  super.onRestart();
-	  setStatus("");
+	  resetStatusImage();
 	  if(isCurrentPoemSaved()){
 	    setPersistButtonText(getString(R.string.update_button_title));
 	  }
@@ -94,13 +94,28 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     Haiku h = new Haiku(p);
     
     setValidRows(h);
-
+    ImageView image = (ImageView) this.findViewById(R.id.haiku_status);
     boolean valid = h.isValid();
-    if (valid) {
-      setStatus(getString(R.string.certified_text));
-    } else {
-      setStatus(getString(R.string.not_certified_haiku_text));
-    }
+   setStatusImage(image, valid);
+  }
+  
+  /*
+   * Sets Certified/Not valid image
+   */
+  private void setStatusImage(ImageView m, boolean status){
+	  m.setVisibility(0);
+	  if (status){
+		  m.setImageResource(R.drawable.certified_icn);
+	  }
+	  else {
+		  m.setImageResource(R.drawable.not_valid_icn);
+	  }
+	  
+  }
+  private void resetStatusImage() {
+	  ImageView m = (ImageView) this.findViewById(R.id.haiku_status);
+	  m.setVisibility(1);
+	  
   }
   
   /*
@@ -159,8 +174,8 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       setToast(getString(R.string.save_failed_text));
     }
 	}
-	
-	
+
+
 	private void setValidRows(Haiku h){
 	   for (int i=0;i<3;i++) {
 	    	 boolean validrow = h.isValidRow(i);
@@ -172,11 +187,11 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	    	 } 
 	    }
 	}
-	
+
 	private void setDefaultRowImage(int row) {
 	  getRowImageViews()[row].setImageResource(R.drawable.grey_icn);
 	}
-	
+
 	private ImageView[] getRowImageViews() {
 	  return new ImageView[] {
 	      (ImageView) findViewById(R.id.row1_status),
@@ -184,7 +199,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	      (ImageView) findViewById(R.id.row3_status)
 	  };
 	}
-	
+
 	private void setValidRowImage(int row) {
 		if (row==0){
 			ImageView image = (ImageView) this.findViewById(R.id.row1_status);
@@ -198,10 +213,10 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 			ImageView image = (ImageView) this.findViewById(R.id.row3_status);
 	        image.setImageResource(R.drawable.line3_icn);	
 		}
-		
+
 	}//sets the image of every row
-	
-	
+
+
 	/*
 	 * Sets the status text view.
 	 */
@@ -258,7 +273,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     currentPoem = null;
     setLines(new String[] {"", "", ""});
     setPersistButtonText(getString(R.string.save_button_title));
-    setStatus("");
+    resetStatusImage();
     for (int i=0;i<3;i++) {
     	setDefaultRowImage(i);
     }
