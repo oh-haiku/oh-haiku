@@ -15,25 +15,43 @@ like to have an app that could tell him whether these three sentences constitute
 This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku-rules and tweet the text. The application is also an easy way to store the users poems.
  
 ### 2 Test environment
+First, read [Developer manual](https://github.com/oh-haiku/oh-haiku/blob/master/doc/developer_manual.md) to get the code or .apk and install. 
+
+To do code coverage you need to install [ant](http://ant.apache.org/) and an easy way to do that is using [brew](http://mxcl.github.com/homebrew/). After installing ant you could easily write Apache ant-commands in Terminal. Check more precise commands [here](http://developer.android.com/guide/developing/projects/projects-cmdline.html). You HAVE TO run the emulator before code coverage. 
+
+To update the project to the new development environment, go to [Managing projects from the command line](http://developer.android.com/guide/developing/projects/projects-cmdline.html) and [Testing from other IDEs](http://developer.android.com/guide/developing/testing/testing_otheride.html). The android tool will generate any files and folders that are either missing or need to be updated, as needed for the Android project. In Terminal, type:
+	android update project --name Ohhaiku --target 2 --path <path_to_Ohhaiku_project>
+	android update test-project -m ../Ohhaiku -p <Path_to_Ohhaikutest_project>
 
 
- - Vilka förberedelser behöver göras innan man kan testa
- - Var finns koden eller .apk?
- - Hur installeras denna?
- - Behöver man tömma eller skapa en databas?
- - Behövs internetuppkoppling (kanske ett spciellt nätverk)?
+
+To get the coverage, navigate to /Ohhaikutest and write:
+	ant emma debug install test 
+
+	open coverage/coverage.html
+
+
 
 ####2.1 Hardware enviroment
-We run most of our tests on a HTC-phone and therefore not using the emulator. 
+We have used the following plattform for testing:
 
-HTC ...
-Screen: 
+ - Model:	MacBook Pro
+ - Modellidentifierare:	MacBookPro5,5
+ - CPU:	Intel Core 2 Duo, 2,53 GHz
+ - Number of CPU:s:	1
+ - Kernels:	2
+ - L2-cache:	3 MB
+ - Memory:	4 GB
+ - Busspeed:	1,07 GHz
+ - Boot ROM-version:	MBP55.00AC.B03
+ - SMC-version (system):	1.47f2
 
-
-Använder ni emulatorn eller riktig telefon vid dessa?
+We have been running our written tests (more information about the tests in the  [RAD-document](https://github.com/oh-haiku/oh-haiku/blob/master/doc/RAD.md))
+on a Android HTC Wildfire (2.7in QVGA) and in the emulator. 
+ 
 
 ####2.2 Software environment
-(what software (incl version) was used?)
+
 ####2.2.3 Softwares
 
 Coding:
@@ -83,10 +101,9 @@ For documentation on the tests, view [RAD-document with tests](https://github.co
 
 #### 6.1 Code coverage
 
-We've been talking about using something like [EclEmma](http://www.eclemma.org/) to calculate the code coverage.
+We've have been using [ant](http://ant.apache.org/) to calculate the code coverage.
 
-The plan is to have 100% coverage on everyting that isn't related to the GUI, in particular unit tests.
-The future will tell if this is realistic or not.
+
 
 #### 6.2 Nightly builds
 
@@ -108,6 +125,3 @@ Both of these will be testet each time something is pushed to Github, but we are
 The *stable* branch should reflect the deployed version (maybe on Google Play). Each release is tagged using *git tags*. Each tag is in it self named according to the [semver](http://semver.org/) version conversion.
 
 
-FRÅN KURSHEMSIDA:
-(present a table with Test id, Result, Comment)
-(use comment to say what bug the test resulted in or that the test could not be performed since the requirement is not yet implemented)
