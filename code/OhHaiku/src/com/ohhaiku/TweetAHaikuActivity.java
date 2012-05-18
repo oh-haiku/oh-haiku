@@ -54,7 +54,7 @@ public class TweetAHaikuActivity extends Activity {
 	}
 	
 	private void resetAuth() {
-		this.storeAccessToken(null);
+		((HaikuApplication)getApplication()).setTwitter(null);
 	}
 
 	private void checkForSavedLogin() {
@@ -128,6 +128,7 @@ public class TweetAHaikuActivity extends Activity {
 		    	Button buttonLogin = (Button)findViewById(R.id.LogoutButton);
 		 	    buttonLogin.setOnClickListener(new OnClickListener() {
 		 	    	public void onClick(View v) {
+		 	    		System.out.println("OKOKOKOKOKOK!OK!OKO!KOK!OK!OK!OKO!KO");
 		 	    		resetAuth();
 		 	    		startActivity(getIntent());
 		 	    		finish();
