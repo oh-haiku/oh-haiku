@@ -248,7 +248,7 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Easy to use for everyone, even people who aren't familiar with Haiku
 - There shall always be a cancel button available in all dialogue windows (all scenarios)
 - The application shall notify the user at start up if a more recent version of the application exists
-- A text that fails Haiku verification should not be tweetable using the application. (Twitter scenario 2.1)
+- A text that fails Haiku verification should not be tweetable using the application. (Twitter 2.1)
 
 ###2.3.2 Reliability
 
@@ -259,9 +259,9 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 ###2.3.3 Performance
 
 - Response time should not be noticeable (all scenarios)
-- Verifying if a text is a Haiku should not take more than 10(?) ms (Verify Haiku scenario 1.2)
-- Saving a Haiku should not take more than 10 ms (Save a Haiku scenario 3.1)
-- Deleting a saved Haiku should not take more than 10 ms (Deleting a Haiku ?)
+- Verifying if a text is a Haiku should not take more than 10 ms (Verify Haiku 1.2)
+- Saving a Haiku should not take more than 10 ms (Save a Haiku 3.1)
+- Deleting a saved Haiku should not take more than 10 ms (Deleting a Haiku 3.5)
 - Robust
 - Resource light, according to Android's demands
 
@@ -276,8 +276,8 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Shall have a selling description on Google Play
 
 ###2.3.6 Accessibility
-- Verifying if a text is a Haiku should not require Internet access (Verify Haiku scenario 1.2)
-- Saving a Haiku/text should not require Internet access (Save Haiku scenario 3.1)
+- Verifying if a text is a Haiku should not require Internet access (Verify Haiku 1.2)
+- Saving a Haiku/text should not require Internet access (Save Haiku 3.1)
 - Updating to more recent versions of the application should not be required to use the application. (all scenarios)
 - Using the application shall not require a twitter account (all scenarios)
 
