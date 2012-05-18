@@ -98,6 +98,14 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setStatusImage(image, h.isValid());
   }
   
+  // Checks if input is a Haiku
+  private boolean inputIsHaiku(){
+    Poem p = new Poem(getLines());
+    Haiku h = new Haiku(p);
+    
+    return h.isValid();
+  }
+  
   /*
    * Sets Certified/Not valid image
    */
