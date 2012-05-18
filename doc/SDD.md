@@ -3,12 +3,6 @@
 Version 1.
 Author: Jesper Josefsson
 
-##TODOLIST FROM MAX
-
- - Intern dependency-analys. Vilka beroenden finns mellan era moduler, vad kan ni påverka, vad kan ni inte påverka pga. Android?
- - Access och security: Vilka krav uppfyller appen i förhållande till Twitters specifikationer?
- - Boundary conditions, finns några? Åtar ni er att hantera input som inte passar för SMS eller Twitter? (Detta är endast ett exempel, försök identifiera fler boundary conditions).
- - Release-procedur (finns inte med i mallen) Beskriv hur en release i ert projekt går till, vad görs i versionshanteringssystemet, vad gör ni med er .apk?
 
 ## General information
 Oh-Haiku is an Android Application which helps users compose Haiku poems and lets the user save poems and share them via Twitter, SMS or e-mail.
@@ -99,7 +93,7 @@ Instead, 3PP packages will be added as JAR-files.
 - Twitter4J 
 
 ### Boundary conditions
-Text entered that does not agree with SMS or Twitter requirements are not changed to accommodate those requirements. A Haiku cannot, however, be saved if the text input is empty (including whitespace).
+Text entered that does not agree with SMS or Twitter requirements are not changed to accommodate those requirements. It is up to the user to correct those errors. A Haiku cannot, however, be saved if the text input is empty (including whitespace).
 
 ### Release Procedure
 A release occurs when a set predefined features are implemented. Test for older features and new features are performed, as well as unit tests. The result of these are documented in a test report. The coverage of the tests are inluded in the test report.

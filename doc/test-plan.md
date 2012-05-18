@@ -1,10 +1,5 @@
 # Test plan
 
-##TODOLIST FROM MAX (erase this when done)
- - Skapa en testrapport som för en version av appen går igenom och markerar vilka test som går igenom och vilka som failar. 
- - Gärna i en överskådlig lista som bara refererar till testets ID, resultat och eventuella kommentarer (som om ett test failar pga obefintlig implementation). 
-Detta blir relevant när ni har en release.
-
 ## Testcases
 
 ### 1 Introduction
