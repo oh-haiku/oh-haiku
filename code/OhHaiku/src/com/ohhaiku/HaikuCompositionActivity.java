@@ -157,13 +157,15 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   		activateTweetButton();
   	}
   	
+	final EditText t1 = (EditText)findViewById(R.id.editTextRow1);
+	final EditText t2 = (EditText)findViewById(R.id.editTextRow2);
+	final EditText t3 = (EditText)findViewById(R.id.editTextRow3);
+	
   	final HaikuCompositionActivity self = this;
   	tweetButton.setOnClickListener(new OnClickListener() {
 	    	public void onClick(View v) {
+	    		Toast.makeText(self, "Please wait, posting tweet", Toast.LENGTH_LONG).show();
 	    		deactivateTweetButton();
-	    		EditText t1 = (EditText)findViewById(R.id.editTextRow1);
-	    		EditText t2 = (EditText)findViewById(R.id.editTextRow2);
-	    		EditText t3 = (EditText)findViewById(R.id.editTextRow3);
 	    		/* Tweet! */
 	    		String message = String.format(tweetFormat, t1.getText().toString(), t2.getText().toString(), t3.getText().toString());
 	    		try {

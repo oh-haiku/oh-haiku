@@ -85,7 +85,6 @@ public class TweetAHaikuActivity extends Activity {
 	@Override
 	protected void onResume() {
 	 super.onResume();
-	    
 	 if (this.getIntent()!=null && this.getIntent().getData()!=null){
 		 
 	  Uri uri = this.getIntent().getData();
@@ -116,33 +115,38 @@ public class TweetAHaikuActivity extends Activity {
 	   } catch (Exception e) {
 	    //Log.e(APP, e.getMessage());
 	    e.printStackTrace();
-	    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+	    
+	   } finally {
+		   Intent intent = new Intent(this, HaikuCompositionActivity.class);
+		   startActivity(intent);
 	   }
 	  }
+	 } else {
+		 Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
+		    if(twitter != null){
+		    	setContentView(R.layout.logouttwitter);
+		    	Button buttonLogin = (Button)findViewById(R.id.LogoutButton);
+		 	    buttonLogin.setOnClickListener(new OnClickListener() {
+		 	    	public void onClick(View v) {
+		 	    		resetAuth();
+		 	    		startActivity(getIntent());
+		 	    		finish();
+		 	    	}
+		 	    });
+		    } else {
+			    setContentView(R.layout.logintwitter);
+			    Button buttonLogin = (Button)findViewById(R.id.LoginButton);
+			    buttonLogin.setOnClickListener(new OnClickListener() {
+			    	public void onClick(View v) {
+			    		askOAuth();
+			    	}
+			    });
+
+		    }
 	 }
 	 
 	 
-	 Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
-	    if(twitter != null){
-	    	setContentView(R.layout.logouttwitter);
-	    	Button buttonLogin = (Button)findViewById(R.id.LogoutButton);
-	 	    buttonLogin.setOnClickListener(new OnClickListener() {
-	 	    	public void onClick(View v) {
-	 	    		resetAuth();
-	 	    		startActivity(getIntent());
-	 	    		finish();
-	 	    	}
-	 	    });
-	    } else {
-		    setContentView(R.layout.logintwitter);
-		    Button buttonLogin = (Button)findViewById(R.id.LoginButton);
-		    buttonLogin.setOnClickListener(new OnClickListener() {
-		    	public void onClick(View v) {
-		    		askOAuth();
-		    	}
-		    });
 
-	    }
 	}
 
 
