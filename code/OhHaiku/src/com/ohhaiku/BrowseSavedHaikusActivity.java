@@ -39,6 +39,7 @@ public class BrowseSavedHaikusActivity extends OrmLiteBaseActivity<DatabaseHelpe
     setUpClickListeners();
   }
 
+  // Sets up click listeners
   private void setUpClickListeners() {
     lv.setOnItemClickListener(new OnItemClickListener() {
 

@@ -111,6 +111,14 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setStatusImage(image, h.isValid());
   }
   
+  // Checks if input is a Haiku
+  private boolean inputIsHaiku(){
+    Poem p = new Poem(getLines());
+    Haiku h = new Haiku(p);
+    
+    return h.isValid();
+  }
+  
   /*
    * Sets Certified/Not valid image
    */
@@ -235,7 +243,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
 	}
 
-
+	// Checks each row if it is valid and sets the image accordingly
 	private void setValidRows(Haiku h){
 	   for (int i=0;i<3;i++) {
 	    	 boolean validrow = h.isValidRow(i);
@@ -248,10 +256,12 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	    }
 	}
 
+	// Sets the image of a row to default
 	private void setDefaultRowImage(int row) {
 	  getRowImageViews()[row].setImageResource(R.drawable.grey_icn);
 	}
 
+	
 	private ImageView[] getRowImageViews() {
 	  return new ImageView[] {
 	      (ImageView) findViewById(R.id.row1_status),
@@ -260,6 +270,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	  };
 	}
 
+	// Sets the image of every row
 	private void setValidRowImage(int row) {
 		if (row==0){
 			ImageView image = (ImageView) this.findViewById(R.id.row1_status);
@@ -274,17 +285,8 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	        image.setImageResource(R.drawable.line3_icn);	
 		}
 
-	}//sets the image of every row
+	}
 
-
-	/*
-	 * Sets the status text view.
-	 */
-  private void setStatus(String status) {
-    TextView statusView = (TextView) this.findViewById(R.id.statusText);
-    statusView.setText(status);
-  }
-  
   /*
    * Called when the Menu activity passes on a Haiku from the BrowseSavedHaikus Activity
    * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
@@ -389,10 +391,12 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     }
   } 
   
+  // Shows a toast message
   private void setToast(String msg){
     Toast.makeText(this, msg, Toast.LENGTH_LONG).show(); 
   }
   
+  // Checks if all rows are empty (trimmed)
   private boolean rowsAreEmpty()
   {
     String[] lines = getLines();

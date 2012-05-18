@@ -51,20 +51,22 @@ public class PoemAdapter extends ArrayAdapter<Poem> {
     return v;
   }
   
+  // Sets image according to which rows are valid
   private void setImage(Haiku h, ImageView m) {
       if (h.isValid()) {
         m.setImageResource(R.drawable.green_icn);
-      } else {
-      if (h.isValidRow(0)) {
-    	  if (h.isValidRow(1)) {
-    		m.setImageResource(R.drawable.line12_icn);
-    	  }
-    	  else if (h.isValidRow(2)) {
-    		m.setImageResource(R.drawable.line13_icn);
-    	  }
-    	  else {
-    		  m.setImageResource(R.drawable.line1_icn);
-    	  }
+      } 
+      else {
+        if (h.isValidRow(0)) {
+      	  if (h.isValidRow(1)) {
+      		m.setImageResource(R.drawable.line12_icn);
+      	  }
+      	  else if (h.isValidRow(2)) {
+      		m.setImageResource(R.drawable.line13_icn);
+      	  }
+      	  else {
+      		  m.setImageResource(R.drawable.line1_icn);
+      	  }
       }
       else if (h.isValidRow(1)) {
     	  if (h.isValidRow(2)) {
@@ -83,7 +85,5 @@ public class PoemAdapter extends ArrayAdapter<Poem> {
       }
       
       }
-  }
-  
-  
+  } 
 }

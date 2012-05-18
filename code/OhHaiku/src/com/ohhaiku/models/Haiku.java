@@ -26,6 +26,7 @@ public class Haiku {
     this.poem = poem;
   }
   
+  // Checks if a given row is valid, according to Haiku rules
   public boolean isValidRow(int row)
   {
     if(row >= 0 && row < 3){
