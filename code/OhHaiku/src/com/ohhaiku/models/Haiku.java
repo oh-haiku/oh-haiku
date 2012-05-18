@@ -73,7 +73,4 @@ public class Haiku {
     } else if (!poem.equals(other.poem))
       return false;
     return true;
-  }
-
-  
-}
+  }}
