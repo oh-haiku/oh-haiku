@@ -41,12 +41,12 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   public void onCreate(Bundle savedInstanceState) {
   	super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
+    resetStatusImage();
   }
 
 	@Override
 	protected void onRestart(){
 	  super.onRestart();
-	  resetStatusImage();
 	  if(isCurrentPoemSaved()){
 	    setPersistButtonText(getString(R.string.update_button_title));
 	  }
@@ -95,27 +95,27 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     
     setValidRows(h);
     ImageView image = (ImageView) this.findViewById(R.id.haiku_status);
-    boolean valid = h.isValid();
-   setStatusImage(image, valid);
+    setStatusImage(image, h.isValid());
   }
   
   /*
    * Sets Certified/Not valid image
    */
-  private void setStatusImage(ImageView m, boolean status){
-	  m.setVisibility(0);
-	  if (status){
+  private void setStatusImage(ImageView m, boolean valid){
+	  m.setVisibility(View.VISIBLE);
+
+	  if (valid){
 		  m.setImageResource(R.drawable.certified_icn);
 	  }
 	  else {
 		  m.setImageResource(R.drawable.not_valid_icn);
-	  }
-	  
+	  }  
   }
+  
+  // Makes haiku_status image invisible
   private void resetStatusImage() {
 	  ImageView m = (ImageView) this.findViewById(R.id.haiku_status);
-	  m.setVisibility(1);
-	  
+	  m.setVisibility(View.INVISIBLE);
   }
   
   /*
@@ -277,6 +277,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     for (int i=0;i<3;i++) {
     	setDefaultRowImage(i);
     }
+    resetStatusImage();
   }
 
   /*
