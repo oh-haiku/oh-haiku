@@ -25,8 +25,8 @@ import android.widget.Toast;
 
 public class TweetAHaikuActivity extends Activity {
 	
-    private static final String CONSUMER_SECRET = "SwKSGxPgiekbaHjfZAkftno7qSRvvxaUlRDHE";
-	private static final String CONSUMER_KEY = "cFr8hgs1HtB5PwoGS2GKA";
+    public static final String CONSUMER_SECRET = "SwKSGxPgiekbaHjfZAkftno7qSRvvxaUlRDHE";
+	public static final String CONSUMER_KEY = "cFr8hgs1HtB5PwoGS2GKA";
 	private static final String CALLBACK_URL = "callback://tweeter";
 	
 	private CommonsHttpOAuthConsumer consumer = null;
@@ -36,26 +36,45 @@ public class TweetAHaikuActivity extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.logintwitter);
 	    
+	    Twitter twitter = ((HaikuApplication)getApplication()).getTwitterConnection();
+	    if(twitter != null){
+	    	setContentView(R.layout.logouttwitter);
+	    	Button buttonLogin = (Button)findViewById(R.id.ButtonLogout);
+	 	    buttonLogin.setOnClickListener(new OnClickListener() {
+	 	    	public void onClick(View v) {
+	 	    		resetAuth();
+	 	    		startActivity(getIntent());
+	 	    		finish();
+	 	    	}
+	 	    });
+	    } else {
+		    setContentView(R.layout.logintwitter);
+		    Button buttonLogin = (Button)findViewById(R.id.ButtonLogin);
+		    buttonLogin.setOnClickListener(new OnClickListener() {
+		    	public void onClick(View v) {
+		    		askOAuth();
+		    	}
+		    });
+
+	    }
 	    /* Check for saved login details */
 	    // this.checkForSavedLogin();
 	    
 	    /* Set customer and provider on the application service */
 	    // this.getCustomerProvider();
 		
-	    Button buttonLogin = (Button)findViewById(R.id.ButtonLogin);
-	    buttonLogin.setOnClickListener(new OnClickListener() {
-	    	public void onClick(View v) {
-	    		askOAuth();
-	    	}
-	    });
+	   
 	    
 	 }
 
 	private void getCustomerProvider() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private void resetAuth() {
+		this.storeAccessToken(null);
 	}
 
 	private void checkForSavedLogin() {
@@ -166,8 +185,14 @@ public class TweetAHaikuActivity extends Activity {
 	private void storeAccessToken(AccessToken a) {
 		SharedPreferences settings = getSharedPreferences("HaikuApplication", MODE_PRIVATE);
 		SharedPreferences.Editor editor = settings.edit();
-		editor.putString("accessTokenToken", a.getToken());
-		editor.putString("accessTokenSecret", a.getTokenSecret());
+		if(a == null){
+			editor.putString("accessTokenToken", null);
+			editor.putString("accessTokenSecret", null);
+		} else {
+			editor.putString("accessTokenToken", a.getToken());
+			editor.putString("accessTokenSecret", a.getTokenSecret());
+		}
+
 		editor.commit();
 	}
 }
