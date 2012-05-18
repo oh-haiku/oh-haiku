@@ -89,6 +89,13 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * Click handler for the Check Haiku button
    */
   public void onCheck(View view) {
+	   final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
+	  	Boolean isValid = true;
+	  	if(twitter != null && isValid){
+	  		activateTweetButton();
+	  	} else {
+	  		deactivateTweetButton();
+	  	}
     check();
   }
   
@@ -148,18 +155,21 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   
   protected void onResume(){
 	  super.onResume();
-	  System.out.println("AAAAAAAAAAA =============>");
   	final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
   	final Button tweetButton = (Button)findViewById(R.id.TweetHaikuButton);
-  	if(twitter == null){
-  		deactivateTweetButton();
-  	} else {
+  	final Button checkButton = (Button)findViewById(R.id.CheckHaikuButton);
+  	
+  	Boolean isValid = true;
+  	if(twitter != null && isValid){
   		activateTweetButton();
+  	} else {
+  		deactivateTweetButton();
   	}
   	
 	final EditText t1 = (EditText)findViewById(R.id.editTextRow1);
 	final EditText t2 = (EditText)findViewById(R.id.editTextRow2);
 	final EditText t3 = (EditText)findViewById(R.id.editTextRow3);
+
 	
   	final HaikuCompositionActivity self = this;
   	tweetButton.setOnClickListener(new OnClickListener() {
