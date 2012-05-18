@@ -25,8 +25,8 @@ import android.widget.Toast;
 
 public class TweetAHaikuActivity extends Activity {
 	
-    private static final String CONSUMER_SECRET = "xf47rFz6Q5WP1kB5HFOpXKh7oKw2h57e2KbzXe5vYaE";
-	private static final String CONSUMER_KEY = "x2XkoKwcJrC9W92pP2jgw";
+    private static final String CONSUMER_SECRET = "SwKSGxPgiekbaHjfZAkftno7qSRvvxaUlRDHE";
+	private static final String CONSUMER_KEY = "cFr8hgs1HtB5PwoGS2GKA";
 	private static final String CALLBACK_URL = "callback://tweeter";
 	
 	private CommonsHttpOAuthConsumer consumer = null;
@@ -39,10 +39,10 @@ public class TweetAHaikuActivity extends Activity {
 	    setContentView(R.layout.logintwitter);
 	    
 	    /* Check for saved login details */
-	    this.checkForSavedLogin();
+	    // this.checkForSavedLogin();
 	    
 	    /* Set customer and provider on the application service */
-	    this.getCustomerProvider();
+	    // this.getCustomerProvider();
 		
 	    Button buttonLogin = (Button)findViewById(R.id.ButtonLogin);
 	    buttonLogin.setOnClickListener(new OnClickListener() {
@@ -105,6 +105,8 @@ public class TweetAHaikuActivity extends Activity {
 	    twitter = new TwitterFactory().getInstance();
 	    twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
 	    twitter.setOAuthAccessToken(a);
+	    
+	    twitter.updateStatus("Example tweet");
 	    // ((TwitterApplication)getApplication()).setTwitter(twitter);
 	    //Log.e("Login", "Twitter Initialised");
 	    
