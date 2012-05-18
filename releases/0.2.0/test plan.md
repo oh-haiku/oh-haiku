@@ -20,7 +20,7 @@ First, read [Developer manual](https://github.com/oh-haiku/oh-haiku/blob/master/
 To do code coverage you need to install [ant](http://ant.apache.org/) and an easy way to do that is using [brew](http://mxcl.github.com/homebrew/). After installing ant you could easily write Apache ant-commands in Terminal. Check more precise commands [here](http://developer.android.com/guide/developing/projects/projects-cmdline.html). You HAVE TO run the emulator before code coverage. 
 
 To update the project to the new development environment, go to [Managing projects from the command line](http://developer.android.com/guide/developing/projects/projects-cmdline.html) and [Testing from other IDEs](http://developer.android.com/guide/developing/testing/testing_otheride.html). The android tool will generate any files and folders that are either missing or need to be updated, as needed for the Android project. In Terminal, type:
- android update project --name Ohhaiku --target 2 --path <path_to_Ohhaiku_project>
+ 	android update project --name Ohhaiku --target 2 --path <path_to_Ohhaiku_project>
 	android update test-project -m ../Ohhaiku -p <Path_to_Ohhaikutest_project>
 
 
