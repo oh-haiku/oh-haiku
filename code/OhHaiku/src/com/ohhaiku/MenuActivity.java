@@ -26,7 +26,7 @@ public class MenuActivity extends Activity {
 	}
 	
 	public void goToFAQ(View view) {
-	  // TODO
+		startActivity(new Intent(this, FAQActivity.class));
 	}
 	
 	public void loginToTwitter(View view) {

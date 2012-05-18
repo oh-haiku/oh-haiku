@@ -7,7 +7,7 @@ tweeted that he often thinks in chunks of three unrelated thoughts. He indicated
 like to have an app that could tell him whether these three sentences constitute a haiku poem.
 
 ##1.2 General characteristics of application
-This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku-rules and tweet the text. The application is also an easy way to store the users poems. 
+This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku rules and tweet the text. The application is also an easy way to store the users poems and tweet poems that fulfill the Haiku rules. 
 ##1.3 Scope of application
 Our scope is to let the user be able to write Haikus, save them and tweet them. The Japanese Haiku is written in one single vertical row and the only thing that is counted is the sound of the tokens which means that syllables are ignored. According to the Haiku criterias the Haiku should for example contain a word that refers to a time of year, not be sentimental, not contain too strong adjectives and merge nature observations with the conditions of life. It is nearly impossible to write an algorithm to check those things. Our algorithm focuses on the Western Haiku and therefore on counting syllables.
 Only a Swedish language version is planned at the moment. Syllable counting is performed by counting groups of single or consequtive vowels. The algorithm does not handle compound words, i.e. vidareutveckla.
@@ -248,7 +248,7 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Easy to use for everyone, even people who aren't familiar with Haiku
 - There shall always be a cancel button available in all dialogue windows (all scenarios)
 - The application shall notify the user at start up if a more recent version of the application exists
-- A text that fails Haiku verification should not be tweetable using the application. (Twitter scenario 2.1)
+- A text that fails Haiku verification should not be tweetable using the application. (Twitter 2.1)
 
 ###2.3.2 Reliability
 
@@ -259,9 +259,9 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 ###2.3.3 Performance
 
 - Response time should not be noticeable (all scenarios)
-- Verifying if a text is a Haiku should not take more than 10(?) ms (Verify Haiku scenario 1.2)
-- Saving a Haiku should not take more than 10 ms (Save a Haiku scenario 3.1)
-- Deleting a saved Haiku should not take more than 10 ms (Deleting a Haiku ?)
+- Verifying if a text is a Haiku should not take more than 10 ms (Verify Haiku 1.2)
+- Saving a Haiku should not take more than 10 ms (Save a Haiku 3.1)
+- Deleting a saved Haiku should not take more than 10 ms (Deleting a Haiku 3.5)
 - Robust
 - Resource light, according to Android's demands
 
@@ -276,8 +276,8 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 - Shall have a selling description on Google Play
 
 ###2.3.6 Accessibility
-- Verifying if a text is a Haiku should not require Internet access (Verify Haiku scenario 1.2)
-- Saving a Haiku/text should not require Internet access (Save Haiku scenario 3.1)
+- Verifying if a text is a Haiku should not require Internet access (Verify Haiku 1.2)
+- Saving a Haiku/text should not require Internet access (Save Haiku 3.1)
 - Updating to more recent versions of the application should not be required to use the application. (all scenarios)
 - Using the application shall not require a twitter account (all scenarios)
 
@@ -337,7 +337,7 @@ The user starts the app, the HaikuCompositionActivity appears
 Start the app, write something in the three text input fields. Press "Clear" in the HaikuCompositionActivity
 
 - Result state:
-All of the input fields are cleared from text, and the check-lotus-flowers turns grey. 
+All of the input fields are cleared from text, and the check-lotus-flowers turns grey. You can't save the Haiku directly after clearing
 
 - Related requirements:
 F1.1
@@ -393,7 +393,7 @@ T1.1 and T1.2 or T1.3
   3. Click the Check button
   
 - Result state:
-The user should be presented with Haiku verification information, true or false and beside each row a lotus-flower turns green if the row is correct. 
+The user should be presented with Haiku verification information, true or false. Beside each row a lotus-flower turns green if the row is correct. 
 
 - Related requirements:
 F1.3
@@ -508,7 +508,7 @@ N/A
   3. Click save
 
 - Result state:
-A message "Haiku saved!" appears, and also the save-button turns into a update-button. 
+A message "Haiku saved!" appears, and also the save-button turns into a update-button.  
 
 - Related requirement:
 F3.1
@@ -619,7 +619,7 @@ T3.2, T4.2
   3. Click/Swipe a remove-button in the list of My saved haikus to remove a certain haiku
 
 - Result state:
-The haiku is removed from the My saved haikus-list.
+The haiku is removed from the My saved haikus-list. If this is the current haiku in the composition-view, the user of course have to save this haiku to have it in the My saved Haikus again. 
 
 - Related requirements:
 F3.5

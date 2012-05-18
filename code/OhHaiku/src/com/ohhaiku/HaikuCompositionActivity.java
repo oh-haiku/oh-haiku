@@ -47,12 +47,12 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   public void onCreate(Bundle savedInstanceState) {
   	super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
+    resetStatusImage();
   }
-	
+
 	@Override
 	protected void onRestart(){
 	  super.onRestart();
-	  setStatus("");
 	  if(isCurrentPoemSaved()){
 	    setPersistButtonText(getString(R.string.update_button_title));
 	  }
@@ -107,13 +107,28 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     Haiku h = new Haiku(p);
     
     setValidRows(h);
+    ImageView image = (ImageView) this.findViewById(R.id.haiku_status);
+    setStatusImage(image, h.isValid());
+  }
+  
+  /*
+   * Sets Certified/Not valid image
+   */
+  private void setStatusImage(ImageView m, boolean valid){
+	  m.setVisibility(View.VISIBLE);
 
-    boolean valid = h.isValid();
-    if (valid) {
-      setStatus(getString(R.string.certified_text));
-    } else {
-      setStatus(getString(R.string.not_certified_haiku_text));
-    }
+	  if (valid){
+		  m.setImageResource(R.drawable.certified_icn);
+	  }
+	  else {
+		  m.setImageResource(R.drawable.not_valid_icn);
+	  }  
+  }
+  
+  // Makes haiku_status image invisible
+  private void resetStatusImage() {
+	  ImageView m = (ImageView) this.findViewById(R.id.haiku_status);
+	  m.setVisibility(View.INVISIBLE);
   }
   
   /*
@@ -213,14 +228,14 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	    Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
       poemPersister.create(currentPoem);
       setPoem(currentPoem);
-      setStatus(getString(R.string.save_succeeded_text));
+      setToast(getString(R.string.save_succeeded_text));
     } catch (SQLException e) {
       Log.e(logTag, "Could not save Haiku", e);
-      setStatus(getString(R.string.save_failed_text));
+      setToast(getString(R.string.save_failed_text));
     }
 	}
-	
-	
+
+
 	private void setValidRows(Haiku h){
 	   for (int i=0;i<3;i++) {
 	    	 boolean validrow = h.isValidRow(i);
@@ -232,11 +247,11 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	    	 } 
 	    }
 	}
-	
+
 	private void setDefaultRowImage(int row) {
 	  getRowImageViews()[row].setImageResource(R.drawable.grey_icn);
 	}
-	
+
 	private ImageView[] getRowImageViews() {
 	  return new ImageView[] {
 	      (ImageView) findViewById(R.id.row1_status),
@@ -244,7 +259,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	      (ImageView) findViewById(R.id.row3_status)
 	  };
 	}
-	
+
 	private void setValidRowImage(int row) {
 		if (row==0){
 			ImageView image = (ImageView) this.findViewById(R.id.row1_status);
@@ -258,10 +273,10 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 			ImageView image = (ImageView) this.findViewById(R.id.row3_status);
 	        image.setImageResource(R.drawable.line3_icn);	
 		}
-		
+
 	}//sets the image of every row
-	
-	
+
+
 	/*
 	 * Sets the status text view.
 	 */
@@ -281,7 +296,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       if (id != DEFAULT_VALUE) {
         loadHaiku(id);
       } else {
-        setStatus(getString(R.string.haiku_load_failed_text));
+        setToast(getString(R.string.haiku_load_failed_text));
       }
     }
   }
@@ -294,8 +309,9 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       Dao<Poem, Integer> dao = getHelper().getPoemDao();
       Poem p = dao.queryForId(id);
       setPoem(p);
+      setToast(getString(R.string.haiku_loaded_text));
     } catch (SQLException e) {
-      setStatus(getString(R.string.haiku_load_failed_text));
+      setToast(getString(R.string.haiku_load_failed_text));
     }
   }
   
@@ -306,7 +322,6 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   private void setPoem(Poem poem) {
     this.currentPoem = poem;
     setLines(poem.getLinesAsArray());
-    setStatus(getString(R.string.haiku_loaded_text));
     setPersistButtonText(getString(R.string.update_button_title));
     check();
   }
@@ -318,10 +333,11 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     currentPoem = null;
     setLines(new String[] {"", "", ""});
     setPersistButtonText(getString(R.string.save_button_title));
-    setStatus("");
+    resetStatusImage();
     for (int i=0;i<3;i++) {
     	setDefaultRowImage(i);
     }
+    resetStatusImage();
   }
 
   /*
@@ -350,7 +366,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       }
     }
     else{
-      Toast.makeText(this, R.string.empty_rows_text, Toast.LENGTH_LONG).show(); 
+      setToast(getString(R.string.empty_rows_text));
     }
         
   }
@@ -363,15 +379,19 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       Dao<Poem, Integer> dao = getHelper().getPoemDao();
       Dao.CreateOrUpdateStatus status = dao.createOrUpdate(currentPoem);
       if (status.isCreated()) {
-          setStatus(getString(R.string.save_succeeded_text));
+        setToast(getString(R.string.save_succeeded_text));
       } else {
-        setStatus(getString(R.string.updated_haiku_text));
+        setToast(getString(R.string.updated_haiku_text));
       }
       setPersistButtonText(getString(R.string.update_button_title));
       } catch (SQLException e) {
-        setStatus("Could not save or update poem");
+        setToast("Could not save or update poem");
     }
   } 
+  
+  private void setToast(String msg){
+    Toast.makeText(this, msg, Toast.LENGTH_LONG).show(); 
+  }
   
   private boolean rowsAreEmpty()
   {
