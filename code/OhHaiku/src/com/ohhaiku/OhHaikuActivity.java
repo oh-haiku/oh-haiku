@@ -3,6 +3,8 @@ package com.ohhaiku;
 import java.sql.SQLException;
 import java.util.List;
 
+import twitter4j.Twitter;
+
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 import com.ohhaiku.database.DatabaseHelper;
@@ -10,6 +12,9 @@ import com.ohhaiku.models.Poem;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 /*
  * Main activity: shows the Haiku composition window.
@@ -21,7 +26,7 @@ public class OhHaikuActivity extends OrmLiteBaseActivity<DatabaseHelper> {
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
     	doDatabaseStuff();
-      setContentView(R.layout.main);
+    	setContentView(R.layout.main);
     }
     
     private void doDatabaseStuff(){

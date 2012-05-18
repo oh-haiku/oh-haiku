@@ -6,12 +6,17 @@ package com.ohhaiku;
 
 import java.sql.SQLException;
 
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,13 +27,14 @@ import com.ohhaiku.database.DatabaseHelper;
 import com.ohhaiku.models.Haiku;
 import com.ohhaiku.models.Poem;
 import com.ohhaiku.utility.Constants;
-
+import android.widget.Toast;
 /*
  * Main activity: shows the Haiku composition window.
  */
 public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   private static final String logTag = "HaikuComposition";
   private static final int DEFAULT_VALUE = -1;
+  private final String tweetFormat = "%s, %s, %s by OhHaiku #haiku";
   
   /*
    * This variable is only set with a persisted poem.
@@ -132,6 +138,48 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     return lines;
   }
   
+  private void deactivateTweetButton(){
+	  findViewById(R.id.TweetHaikuButton).setEnabled(false);
+  }
+  
+  private void activateTweetButton(){
+	  findViewById(R.id.TweetHaikuButton).setEnabled(true);
+  }
+  
+  protected void onResume(){
+	  super.onResume();
+	  System.out.println("AAAAAAAAAAA =============>");
+  	final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
+  	final Button tweetButton = (Button)findViewById(R.id.TweetHaikuButton);
+  	if(twitter == null){
+  		deactivateTweetButton();
+  	} else {
+  		activateTweetButton();
+  	}
+  	
+  	final HaikuCompositionActivity self = this;
+  	tweetButton.setOnClickListener(new OnClickListener() {
+	    	public void onClick(View v) {
+	    		deactivateTweetButton();
+	    		EditText t1 = (EditText)findViewById(R.id.editTextRow1);
+	    		EditText t2 = (EditText)findViewById(R.id.editTextRow2);
+	    		EditText t3 = (EditText)findViewById(R.id.editTextRow3);
+	    		/* Tweet! */
+	    		String message = String.format(tweetFormat, t1.getText().toString(), t2.getText().toString(), t3.getText().toString());
+	    		try {
+					twitter.updateStatus(message);
+				} catch (TwitterException e) {
+					// TODO Auto-generated catch block
+					Toast.makeText(self, "Someting went wrong, sorry", Toast.LENGTH_LONG).show();
+				} finally {
+					activateTweetButton();
+				}
+	    		Toast.makeText(self, "Haiku was Tweeted", Toast.LENGTH_LONG).show();
+	    		System.out.println(message);
+	    	}
+	});
+  	
+  }
   /*
    * Sets the three lines of the Haiku
    */
