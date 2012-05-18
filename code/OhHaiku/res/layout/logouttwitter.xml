@@ -14,9 +14,8 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="You&apos;re currently logged into Twitter"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="Click on the button below to be able to tweet your haikus"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
            <ImageView
                android:id="@+id/logo"
@@ -29,15 +28,15 @@
     </LinearLayout>
     
     <TableRow>
-    </TableRow> 
-    <TableRow>
     </TableRow>
     <TableRow>
         <TextView />   
     </TableRow>
 
     <Button
-        android:id="@+id/ButtonLogout"
-        android:text="Log out" />
+        android:id="@+id/LogoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout from Twitter" />
 
 </TableLayout>

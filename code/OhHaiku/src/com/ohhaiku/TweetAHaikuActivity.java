@@ -37,10 +37,10 @@ public class TweetAHaikuActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    
-	    Twitter twitter = ((HaikuApplication)getApplication()).getTwitterConnection();
+	    Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
 	    if(twitter != null){
 	    	setContentView(R.layout.logouttwitter);
-	    	Button buttonLogin = (Button)findViewById(R.id.ButtonLogout);
+	    	Button buttonLogin = (Button)findViewById(R.id.LogoutButton);
 	 	    buttonLogin.setOnClickListener(new OnClickListener() {
 	 	    	public void onClick(View v) {
 	 	    		resetAuth();
@@ -50,7 +50,7 @@ public class TweetAHaikuActivity extends Activity {
 	 	    });
 	    } else {
 		    setContentView(R.layout.logintwitter);
-		    Button buttonLogin = (Button)findViewById(R.id.ButtonLogin);
+		    Button buttonLogin = (Button)findViewById(R.id.LoginButton);
 		    buttonLogin.setOnClickListener(new OnClickListener() {
 		    	public void onClick(View v) {
 		    		askOAuth();
@@ -125,7 +125,8 @@ public class TweetAHaikuActivity extends Activity {
 	    twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
 	    twitter.setOAuthAccessToken(a);
 	    
-	    twitter.updateStatus("Example tweet");
+	    ((HaikuApplication)getApplication()).setTwitter(twitter);
+	    
 	    // ((TwitterApplication)getApplication()).setTwitter(twitter);
 	    //Log.e("Login", "Twitter Initialised");
 	    
