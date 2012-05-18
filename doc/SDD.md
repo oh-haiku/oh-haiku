@@ -71,12 +71,12 @@ Views:
   - An extension of ArrayAdapter, enabling the application to display custom views for saved Haikus. 
 
 #### Intern dependency-analysis
-- The SyllableCounter modules are independent from the   rest of the modules.
+- The SyllableCounter modules are independent from the rest of the modules.
 - The Haiku model is only dependent on SyllableCounter.
 - The Poem model is only dependent on 3PP package ORMLite.
 - HaikuCompositionActivity is dependent on the Haiku and Poem models, ORMLite, and Android libraries.
 - FAQActivity, HelpActivity and MenuActivity are only dependent on Android libraries.
-- TweetAHaikuActivity ....
+- TweetAHaikuActivity is dependent on Android libraries, oauth libraries and twitter libraries.
 - BrowseSavedHaikusActivity is dependent on the Poem model, the PoemAdapter view, ORMLite, and Android libraries.
 
 ### Data persistency
