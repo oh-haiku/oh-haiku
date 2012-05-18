@@ -14,13 +14,13 @@
     <string name="faq_button_title">FAQ</string>
     <string name="haiku_description_text">Haiku Icon</string>
     <string name="save_failed_text">Could not save Haiku</string>
-    <string name="save_succeeded_text">Haiku was saved</string>
+    <string name="save_succeeded_text">Haiku saved...</string>
     <string name="not_certified_haiku_text">Not a valid Haiku</string>
     <string name="haiku_load_failed_text">Load haiku failed miserably</string>
     <string name="help_text">Haiku is a type of poem which originates from Japan. A western Haiku implies 3 rows of text, with the syllables distributed according to 5,7,5. The Japan way of writing a Haiku is however more advanced and sophisticated.</string>
-    <string name="haiku_loaded_text">Haiku loaded.</string>
+    <string name="haiku_loaded_text">Haiku loaded...</string>
     <string name="update_button_title">Update</string>
-    <string name="updated_haiku_text">Updated Haiku</string>
+    <string name="updated_haiku_text">Haiku updated...</string>
     <string name="update_failed_text">Update failed</string>
     <string name="clear_button_text">Clear</string>
     <string name="update_deleted_haiku_text">Tried to update deleted Haiku - saved new Haiku instead.</string>

@@ -153,10 +153,10 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
 	    Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
       poemPersister.create(currentPoem);
       setPoem(currentPoem);
-      setStatus(getString(R.string.save_succeeded_text));
+      setToast(getString(R.string.save_succeeded_text));
     } catch (SQLException e) {
       Log.e(logTag, "Could not save Haiku", e);
-      setStatus(getString(R.string.save_failed_text));
+      setToast(getString(R.string.save_failed_text));
     }
 	}
 	
@@ -221,7 +221,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       if (id != DEFAULT_VALUE) {
         loadHaiku(id);
       } else {
-        setStatus(getString(R.string.haiku_load_failed_text));
+        setToast(getString(R.string.haiku_load_failed_text));
       }
     }
   }
@@ -234,8 +234,9 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       Dao<Poem, Integer> dao = getHelper().getPoemDao();
       Poem p = dao.queryForId(id);
       setPoem(p);
+      setToast(getString(R.string.haiku_loaded_text));
     } catch (SQLException e) {
-      setStatus(getString(R.string.haiku_load_failed_text));
+      setToast(getString(R.string.haiku_load_failed_text));
     }
   }
   
@@ -246,7 +247,6 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   private void setPoem(Poem poem) {
     this.currentPoem = poem;
     setLines(poem.getLinesAsArray());
-    setStatus(getString(R.string.haiku_loaded_text));
     setPersistButtonText(getString(R.string.update_button_title));
     check();
   }
@@ -290,7 +290,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       }
     }
     else{
-      Toast.makeText(this, R.string.empty_rows_text, Toast.LENGTH_LONG).show(); 
+      setToast(getString(R.string.empty_rows_text));
     }
         
   }
@@ -303,15 +303,19 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       Dao<Poem, Integer> dao = getHelper().getPoemDao();
       Dao.CreateOrUpdateStatus status = dao.createOrUpdate(currentPoem);
       if (status.isCreated()) {
-          setStatus(getString(R.string.save_succeeded_text));
+        setToast(getString(R.string.save_succeeded_text));
       } else {
-        setStatus(getString(R.string.updated_haiku_text));
+        setToast(getString(R.string.updated_haiku_text));
       }
       setPersistButtonText(getString(R.string.update_button_title));
       } catch (SQLException e) {
-        setStatus("Could not save or update poem");
+        setToast("Could not save or update poem");
     }
   } 
+  
+  private void setToast(String msg){
+    Toast.makeText(this, msg, Toast.LENGTH_LONG).show(); 
+  }
   
   private boolean rowsAreEmpty()
   {
