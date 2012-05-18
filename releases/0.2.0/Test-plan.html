@@ -1,0 +1,162 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>test plan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style type="text/css">
+    body,p,td,div{font-family:Helvetica,Arial,sans-serif;line-height:1.4em;font-size:14px;color:#111;word-wrap:break-word}p{margin:0 0 1.7em 0}a{color:rgb(13,110,161);text-decoration:none;-webkit-transition:color .2s ease-in-out}a:hover{color:#3593d9}h1.doctitle{background:#eee;font-size:14px;font-weight:bold;color:#333;line-height:28px;margin:0;padding:0 10px;border-bottom:solid 1px #aaa;white-space:nowrap}h1,h2,h3,h4,h5{line-height:1.1em}h1{font-size:24px;color:#000;margin:12px 0 15px 0}h2{font-size:20px;color:#111;width:auto;margin:15px 0 10px 2px}h2 em{line-height:1.6em;font-size:12px;color:#111;text-shadow:0 1px 0 #FFF;padding-left:10px}h3{font-size:20px;color:#111}h4{font-size:14px;color:#111;margin-bottom:1.3em}.footnote{font-size:.8em;vertical-align:super;color:rgb(13,110,161)}#contentdiv img{max-width:100%}dt{font-weight:bold}dd{margin-bottom:1em}@media print{body{overflow:auto}#wrapper{background:#fff;position:relative}#contentdiv{position:relative;background:transparent;color:#303030;text-indent:0px;padding:10px}}@media screen{body{overflow:hidden}#wrapper{background:#fff;position:fixed;top:0;left:0;right:0;bottom:0;-webkit-box-shadow:inset 0px 0px 4px #8F8D87}#contentdiv{position:fixed;top:27px;left:5px;right:5px;bottom:5px;background:transparent;color:#303030;overflow:auto;text-indent:0px;padding:10px}#contentdiv::-webkit-scrollbar{width:6px}#contentdiv::-webkit-scrollbar:horizontal{height:6px;display:none}#contentdiv::-webkit-scrollbar-track{background:transparent;-webkit-border-radius:0;right:10px}#contentdiv::-webkit-scrollbar-track:disabled{display:none}#contentdiv::-webkit-scrollbar-thumb{border-width:0;min-height:20px;background:#777;opacity:0.4;-webkit-border-radius:5px}}li>p{margin:0 0 1em}ul ul,ul ol{margin-bottom:1em}
+  </style>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <header>
+      <h1 class="doctitle">test plan</h1>
+    </header>
+    
+    <div id="contentdiv">
+      <h1 id="testplan">Test plan</h1>
+
+<h2 id="testcases">Testcases</h2>
+
+<h3 id="introduction">1 Introduction</h3>
+
+<h4 id="purposeofapplication">1.1 Purpose of application</h4>
+
+<p>The germ of this application is a tweet. The Swedish comedian Jesper Rönndahl (@jesperronndahl)
+tweeted that he often thinks in chunks of three unrelated thoughts. He indicated that he would 
+like to have an app that could tell him whether these three sentences constitute a haiku poem.</p>
+
+<h4 id="generalcharacteristicsofapplication">1.2 General characteristics of application</h4>
+
+<p>This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku-rules and tweet the text. The application is also an easy way to store the users poems.</p>
+
+<h3 id="testenvironment">2 Test environment</h3>
+
+<p>First, read <a href="https://github.com/oh-haiku/oh-haiku/blob/master/doc/developer_manual.md">Developer manual</a> to get the code or .apk and install. </p>
+
+<p>To do code coverage you need to install <a href="http://ant.apache.org/">ant</a> and an easy way to do that is using <a href="http://mxcl.github.com/homebrew/">brew</a>. After installing ant you could easily write Apache ant-commands in Terminal. Check more precise commands <a href="http://developer.android.com/guide/developing/projects/projects-cmdline.html">here</a>. You HAVE TO run the emulator before code coverage. </p>
+
+<p>To update the project to the new development environment, go to <a href="http://developer.android.com/guide/developing/projects/projects-cmdline.html">Managing projects from the command line</a> and <a href="http://developer.android.com/guide/developing/testing/testing_otheride.html">Testing from other IDEs</a>. The android tool will generate any files and folders that are either missing or need to be updated, as needed for the Android project. In Terminal, type:
+    android update project &#8211;name Ohhaiku &#8211;target 2 &#8211;path <path_to_Ohhaiku_project>
+    android update test-project -m ../Ohhaiku -p <Path_to_Ohhaikutest_project></p>
+
+<p>To get the coverage, navigate to /Ohhaikutest and write:
+    ant emma debug install test </p>
+
+<pre><code>open coverage/coverage.html</code></pre>
+
+<p>To install the .apk file on an emulator, follow this guide: (http://blog.freewarelovers.com/2010/08/how-to-install-apk-files-on-android.html)
+To test Twitter capabilites, Internet access is required.</p>
+
+<h4 id="hardwareenviroment">2.1 Hardware enviroment</h4>
+
+<p>We have used the following plattform for testing:</p>
+
+<ul>
+<li>Model:   MacBook Pro</li>
+<li>Modellidentifierare: MacBookPro5,5</li>
+<li>CPU: Intel Core 2 Duo, 2,53 GHz</li>
+<li>Number of CPU:s: 1</li>
+<li>Kernels: 2</li>
+<li>L2-cache:    3 MB</li>
+<li>Memory:  4 GB</li>
+<li>Busspeed:    1,07 GHz</li>
+<li>Boot ROM-version:    MBP55.00AC.B03</li>
+<li>SMC-version (system):    1.47f2</li>
+</ul>
+
+<p>We have been running our written tests (more information about the tests in the  <a href="https://github.com/oh-haiku/oh-haiku/blob/master/doc/RAD.md">RAD-document</a>)
+on a Android HTC Wildfire (2.7in QVGA) and in the emulator. </p>
+
+<h4 id="softwareenvironment">2.2 Software environment</h4>
+
+<h4 id="softwares">2.2.3 Softwares</h4>
+
+<p>Coding:</p>
+
+<ul>
+<li>Eclipse SDK Version 3.6 (Helios) or later. </li>
+</ul>
+
+<p>Mockups:</p>
+
+<ul>
+<li>Balsamiq Mockups Version 2.1.16</li>
+</ul>
+
+<p>Code coverage:</p>
+
+<ul>
+<li><a href="http://www.eclemma.org/">EclEmma</a></li>
+</ul>
+
+<p>Unit tests:</p>
+
+<ul>
+<li>JUnit 3 with Android extensions</li>
+</ul>
+
+<h4 id="softwaresettings">2.2.3 Software settings</h4>
+
+<h3 id="systeminformation">3 System information</h3>
+
+<h4 id="systemversion">3.1 System version</h4>
+
+<p>Version 0.2.0 of Oh-Haiku is tested.</p>
+
+<h3 id="knownbugsandlimitations">4 Known bugs and limitations</h3>
+
+<p>Tweeting an unverified Haiku is possible by loading a verified haiku from database and then editing it manually so that it not a Haiku anymore and pressing the Tweet button.</p>
+
+<h3 id="testspecification">5 Test specification</h3>
+
+<p>For documentation on the tests, view <a href="https://github.com/oh-haiku/oh-haiku/blob/master/doc/RAD.md">RAD-document with tests</a></p>
+
+<h3 id="automatictest">6 Automatic test</h3>
+
+<h4 id="codecoverage">6.1 Code coverage</h4>
+
+<p>We&#8217;ve have been using <a href="http://ant.apache.org/">ant</a> to calculate the code coverage.</p>
+
+<h4 id="unittest">6.2 Unit test</h4>
+
+<p>JUnit 3 with Android extensions will be used for unit testing.</p>
+
+<h3 id="testreport">7 Test report</h3>
+
+<pre><code>-test-project-check:
+
+test:
+ [echo] Running tests ...
+ [exec] 
+ [exec] com.ohhaiku.test.modeltests.HaikuTests:.........
+ [exec] com.ohhaiku.test.modeltests.PoemTests:.............
+ [exec] com.ohhaiku.test.utilitytests.SwedishSyllCounttest:
+ [exec] .
+ [exec] com.ohhaiku.test.utilitytests.SwedishSyllableFactoryTests:..
+ [exec] Test results for InstrumentationTestRunner=.........................
+ [exec] Time: 0.479
+ [exec] 
+ [exec] OK (25 tests)
+ [exec] 
+ [exec] 
+
+BUILD SUCCESSFUL
+Total time: 35 seconds</code></pre>
+
+    </div>
+
+  </div> <!-- end of #container -->
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>    <script>(function($){$('h1,h2,h3,h4').each(function(){$(this).html($(this).text().replace(/([^\s])\s+([^\s]{1,5})\s*$/,'$1&nbsp;$2'));});$('a[href^=#]').click(function(){if(location.pathname.replace(/^\//,'')==this.pathname.replace(/^\//,'')&&location.hostname==this.hostname){var $target=$(this.hash);$target=$target.length&&$target||$('[id='+this.hash.slice(1)+']');if($target.length){var targetOffset=$target.offset().top;$('#contentdiv').animate({scrollTop:targetOffset-40},1000);return false;}}});$('#contentdiv').scroll(function(){if(this.scrollTop>150){if($('#backtotop').length==0)
+$('h1.doctitle').append($('<a href="javascript:void()" id="backtotop" />').text('Back to top').css({'float':'right','display':'none'}).click(function(){$('#contentdiv').animate({scrollTop:0},1000);}));$('#backtotop').fadeIn('slow');}else{$('#backtotop').fadeOut('slow',function(){$(this).remove();});}});})(jQuery);
+  </script>
+</body>
+</html>

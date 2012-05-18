@@ -100,4 +100,23 @@ JUnit 3 with Android extensions will be used for unit testing.
 
 ### 7 Test report
 
-FYLL I TESTRESULTAT
+    -test-project-check:
+
+    test:
+     [echo] Running tests ...
+     [exec] 
+     [exec] com.ohhaiku.test.modeltests.HaikuTests:.........
+     [exec] com.ohhaiku.test.modeltests.PoemTests:.............
+     [exec] com.ohhaiku.test.utilitytests.SwedishSyllCounttest:
+     [exec] .
+     [exec] com.ohhaiku.test.utilitytests.SwedishSyllableFactoryTests:..
+     [exec] Test results for InstrumentationTestRunner=.........................
+     [exec] Time: 0.479
+     [exec] 
+     [exec] OK (25 tests)
+     [exec] 
+     [exec] 
+
+    BUILD SUCCESSFUL
+    Total time: 35 seconds
+
