@@ -7,7 +7,7 @@ tweeted that he often thinks in chunks of three unrelated thoughts. He indicated
 like to have an app that could tell him whether these three sentences constitute a haiku poem.
 
 ##1.2 General characteristics of application
-This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku-rules and tweet the text. The application is also an easy way to store the users poems. 
+This application is a simple and easy-to-use poem-checker. It can be used to verify that a piece of text is written according to Haiku rules and tweet the text. The application is also an easy way to store the users poems and tweet a poems that fulfill the Haiku rules. 
 ##1.3 Scope of application
 Our scope is to let the user be able to write Haikus, save them and tweet them. The Japanese Haiku is written in one single vertical row and the only thing that is counted is the sound of the tokens which means that syllables are ignored. According to the Haiku criterias the Haiku should for example contain a word that refers to a time of year, not be sentimental, not contain too strong adjectives and merge nature observations with the conditions of life. It is nearly impossible to write an algorithm to check those things. Our algorithm focuses on the Western Haiku and therefore on counting syllables.
 Only a Swedish language version is planned at the moment. Syllable counting is performed by counting groups of single or consequtive vowels. The algorithm does not handle compound words, i.e. vidareutveckla.
