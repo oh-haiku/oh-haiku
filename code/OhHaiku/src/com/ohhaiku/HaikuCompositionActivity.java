@@ -42,60 +42,60 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    */
   private Poem currentPoem;
 
-  /** Called when the activity is first created. */	
-	@Override
+  /** Called when the activity is first created. */ 
+  @Override
   public void onCreate(Bundle savedInstanceState) {
-  	super.onCreate(savedInstanceState);
+    super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
     resetStatusImage();
   }
 
-	@Override
-	protected void onRestart(){
-	  super.onRestart();
-	  if(isCurrentPoemSaved()){
-	    setPersistButtonText(getString(R.string.update_button_title));
-	  }
-	  else{
+  @Override
+  protected void onRestart(){
+    super.onRestart();
+    if(isCurrentPoemSaved()){
+      setPersistButtonText(getString(R.string.update_button_title));
+    }
+    else{
       setPersistButtonText(getString(R.string.save_button_title));
-	  }  
-	}
+    }  
+  }
 
-	/*
-	 * Checks if the current poem has been persisted.
-	 */
-	private boolean isCurrentPoemSaved() {
-	  if (currentPoem == null) {
-	    return false;
-	  } else {
-  	  try {
+  /*
+   * Checks if the current poem has been persisted.
+   */
+  private boolean isCurrentPoemSaved() {
+    if (currentPoem == null) {
+      return false;
+    } else {
+      try {
         Dao<Poem, Integer> dao = getHelper().getPoemDao();
         return dao.idExists(currentPoem.getId());
       } catch (SQLException e) {
         return false;
       }
-	  }
+    }
   }
 
   /**
-	 * Click handler for the menu button
-	 * Starts the menu, possibly expecting a result in the form of Poem
-	 */
+   * Click handler for the menu button
+   * Starts the menu, possibly expecting a result in the form of Poem
+   */
   public void onGoToMenu(View view) {
     startActivityForResult(new Intent(this, MenuActivity.class), Constants.LOAD_HAIKU);
-	}
+  }
   
   /**
    * Click handler for the Check Haiku button
    */
   public void onCheck(View view) {
-	   final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
-	  	Boolean isValid = this.inputIsHaiku();
-	  	if(twitter != null && isValid){
-	  		activateTweetButton();
-	  	} else {
-	  		deactivateTweetButton();
-	  	}
+     final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
+      Boolean isValid = this.inputIsHaiku();
+      if(twitter != null && isValid){
+        activateTweetButton();
+      } else {
+        deactivateTweetButton();
+      }
     check();
   }
   
@@ -111,7 +111,9 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setStatusImage(image, h.isValid());
   }
   
-  // Checks if input is a Haiku
+  /*
+    Checks if input is a Haiku
+  */
   private boolean inputIsHaiku(){
     Poem p = new Poem(getLines());
     Haiku h = new Haiku(p);
@@ -123,20 +125,20 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
    * Sets Certified/Not valid image
    */
   private void setStatusImage(ImageView m, boolean valid){
-	  m.setVisibility(View.VISIBLE);
+    m.setVisibility(View.VISIBLE);
 
-	  if (valid){
-		  m.setImageResource(R.drawable.certified_icn);
-	  }
-	  else {
-		  m.setImageResource(R.drawable.not_valid_icn);
-	  }  
+    if (valid){
+      m.setImageResource(R.drawable.certified_icn);
+    }
+    else {
+      m.setImageResource(R.drawable.not_valid_icn);
+    }  
   }
   
   // Makes haiku_status image invisible
   private void resetStatusImage() {
-	  ImageView m = (ImageView) this.findViewById(R.id.haiku_status);
-	  m.setVisibility(View.INVISIBLE);
+    ImageView m = (ImageView) this.findViewById(R.id.haiku_status);
+    m.setVisibility(View.INVISIBLE);
   }
   
   /*
@@ -168,53 +170,60 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     return lines;
   }
   
+  /*
+    Deactivate tweet button
+  */
   private void deactivateTweetButton(){
-	  findViewById(R.id.TweetHaikuButton).setEnabled(false);
+    findViewById(R.id.TweetHaikuButton).setEnabled(false);
   }
   
+  /*
+    Activate tweet button
+  */
   private void activateTweetButton(){
-	  findViewById(R.id.TweetHaikuButton).setEnabled(true);
+    findViewById(R.id.TweetHaikuButton).setEnabled(true);
   }
   
+  @Override
   protected void onResume(){
-	 super.onResume();
-  	final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
-  	final Button tweetButton = (Button)findViewById(R.id.TweetHaikuButton);
-  	final Button checkButton = (Button)findViewById(R.id.CheckHaikuButton);
-  	
-  	Boolean isValid = this.inputIsHaiku();
-  	if(twitter != null && isValid){
-  		activateTweetButton();
-  	} else {
-  		deactivateTweetButton();
-  	}
-  	
-	final EditText t1 = (EditText)findViewById(R.id.editTextRow1);
-	final EditText t2 = (EditText)findViewById(R.id.editTextRow2);
-	final EditText t3 = (EditText)findViewById(R.id.editTextRow3);
+    super.onResume();
+    final Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
+    final Button tweetButton = (Button)findViewById(R.id.TweetHaikuButton);
+    final Button checkButton = (Button)findViewById(R.id.CheckHaikuButton);
+    
+    Boolean isValid = this.inputIsHaiku();
+    if(twitter != null && isValid){
+      activateTweetButton();
+    } else {
+      deactivateTweetButton();
+    }
+    
+    final EditText t1 = (EditText)findViewById(R.id.editTextRow1);
+    final EditText t2 = (EditText)findViewById(R.id.editTextRow2);
+    final EditText t3 = (EditText)findViewById(R.id.editTextRow3);
+  
+    final HaikuCompositionActivity self = this;
+    tweetButton.setOnClickListener(new OnClickListener() {
+      public void onClick(View v) {
+        Toast.makeText(self, "Please wait, posting tweet", Toast.LENGTH_LONG).show();
+        deactivateTweetButton();
 
-	
-  	final HaikuCompositionActivity self = this;
-  	tweetButton.setOnClickListener(new OnClickListener() {
-	    	public void onClick(View v) {
-	    		Toast.makeText(self, "Please wait, posting tweet", Toast.LENGTH_LONG).show();
-	    		deactivateTweetButton();
-	    		/* Tweet! */
-	    		String message = String.format(tweetFormat, t1.getText().toString(), t2.getText().toString(), t3.getText().toString());
-	    		try {
-					twitter.updateStatus(message);
-				} catch (TwitterException e) {
-					// TODO Auto-generated catch block
-					Toast.makeText(self, "Someting went wrong, sorry", Toast.LENGTH_LONG).show();
-				} finally {
-					activateTweetButton();
-				}
-	    		Toast.makeText(self, "Haiku was Tweeted", Toast.LENGTH_LONG).show();
-	    		System.out.println(message);
-	    	}
-	});
-  	
+        /* Tweet! */
+        String message = String.format(tweetFormat, t1.getText().toString(), t2.getText().toString(), t3.getText().toString());
+        try {
+          twitter.updateStatus(message);
+        } catch (TwitterException e) {
+          Toast.makeText(self, "Someting went wrong, sorry", Toast.LENGTH_LONG).show();
+        } finally {
+          activateTweetButton();
+        }
+
+        Toast.makeText(self, "Haiku was Tweeted", Toast.LENGTH_LONG).show();
+        System.out.println(message);
+      }
+    });
   }
+
   /*
    * Sets the three lines of the Haiku
    */
@@ -229,11 +238,11 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
   /*
    * Fetches the Haiku from the composition view and attempts to persist it.
    */
-	private void saveHaiku() {
-	  currentPoem = new Poem(getLines());
-	  // Try to persist poem
-	  try {
-	    Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
+  private void saveHaiku() {
+    currentPoem = new Poem(getLines());
+    // Try to persist poem
+    try {
+      Dao<Poem, Integer> poemPersister = getHelper().getPoemDao();
       poemPersister.create(currentPoem);
       setPoem(currentPoem);
       setToast(getString(R.string.save_succeeded_text));
@@ -241,51 +250,51 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
       Log.e(logTag, "Could not save Haiku", e);
       setToast(getString(R.string.save_failed_text));
     }
-	}
+  }
 
-	// Checks each row if it is valid and sets the image accordingly
-	private void setValidRows(Haiku h){
-	   for (int i=0;i<3;i++) {
-	    	 boolean validrow = h.isValidRow(i);
-	    	 if (validrow){
-	    		 setValidRowImage(i);
-	    	 }
-	    	 else {
-	    		 setDefaultRowImage(i);
-	    	 } 
-	    }
-	}
+  // Checks each row if it is valid and sets the image accordingly
+  private void setValidRows(Haiku h){
+    for (int i=0;i<3;i++) {
+      boolean validrow = h.isValidRow(i);
+      if (validrow){
+        setValidRowImage(i);
+      }
+      else {
+        setDefaultRowImage(i);
+      } 
+    }
+  }
 
-	// Sets the image of a row to default
-	private void setDefaultRowImage(int row) {
-	  getRowImageViews()[row].setImageResource(R.drawable.grey_icn);
-	}
+  // Sets the image of a row to default
+  private void setDefaultRowImage(int row) {
+    getRowImageViews()[row].setImageResource(R.drawable.grey_icn);
+  }
 
-	
-	private ImageView[] getRowImageViews() {
-	  return new ImageView[] {
-	      (ImageView) findViewById(R.id.row1_status),
-	      (ImageView) findViewById(R.id.row2_status),
-	      (ImageView) findViewById(R.id.row3_status)
-	  };
-	}
+  
+  private ImageView[] getRowImageViews() {
+    return new ImageView[] {
+        (ImageView) findViewById(R.id.row1_status),
+        (ImageView) findViewById(R.id.row2_status),
+        (ImageView) findViewById(R.id.row3_status)
+    };
+  }
 
-	// Sets the image of every row
-	private void setValidRowImage(int row) {
-		if (row==0){
-			ImageView image = (ImageView) this.findViewById(R.id.row1_status);
-	        image.setImageResource(R.drawable.line1_icn);	
-		}
-		if (row==1){
-			ImageView image = (ImageView) this.findViewById(R.id.row2_status);
-	        image.setImageResource(R.drawable.line2_icn);	
-		}
-		if (row==2){
-			ImageView image = (ImageView) this.findViewById(R.id.row3_status);
-	        image.setImageResource(R.drawable.line3_icn);	
-		}
+  // Sets the image of every row
+  private void setValidRowImage(int row) {
+    if (row==0){
+      ImageView image = (ImageView) this.findViewById(R.id.row1_status);
+          image.setImageResource(R.drawable.line1_icn); 
+    }
+    if (row==1){
+      ImageView image = (ImageView) this.findViewById(R.id.row2_status);
+          image.setImageResource(R.drawable.line2_icn); 
+    }
+    if (row==2){
+      ImageView image = (ImageView) this.findViewById(R.id.row3_status);
+          image.setImageResource(R.drawable.line3_icn); 
+    }
 
-	}
+  }
 
   /*
    * Called when the Menu activity passes on a Haiku from the BrowseSavedHaikus Activity
@@ -337,7 +346,7 @@ public class HaikuCompositionActivity extends OrmLiteBaseActivity<DatabaseHelper
     setPersistButtonText(getString(R.string.save_button_title));
     resetStatusImage();
     for (int i=0;i<3;i++) {
-    	setDefaultRowImage(i);
+      setDefaultRowImage(i);
     }
     resetStatusImage();
   }
