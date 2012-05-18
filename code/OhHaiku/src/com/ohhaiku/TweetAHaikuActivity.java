@@ -85,28 +85,6 @@ public class TweetAHaikuActivity extends Activity {
 	@Override
 	protected void onResume() {
 	 super.onResume();
-	 
-	 Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
-	    if(twitter != null){
-	    	setContentView(R.layout.logouttwitter);
-	    	Button buttonLogin = (Button)findViewById(R.id.LogoutButton);
-	 	    buttonLogin.setOnClickListener(new OnClickListener() {
-	 	    	public void onClick(View v) {
-	 	    		resetAuth();
-	 	    		startActivity(getIntent());
-	 	    		finish();
-	 	    	}
-	 	    });
-	    } else {
-		    setContentView(R.layout.logintwitter);
-		    Button buttonLogin = (Button)findViewById(R.id.LoginButton);
-		    buttonLogin.setOnClickListener(new OnClickListener() {
-		    	public void onClick(View v) {
-		    		askOAuth();
-		    	}
-		    });
-
-	    }
 	    
 	 if (this.getIntent()!=null && this.getIntent().getData()!=null){
 		 
@@ -142,6 +120,29 @@ public class TweetAHaikuActivity extends Activity {
 	   }
 	  }
 	 }
+	 
+	 
+	 Twitter twitter = ((HaikuApplication)getApplication()).getTwitter();
+	    if(twitter != null){
+	    	setContentView(R.layout.logouttwitter);
+	    	Button buttonLogin = (Button)findViewById(R.id.LogoutButton);
+	 	    buttonLogin.setOnClickListener(new OnClickListener() {
+	 	    	public void onClick(View v) {
+	 	    		resetAuth();
+	 	    		startActivity(getIntent());
+	 	    		finish();
+	 	    	}
+	 	    });
+	    } else {
+		    setContentView(R.layout.logintwitter);
+		    Button buttonLogin = (Button)findViewById(R.id.LoginButton);
+		    buttonLogin.setOnClickListener(new OnClickListener() {
+		    	public void onClick(View v) {
+		    		askOAuth();
+		    	}
+		    });
+
+	    }
 	}
 
 
