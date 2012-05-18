@@ -9,34 +9,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click on the button below to be able to tweet your haikus"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-           <ImageView
+    <ImageView
                android:id="@+id/logo"
                android:layout_width="100dp"
                android:layout_height="85dp"
-               android:layout_marginLeft="4dp"
                android:layout_marginTop="4dp"
-               android:src="@drawable/logo" />
-    
+               android:layout_gravity="center_horizontal"
+               android:src="@drawable/logo" /> 
     </LinearLayout>
-    
-    <TableRow>
-    </TableRow>
-    <TableRow>
-        <TextView />   
-    </TableRow>
+   
+          <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"     
+            android:layout_marginTop="20dp"
+            android:text="You are currently log in to Twitter, and can Tweet your certified Haikus!"
+            android:textAppearance="?android:attr/textAppearanceSmall" />  
+
 
     <Button
         android:id="@+id/LogoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="Logout from Twitter" />
 
 </TableLayout>
