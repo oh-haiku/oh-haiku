@@ -50,8 +50,14 @@
             />   
     </TableRow>
     <TableRow>
+
         <Button 
             android:id="@+id/buttonSignIn" 
             android:text="Log In" />
     </TableRow>
+
+    <Button
+        android:id="@+id/ButtonLogin"
+        android:text="Log In" />
+
 </TableLayout>

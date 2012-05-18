@@ -30,7 +30,7 @@ public class MenuActivity extends Activity {
 	}
 	
 	public void loginToTwitter(View view) {
-	  startActivity(new Intent(this, BrowseSavedHaikusActivity.class));
+	  startActivity(new Intent(this, TweetAHaikuActivity.class));
 	}
 
   @Override
