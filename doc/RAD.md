@@ -291,12 +291,8 @@ As F3.1, except the Save button is labelled Update and clicking it updates the e
 ##2.4 Application models 
 ###2.4.1 Scenarios
 In general the user is able to enter a piece of text, check if the text is written according to our Haiku-criterias and if it is, tweet it. The user can log in to Twitter with Twitter credentials and therefore the user doesn't need to go to Twitter to subscribe the Haiku. The user is also able to get help with writing a Haiku, and save and browse written Haikus. 
-   
-###2.4.2 Use case model Use cases priority
- 
-###2.4.3 Static model 
-###2.4.4 Dynamic model
-###2.4.5 User interface
+
+###2.4.2 User interface
 We want to use an attractive UI that is independent of the screen density. The leadwords in the creating process is simplicity, straightness and accessibility. The user should get going quickly and it should be easy to navigate. If the user gets to the menu when starting the application it takes time to get started writing. The user may go to the menu the first time but after that it is essential to be able to write Haikus and tweet them quickly. 
 
 The lotus flower is a persistent feature in the application and it should bring thoughts to Japan.   
