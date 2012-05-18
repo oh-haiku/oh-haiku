@@ -30,7 +30,8 @@ To get the coverage, navigate to /Ohhaikutest and write:
 
 	open coverage/coverage.html
 
-
+To install the .apk file on an emulator, follow this guide: (http://blog.freewarelovers.com/2010/08/how-to-install-apk-files-on-android.html)
+To test Twitter capabilites, Internet access is required.
 
 ####2.1 Hardware enviroment
 We have used the following plattform for testing:
@@ -66,31 +67,19 @@ Code coverage:
 
  - [EclEmma](http://www.eclemma.org/)
 
-Nightly builds:
-
- - [Travis CI](http://travis-ci.org/)
-
 Unit tests:
 
  - JUnit 3 with Android extensions
-
-
-GUI-tests:
-
- - [robotium](http://code.google.com/p/robotium/)
-
-
-
-
-
 
 ####2.2.3 Software settings
 
 ### 3 System information
 
 #### 3.1 System version
+Version 0.2.0 of Oh-Haiku is tested.
 
 ### 4 Known bugs and limitations
+Tweeting an unverified Haiku is possible by loading a verified haiku from database and then editing it manually so that it not a Haiku anymore and pressing the Tweet button.
 
 ### 5 Test specification
 For documentation on the tests, view [RAD-document with tests](https://github.com/oh-haiku/oh-haiku/blob/master/doc/RAD.md)
@@ -104,24 +93,10 @@ For documentation on the tests, view [RAD-document with tests](https://github.co
 We've have been using [ant](http://ant.apache.org/) to calculate the code coverage.
 
 
-
-#### 6.2 Nightly builds
-
-A service named [Travis CI](http://travis-ci.org/) will be used.
-Each time something is pushed to Github a [service hook](https://github.com/blog/964-all-of-the-hooks) 
-will push the code from GH to Travis CI. TCI will run all test for us, but in a neutral enviroment.
-
-#### 6.3 Unit test
+#### 6.2 Unit test
 
 JUnit 3 with Android extensions will be used for unit testing.
 
-We can't test the GUI using *JUnit*, instead something like [robotium](http://code.google.com/p/robotium/) might be used.
 
 ### 7 Test report
-
-We'll be using two branches for oh-haiku, one unstable called *master* and one stable(ish) called *stable*.
-Both of these will be testet each time something is pushed to Github, but we aren't expecting everyting in *master* to pass.
-
-The *stable* branch should reflect the deployed version (maybe on Google Play). Each release is tagged using *git tags*. Each tag is in it self named according to the [semver](http://semver.org/) version conversion.
-
 
