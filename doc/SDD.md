@@ -59,7 +59,7 @@ Models:
 Activities:
 
 - HaikuCompositionActivity
-  - Main activity. Displays three 3 text input fields used to compose a Haiku. Also allows the user to Save/Update and Clear current text. The user can also reach the Menu and Log in to twitter from here.
+  - Main activity. Displays three 3 text input fields used to compose a Haiku. Also allows the user to Save/Update and Clear current text. The user can also reach the Menu and Log in to twitter activities from here.
 - MenuActivity
   - Activity that shows a menu allwoing the user to navigate to other activities.
 - BrowseSavedHaikusActivity
