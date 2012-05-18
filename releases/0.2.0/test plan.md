@@ -100,3 +100,4 @@ JUnit 3 with Android extensions will be used for unit testing.
 
 ### 7 Test report
 
+FYLL I TESTRESULTAT
