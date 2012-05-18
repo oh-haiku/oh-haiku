@@ -99,7 +99,7 @@ Instead, 3PP packages will be added as JAR-files.
 - Twitter4J 
 
 ### Boundary conditions
-Text entered that does not agree with SMS or Twitter requirements are not changed to accommodate those requirements. A Haiku cannot, however, be saved if the text input is empty (including whitespace).
+Text entered that does not agree with SMS or Twitter requirements are not changed to accommodate those requirements. It is up to the user to correct those errors. A Haiku cannot, however, be saved if the text input is empty (including whitespace).
 
 ### Release Procedure
 A release occurs when a set predefined features are implemented. Test for older features and new features are performed, as well as unit tests. The result of these are documented in a test report. The coverage of the tests are inluded in the test report.
