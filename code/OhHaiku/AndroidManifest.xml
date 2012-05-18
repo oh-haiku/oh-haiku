@@ -9,7 +9,9 @@
 
     <application
         android:icon="@drawable/icon"
-        android:label="@string/app_name" >
+        android:label="@string/app_name" 
+        android:name=".HaikuApplication"
+        >
         <activity
             android:name=".HaikuCompositionActivity"
             android:label="@string/app_name" >
@@ -24,20 +26,12 @@
         	android:label="@string/app_name" >
         </activity>
 		<activity android:label="@string/app_name" android:name=".TweetAHaikuActivity">
-		  <intent-filter>
-		    <action android:name="android.intent.action.MAIN">
-		      <category android:name="android.intent.category.LAUNCHER"></category>
-		      <intent-filter>
-		        <action android:name="android.intent.action.VIEW">
-		          <category android:name="android.intent.category.DEFAULT">
-		            <category android:name="android.intent.category.BROWSABLE">
-		              <data android:host="tweeter" android:scheme="callback"></data>
-		            </category>
-		          </category>
-		        </action>
-		      </intent-filter>
-		    </action>
-		  </intent-filter>
+	      <intent-filter>
+	        <action android:name="android.intent.action.VIEW" />
+	        <category android:name="android.intent.category.DEFAULT" />
+	        <category android:name="android.intent.category.BROWSABLE"/>
+	        <data android:host="tweeter" android:scheme="callback"/>
+	      </intent-filter>
 		</activity>
         <activity 
         	android:name=".HelpActivity"
