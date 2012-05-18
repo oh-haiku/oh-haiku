@@ -79,7 +79,7 @@ Views:
 #### Intern dependency-analysis
 - The SyllableCounter modules are independent from the   rest of the modules.
 - The Haiku model is only dependent on SyllableCounter.
-- The Poem model is only dependent on 3PP pacakage ORMLite
+- The Poem model is only dependent on 3PP package ORMLite.
 - HaikuCompositionActivity is dependent on the Haiku and Poem models, ORMLite, and Android libraries.
 - FAQActivity, HelpActivity and MenuActivity are only dependent on Android libraries.
 - TweetAHaikuActivity ....
