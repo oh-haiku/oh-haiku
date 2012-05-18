@@ -22,9 +22,9 @@ The application is divided into a series of subsystems.
    1. Haiku Composition
    2. Main menu
    3. Browse saved Haikus
-   4. FAQ/Help
-   5. Tweet a Haiku
-   5. + TODO: Add further activities
+   4. FAQ
+   5. Help
+   6. Tweet a Haiku
 2. Models
    1. Persistency module for saving data such as Haikus and Twitter tokens.
    2. Syllable counting
@@ -99,4 +99,11 @@ Instead, 3PP packages will be added as JAR-files.
 - Twitter4J 
 
 ### Boundary conditions
-- Text entered that does not agree with SMS or Twitter requirements are not changed to accommodate those requirements. A Haiku cannot, however, be saved if the text input is empty (including whitespace).
+Text entered that does not agree with SMS or Twitter requirements are not changed to accommodate those requirements. A Haiku cannot, however, be saved if the text input is empty (including whitespace).
+
+### Release Procedure
+A release occurs when a set predefined features are implemented. Test for older features and new features are performed, as well as unit tests. The result of these are documented in a test report. The coverage of the tests are inluded in the test report.
+
+A change log is also created, which contains adds, deletes, changes from previous version and known bugs in this release.
+
+An .apk file is then created and signed. Finally, a tag on github with the version number is created.
